@@ -1,0 +1,12 @@
+{
+  "name": "Pomodoro10k",
+  "displayName": "Pomodoro10k",
+  "expo": {
+    "name": "Pomodoro10k",
+    "slug": "Pomodoro10k",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
