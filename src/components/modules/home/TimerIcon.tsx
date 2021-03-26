@@ -1,0 +1,38 @@
+"use strict";
+import React from "react";
+import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
+import { useSelector } from "react-redux";
+
+import StyleGuide from "../../../config/StyleGuide";
+import Icon from "../../../svg/Icon";
+
+const Timer = ({ item, selected, toggleSession }) => {
+  const start = useSelector((state) => state.counter.start);
+  const tSelected = StyleGuide.palette.main.secondary;
+  const tUnselected = StyleGuide.palette.main.tertiary;
+
+  return (
+    <TouchableOpacity disabled={start} onPress={() => toggleSession(item)}>
+      <View style={styles.container}>
+        <Icon
+          color={selected ? tSelected : tUnselected}
+          bgcolor={StyleGuide.palette.main.primary}
+          fTime={item.data.focus}
+          rTime={item.data.relax}
+        />
+        <Text style={{ color: selected ? tSelected : tUnselected }}>
+          {item.data.focus}|{item.data.relax}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
+});
+
+export default Timer;

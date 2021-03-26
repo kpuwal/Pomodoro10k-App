@@ -9,10 +9,10 @@ import timers from "./timers";
 import stats from "./stats";
 
 const allReducers = combineReducers({
-  counter,
-  session,
-  timers,
-  stats,
+  counter: counter,
+  session: session,
+  timers: timers,
+  stats: stats,
 });
 
 const rootReducer = (state, action) => {

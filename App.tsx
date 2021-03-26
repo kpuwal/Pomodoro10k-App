@@ -1,24 +1,76 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import AppLoading from "expo-app-loading";
+import { useFonts } from "@expo-google-fonts/inter";
 
-import StyleGuide from "./src/config/StyleGuide";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import Root from "./src/Root";
+import Home from "./src/views/Home";
+import Settings from "./src/views/Settings";
+import Statistics from "./src/views/Statistics";
+import GoBackIcon from "./src/components/modules/GoBackIcon";
+import { settingsHeader, statisticsHeader } from "./src/components/modules/Headers";
+
+
+const Stack = createStackNavigator();
+
+const NavigationWrapper: React.FC = () => {
+  const [fontsLoaded] = useFonts({
+    "Roboto-Light": require("./assets/Roboto/Roboto-Light.ttf"),
+    "Roboto-Regular": require("./assets/Roboto/Roboto-Regular.ttf"),
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerBackTitle: " ",
+            headerBackTitleVisible: true,
+            headerBackAccessibilityLabel: "back",
+            headerBackImage: GoBackIcon,
+            headerTintColor: "#29304D",
+            headerStyle: {
+              backgroundColor: "#EFF0F4",
+              shadowOpacity: 0,
+            },
+          }}
+        >
+          <Stack.Screen
+            name="Home"
+            options={{ headerShown: false }}
+            component={Home}
+          />
+          <Stack.Screen
+            name="Settings"
+            options={{
+              headerShown: true,
+              headerTitle: settingsHeader,
+            }}
+            component={Settings}
+          />
+          <Stack.Screen
+            name="Statistics"
+            options={{
+              headerShown: true,
+              headerTitle: statisticsHeader,
+            }}
+            component={Statistics}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
+};
 
 const App: React.FC = () => {
-  console.log(StyleGuide.palette.main.primary)
   return (
-    <View style={styles.container}>
-      <Text>Open up!</Text>
-    </View>
+    <Root>
+      <NavigationWrapper />
+    </Root>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: StyleGuide.palette.main.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};
 
 export default App;
