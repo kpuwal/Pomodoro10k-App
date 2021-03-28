@@ -3,16 +3,16 @@ import { combineReducers } from "redux";
 
 import { CLEAR_TIMERS, CLEAR_CARDS } from "../constants/actionTypes";
 
-import counter from "./counter";
-import session from "./session";
-import timers from "./timers";
-import stats from "./stats";
+import counterReducer from "./counter";
+import sessionReducer from "./session";
+import timersReducer from "./timers";
+import statsReducer from "./stats";
 
 const allReducers = combineReducers({
-  counter: counter,
-  session: session,
-  timers: timers,
-  stats: stats,
+  counter: counterReducer,
+  session: sessionReducer,
+  timers: timersReducer,
+  stats: statsReducer,
 });
 
 const rootReducer = (state, action) => {

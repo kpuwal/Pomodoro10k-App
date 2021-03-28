@@ -30,7 +30,7 @@ const DEFAULT = {
   cards: [DEFAULT_CARD],
 };
 
-const stats = (state = DEFAULT, action) => {
+const statsReducer = (state = DEFAULT, action) => {
   switch (action.type) {
     case ADD_CARD:
       return {
@@ -61,4 +61,4 @@ const stats = (state = DEFAULT, action) => {
   }
 };
 
-export default stats;
+export default statsReducer;

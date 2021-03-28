@@ -24,13 +24,13 @@ type TimerAction = {
 
 const DEFAULT: TimerState = {
   timersList: [
-    { idx: 1, data: { focus: 25, relax: 5 } },
-    { idx: 2, data: { focus: 45, relax: 15 } },
+    { idx: 1, data: { focus: 45, relax: 15 } },
+    { idx: 2, data: { focus: 25, relax: 5 } },
   ],
-  selected: { idx: 1, data: { focus: 25, relax: 5 } },
+  selected: { idx: 1, data: { focus: 45, relax: 15 } },
 };
 
-const timers = (state: TimerState = DEFAULT, action: TimerAction) => {
+const timersReducer = (state: TimerState = DEFAULT, action: TimerAction) => {
   switch (action.type) {
     case actionTypes.SELECTED_TIMER:
       return {
@@ -63,4 +63,4 @@ const timers = (state: TimerState = DEFAULT, action: TimerAction) => {
   }
 };
 
-export default timers;
+export default timersReducer;

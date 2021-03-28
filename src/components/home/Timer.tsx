@@ -9,7 +9,7 @@ import Controller from "./Controller";
 import TimerSelect from "./TimerSelect";
 
 function Timer() {
-  const start = useSelector((state) => state.counter.start);
+  const start = useSelector((state: any) => state.counter.start);
 
   return (
     <>

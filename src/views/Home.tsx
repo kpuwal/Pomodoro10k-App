@@ -7,7 +7,6 @@ import StyleGuide from "../config/StyleGuide";
 import Timer from "../components/home/Timer";
 import BottomNavigation from "../components/home/BottomNavigation";
 
-
 const Home: React.FC = ({ navigation }) => {
   return (
     <View style={styles.container}>

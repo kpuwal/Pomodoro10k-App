@@ -11,7 +11,7 @@ const DEFAULT = {
   pause: false,
 };
 
-const counter = (state = DEFAULT, action) => {
+const counterReducer = (state = DEFAULT, action) => {
   switch (action.type) {
     case CYCLE_COUNTER:
       return {
@@ -33,4 +33,4 @@ const counter = (state = DEFAULT, action) => {
   }
 };
 
-export default counter;
+export default counterReducer;

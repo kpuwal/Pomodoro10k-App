@@ -24,7 +24,7 @@ export const DEFAULT = {
   message: MESSAGE[0],
 };
 
-const session = (state = DEFAULT, action) => {
+const sessionReducer = (state = DEFAULT, action) => {
   switch (action.type) {
     case SELECTED_SESSION:
       return {
@@ -58,4 +58,4 @@ const session = (state = DEFAULT, action) => {
   }
 };
 
-export default session;
+export default sessionReducer;
