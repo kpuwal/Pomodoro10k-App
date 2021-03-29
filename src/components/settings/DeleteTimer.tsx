@@ -8,11 +8,12 @@ import ListItem from "../modules/settings/ListItem";
 
 const DeleteTimer = () => {
   const timersList = useSelector((state) => state.timers.timersList);
+  const displayList = timersList.slice(2);
   const dispatch = useDispatch();
   return (
     <View style={styles.container}>
       <FlatList
-        data={timersList.slice(2)}
+        data={displayList}
         renderItem={({ item }) => (
           <ListItem
             onPress={() => dispatch(deleteTimer(item))}

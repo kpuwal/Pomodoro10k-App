@@ -9,6 +9,7 @@ import GoalsListItem from "../modules/settings/GoalListItem";
 
 const DeleteGoal = () => {
   const cardsList = useSelector((state) => state.stats.cards);
+  const list = cardsList.slice(1);
   const dispatch = useDispatch();
 
   const handleDelete = (item: object) => {
@@ -18,7 +19,7 @@ const DeleteGoal = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={cardsList.slice(1)}
+        data={list}
         renderItem={({ item }) => (
           <View style={styles.listRow}>
             <GoalsListItem textBody={item.goal} color={item.color} />

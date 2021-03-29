@@ -130,8 +130,6 @@ export const fetchData = () => {
   return async (dispatch) => {
     try {
       const values = await getDataFromStorage();
-      console.log("values from the other side ", values)
-      console.log("typeof values ", values[1].items)
       return dispatch([
         {
           type: actionType.FETCH_TIMERS,

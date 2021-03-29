@@ -28,7 +28,7 @@ type StatsAction = {
   payload: IStats,
 };
 
-const DEFAULT_CARD = {
+const DEFAULT_CARD: IStats = {
   idx: 0,
   speed: 0,
   total: 0,
