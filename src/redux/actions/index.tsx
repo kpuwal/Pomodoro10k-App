@@ -1,6 +1,6 @@
 "use strict";
 import * as actionType from "../constants/actionTypes";
-// import { getDataFromStorage } from "../../storage/storage";
+import { getDataFromStorage } from "../../storage/storage";
 
 export const startStop = () => {
   return {
@@ -66,14 +66,14 @@ export const setMessage = (index) => {
   };
 };
 
-export const selectTimer = (value) => {
+export const selectTimer = (item: object) => {
   return {
     type: actionType.SELECTED_TIMER,
-    payload: value,
+    payload: item,
   };
 };
 
-export const createTimer = (focus, relax) => {
+export const createTimer = (focus: number, relax: number) => {
   return {
     type: actionType.CREATE_TIMER,
     payload: {
@@ -83,10 +83,10 @@ export const createTimer = (focus, relax) => {
   };
 };
 
-export const deleteTimer = (index) => {
+export const deleteTimer = (item: object) => {
   return {
     type: actionType.DELETE_TIMER,
-    payload: index,
+    payload: item,
   };
 };
 
@@ -96,20 +96,14 @@ export const clearTimers = () => {
   };
 };
 
-export const deleteCard = (index) => {
+export const selectCard = (item: object) => {
   return {
-    type: actionType.DELETE_CARD,
-    payload: index,
+    type: actionType.SELECTED_CARD,
+    payload: item,
   };
 };
 
-export const clearCards = () => {
-  return {
-    type: actionType.CLEAR_CARDS,
-  };
-};
-
-export const createCard = (color, title) => {
+export const createCard = (color: string, title: string) => {
   return {
     type: actionType.CREATE_CARD,
     payload: {
@@ -119,32 +113,40 @@ export const createCard = (color, title) => {
   };
 };
 
-export const selectCard = (value) => {
+export const deleteCard = (item: object) => {
   return {
-    type: actionType.SELECTED_CARD,
-    payload: value,
+    type: actionType.DELETE_CARD,
+    payload: item,
   };
 };
 
-// export const fetchData = () => {
-//   return async (dispatch) => {
-//     try {
-//       const values = await getDataFromStorage();
-//       return dispatch([
-//         {
-//           type: actionType.FETCH_TIMERS,
-//           payload: values.timers.items,
-//         },
-//         {
-//           type: actionType.FETCH_CARDS,
-//           payload: values.cards.items,
-//         },
-//       ]);
-//     } catch (error) {
-//       console.error("error while fetchData ", error);
-//     }
-//   };
-// };
+export const clearCards = () => {
+  return {
+    type: actionType.CLEAR_CARDS,
+  };
+};
+
+export const fetchData = () => {
+  return async (dispatch) => {
+    try {
+      const values = await getDataFromStorage();
+      console.log("values from the other side ", values)
+      console.log("typeof values ", values[1].items)
+      return dispatch([
+        {
+          type: actionType.FETCH_TIMERS,
+          payload: values[0].items,
+        },
+        {
+          type: actionType.FETCH_CARDS,
+          payload: values[1].items,
+        },
+      ]);
+    } catch (error) {
+      console.error("error while fetchData ", error);
+    }
+  };
+};
 
 export const saveSession = () => {
   return {

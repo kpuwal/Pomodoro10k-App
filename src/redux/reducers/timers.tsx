@@ -46,7 +46,6 @@ const timersReducer = (state: TimerState = DEFAULT, action: TimerAction) => {
       return {
         ...state,
         timersList: state.timersList.filter((item) => {
-          // fix it so action payload is an actual object and not an idx
           return item.idx !== action.payload.idx;
         }),
       };
@@ -54,7 +53,7 @@ const timersReducer = (state: TimerState = DEFAULT, action: TimerAction) => {
       return {
         ...state,
         // check if the action needs to be spreaded
-        timersList: [...state.timersList, action.payload],
+        timersList: [...state.timersList, ...action.payload],
       };
     case actionTypes.CLEAR_TIMERS:
       return state;

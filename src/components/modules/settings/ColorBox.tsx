@@ -2,11 +2,16 @@
 import React from "react";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
 
-const ColorBox = React.memo(({ col, onPress }) => {
+interface IColorBox {
+  color: string;
+  onPress: () => void;
+};
+
+const ColorBox = React.memo(({ color, onPress }: IColorBox) => {
   return (
     <TouchableOpacity {...{ onPress }}>
-      <View style={[styles.outlineBox, { borderColor: col }]}>
-        <View style={[styles.box, { backgroundColor: col }]} />
+      <View style={[styles.outlineBox, { borderColor: color }]}>
+        <View style={[styles.box, { backgroundColor: color }]} />
       </View>
     </TouchableOpacity>
   );

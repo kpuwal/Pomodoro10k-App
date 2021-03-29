@@ -1,12 +1,32 @@
 "use strict";
+import * as actionType from "../constants/actionTypes";
 
-import {
-  FETCH_CARDS,
-  ADD_CARD,
-  DELETE_CARD,
-  SELECTED_CARD,
-  CLEAR_CARDS,
-} from "../constants/actionTypes";
+interface IStats {
+  idx: number,
+  speed: number,
+  total: number,
+  timeLeft: number,
+  date: {
+    weekday: string,
+    day: string,
+    month: string,
+    year: string,
+  }
+  weekdaysTotals: number[],
+  goal: string,
+  color: string,
+  dates: string[],
+};
+
+type StatsState = {
+  selected: IStats,
+  cards: IStats[],
+};
+
+type StatsAction = {
+  type: string,
+  payload: IStats,
+};
 
 const DEFAULT_CARD = {
   idx: 0,
@@ -25,36 +45,36 @@ const DEFAULT_CARD = {
   dates: [],
 };
 
-const DEFAULT = {
+const DEFAULT: StatsState = {
   selected: DEFAULT_CARD,
   cards: [DEFAULT_CARD],
 };
 
-const statsReducer = (state = DEFAULT, action) => {
+const statsReducer = (state = DEFAULT, action: StatsAction) => {
   switch (action.type) {
-    case ADD_CARD:
+    case actionType.ADD_CARD:
       return {
         ...state,
         cards: state.cards.concat(action.payload),
       };
-    case DELETE_CARD:
+    case actionType.DELETE_CARD:
       return {
         ...state,
         cards: state.cards.filter((item) => {
-          return item.idx !== action.payload;
+          return item.idx !== action.payload.idx;
         }),
       };
-    case SELECTED_CARD:
+    case actionType.SELECTED_CARD:
       return {
         ...state,
         selected: action.payload,
       };
-    case FETCH_CARDS:
+    case actionType.FETCH_CARDS:
       return {
         ...state,
         cards: action.payload,
       };
-    case CLEAR_CARDS:
+    case actionType.CLEAR_CARDS:
       return state;
     default:
       return state;

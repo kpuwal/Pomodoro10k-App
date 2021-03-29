@@ -15,7 +15,7 @@ const AddGoal = () => {
   const [color, setColor] = useState("");
   const dispatch = useDispatch();
 
-  const pickColor = (col) => {
+  const pickColor = (col: string) => {
     setColor(col);
   };
 
@@ -32,7 +32,7 @@ const AddGoal = () => {
           showsHorizontalScrollIndicator={false}
           data={COLORS}
           renderItem={({ item }) => (
-            <ColorBox col={item} onPress={() => pickColor(item)} />
+            <ColorBox color={item} onPress={() => pickColor(item)} />
           )}
           keyExtractor={(_, index) => index.toString()}
           horizontal

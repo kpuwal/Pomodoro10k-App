@@ -15,12 +15,12 @@ const DeleteTimer = () => {
         data={timersList.slice(2)}
         renderItem={({ item }) => (
           <ListItem
-            onPress={() => dispatch(deleteTimer(item.idx))}
+            onPress={() => dispatch(deleteTimer(item))}
             focus={item.data.focus}
             relax={item.data.relax}
           />
         )}
-        keyExtractor={(item, idx) => idx.toString()}
+        keyExtractor={(_, idx) => idx.toString()}
       />
     </View>
   );
@@ -28,10 +28,11 @@ const DeleteTimer = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 4 / 7,
+    flex: 4 / 8,
     marginTop: "5%",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "green",
   },
 });
 

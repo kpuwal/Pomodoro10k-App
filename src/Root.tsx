@@ -8,6 +8,7 @@ import reducers from "./redux/reducers";
 import multiactionArray from "./redux/middleware/multiactionArray";
 import createCard from "./redux/middleware/createCard";
 import { manageStorage } from "./redux/middleware/manageStorage";
+import { fetchData } from "./redux/actions";
 
 // TO FIX type of Root
 const Root = ({ children }) => {
@@ -15,6 +16,7 @@ const Root = ({ children }) => {
     reducers,
     applyMiddleware(thunk, multiactionArray, manageStorage, createCard)
   );
+  store.dispatch(fetchData());
   return <Provider store={store}>{children}</Provider>;
 };
 

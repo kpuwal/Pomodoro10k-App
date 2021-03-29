@@ -20,7 +20,7 @@ export const manageStorage = (store) => (next) => (action) => {
   }
 
   if (action.type === actionType.DELETE_TIMER) {
-    removeItemFromStorage(TIMERS_KEY, action.payload);
+    removeItemFromStorage(TIMERS_KEY, action.payload.idx);
   }
 
   if (action.type === actionType.CREATE_CARD) {
@@ -30,7 +30,7 @@ export const manageStorage = (store) => (next) => (action) => {
   }
 
   if (action.type === actionType.DELETE_CARD) {
-    removeItemFromStorage(CARDS_KEY, action.payload);
+    removeItemFromStorage(CARDS_KEY, action.payload.idx);
   }
   return next(action);
 };

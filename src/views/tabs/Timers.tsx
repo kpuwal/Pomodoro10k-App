@@ -6,7 +6,6 @@ import Button from "../../components/modules/settings/Button";
 import AddTimer from "../../components/settings/AddTimer";
 import DeleteTimer from "../../components/settings/DeleteTimer";
 
-
 const Timers: React.FC = ({ navigation }) => {
   return (
     <View style={styles.container}>
@@ -24,6 +23,8 @@ const Timers: React.FC = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // alignItems: "center",
+    backgroundColor: "yellow"
   },
 });
 

@@ -39,12 +39,8 @@ const AddTimer: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2 / 7,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowRadius: 2,
+    flex: 2 / 8,
+    backgroundColor: "pink",
   },
   inputs: {
     justifyContent: "center",

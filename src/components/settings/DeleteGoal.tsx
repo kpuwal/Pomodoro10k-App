@@ -11,8 +11,8 @@ const DeleteGoal = () => {
   const cardsList = useSelector((state) => state.stats.cards);
   const dispatch = useDispatch();
 
-  const handleDelete = (idx) => {
-    dispatch(deleteCard(idx));
+  const handleDelete = (item: object) => {
+    dispatch(deleteCard(item));
   };
 
   return (
@@ -22,12 +22,12 @@ const DeleteGoal = () => {
         renderItem={({ item }) => (
           <View style={styles.listRow}>
             <GoalsListItem textBody={item.goal} color={item.color} />
-            <TouchableOpacity onPress={() => handleDelete(item.idx)}>
+            <TouchableOpacity onPress={() => handleDelete(item)}>
               <MaterialCommunityIcons name="delete" size={24} color="#F76B6B" />
             </TouchableOpacity>
           </View>
         )}
-        keyExtractor={(item, idx) => idx.toString()}
+        keyExtractor={(_, idx) => idx.toString()}
       />
     </View>
   );

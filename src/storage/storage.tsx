@@ -14,7 +14,7 @@ interface Iitem {
   }
 }
 
-export const clearStorage = async () => {
+export const clearStorage = async (): Promise<void> => {
   try {
     await AsyncStorage.clear();
   } catch (error) {
@@ -22,7 +22,7 @@ export const clearStorage = async () => {
   }
 };
 
-export const saveItem = async (key: string, value) => {
+export const saveItem = async (key: string, value: object): Promise<void> => {
   try {
     await AsyncStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
@@ -30,7 +30,7 @@ export const saveItem = async (key: string, value) => {
   }
 };
 
-export const getItemFromStorage = async (key: string) => {
+export const getItemFromStorage = async (key: string): Promise<void> => {
   try {
     const item = await AsyncStorage.getItem(key);
     return item !== null ? JSON.parse(item) : [];
@@ -39,7 +39,7 @@ export const getItemFromStorage = async (key: string) => {
   }
 };
 
-export const updateDataStorage = async (key: string, value) => {
+export const updateDataStorage = async (key: string, value: object): Promise<void> => {
   try {
     await AsyncStorage.mergeItem(key, JSON.stringify(value));
   } catch (error) {
@@ -61,14 +61,15 @@ export const removeItemFromStorage = async (key: string, idx: number) => {
 
 export const getDataFromStorage = async () => {
   // clearStorage()
+  let items;
   try {
-    await AsyncStorage.multiGet([TIMERS_KEY, CARDS_KEY]).then((items) => {
-      return {
-        timers: items[0][1] !== null ? JSON.parse(items[0][1]) : [],
-        cards: items[1][1] !== null ? JSON.parse(items[1][1]) : [],
-      }
+    await AsyncStorage.multiGet([TIMERS_KEY, CARDS_KEY], (err, stores) => {
+      items = stores.map((result, i, store) => {
+       return store[i][1] !== null ?  JSON.parse(store[i][1]) : {items: []}
+      });
     });
   } catch (error) {
     console.log("error while getDataFromStorage ", error);
   }
+  return items;
 };
