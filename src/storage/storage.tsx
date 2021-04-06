@@ -1,6 +1,8 @@
 "use strict";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { IStats } from "../redux/reducers/stats";
+import { ITimer } from "../redux/reducers/timers";
 
 const TIMERS_KEY: string = "@TIMERS";
 const CARDS_KEY: string = "@CARDS";
@@ -59,11 +61,11 @@ export const removeItemFromStorage = async (key: string, idx: number) => {
   }
 };
 
-export const getDataFromStorage = async () => {
+export const getDataFromStorage = async (): Promise<{items: ITimer | IStats}[]> => {
   // clearStorage()
   let items;
   try {
-    await AsyncStorage.multiGet([TIMERS_KEY, CARDS_KEY], (err, stores) => {
+    await AsyncStorage.multiGet([TIMERS_KEY, CARDS_KEY], (err, stores)=> {
       items = stores.map((result, i, store) => {
        return store[i][1] !== null ?  JSON.parse(store[i][1]) : {items: []}
       });
@@ -71,5 +73,6 @@ export const getDataFromStorage = async () => {
   } catch (error) {
     console.log("error while getDataFromStorage ", error);
   }
+  console.log(items)
   return items;
 };

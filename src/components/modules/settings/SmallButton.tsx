@@ -2,7 +2,13 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
-const SmallButton = ({ title, onPress, disabled }) => {
+interface SmallButtonProps {
+  title: string;
+  onPress: () => void;
+  disabled: boolean;
+};
+
+const SmallButton = ({ title, onPress, disabled }: SmallButtonProps) => {
   return (
     <TouchableOpacity style={styles.container} {...{ onPress, disabled }}>
       <Text style={styles.txt}>{title}</Text>

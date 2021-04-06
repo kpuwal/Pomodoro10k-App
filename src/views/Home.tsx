@@ -1,21 +1,30 @@
 "use strict";
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
+
+import { statsIcon, settingsIcon } from "../config/iconsFile";
 import StyleGuide from "../config/StyleGuide";
 
 import Timer from "../components/home/Timer";
-import BottomNavigation from "../components/home/BottomNavigation";
+import GoalPicker from "./modal/GoalPicker";
 
 const Home: React.FC = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
+      <GoalPicker />
       <Timer />
-      <BottomNavigation
-        statsPress={() => navigation.navigate("Statistics")}
-        settingsPress={() => navigation.navigate("Settings")}
-      />
+      <View style={styles.navContainer}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Statistics")}>
+          {statsIcon(StyleGuide.palette.main.tertiary)}
+          <Text style={styles.txt}>STATS</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Settings")}>
+          {settingsIcon(StyleGuide.palette.main.tertiary)}
+          <Text style={styles.txt}>SETTINGS</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -25,6 +34,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-end",
     backgroundColor: StyleGuide.palette.main.primary,
+  },
+  navContainer: {
+    flex: 1 / 12,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: "20%",
+  },
+  button: {
+    alignItems: "center",
+  },
+  txt: {
+    color: StyleGuide.palette.main.tertiary,
+    fontSize: 10,
+    paddingTop: 4,
   },
 });
 

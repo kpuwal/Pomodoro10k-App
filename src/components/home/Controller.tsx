@@ -1,7 +1,7 @@
 "use strict";
 import React from "react";
 import { Dimensions, View, StyleSheet } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import {
   playIcon,
@@ -12,21 +12,27 @@ import {
 import { startStop, pauseResume, setMin, setMode } from "../../redux/actions";
 import RoundButton from "../modules/home/RoundButton";
 
+import { TimerProps } from "../../redux/reducers/timers";
+import { CardProps } from "../../redux/reducers/stats";
+
 const { width } = Dimensions.get("window");
 
-const Controler = () => {
+interface ControllerProps {
+  start: boolean;
+  pause: boolean;
+  timer: TimerProps;
+  card: CardProps;
+}
+
+const Controler = ({ start, pause, timer, card }: ControllerProps) => {
   const dispatch = useDispatch();
-  const start = useSelector((state) => state.counter.start);
-  const pause = useSelector((state) => state.counter.pause);
-  const timer = useSelector((state) => state.timers.selected.data);
-  const card = useSelector((state) => state.stats.selected);
   const startStopCount = () => dispatch(startStop());
-  const pauseResumeCount = (value) => dispatch(pauseResume(value));
+  const pauseResumeCount = (value: boolean) => dispatch(pauseResume(value));
 
   const toggleStartStop = () => {
     startStopCount();
     pauseResumeCount(false);
-    dispatch(setMin(timer.focus));
+    dispatch(setMin(timer.data.focus));
     dispatch(setMode(0));
   };
 

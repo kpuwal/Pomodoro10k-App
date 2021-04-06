@@ -5,7 +5,11 @@ import { useSelector } from "react-redux";
 
 import useInterval from "../../modules/home/useInterval";
 
-const Message = ({ messageOver }) => {
+interface MessageProps {
+  messageOver: () => void;
+};
+
+const Message = ({ messageOver }: MessageProps) => {
   const message = useSelector((state) => state.session.message);
   useInterval(() => messageOver(), 5000);
 

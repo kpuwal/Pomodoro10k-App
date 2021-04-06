@@ -64,7 +64,7 @@ const updateCard = (item, amount) => {
   item.date = updateDate(item, day);
 };
 
-export const saveSession = (store) => (next) => (action) => {
+const saveSession = (store) => (next) => (action) => {
   const newAmount = store.getState().timers.selected.data.focus;
   const cardIdx = store.getState().stats.selected.idx;
   const cardsList = store.getState().stats.cards;
@@ -76,3 +76,5 @@ export const saveSession = (store) => (next) => (action) => {
   }
   return next(action);
 };
+
+export default saveSession;

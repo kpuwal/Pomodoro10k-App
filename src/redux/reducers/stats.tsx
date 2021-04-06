@@ -1,7 +1,7 @@
 "use strict";
 import * as actionType from "../constants/actionTypes";
 
-interface IStats {
+export interface CardProps {
   idx: number,
   speed: number,
   total: number,
@@ -19,16 +19,16 @@ interface IStats {
 };
 
 type StatsState = {
-  selected: IStats,
-  cards: IStats[],
+  selected: CardProps,
+  cards: CardProps[],
 };
 
 type StatsAction = {
   type: string,
-  payload: IStats,
+  payload: CardProps,
 };
 
-const DEFAULT_CARD: IStats = {
+const DEFAULT_CARD: CardProps = {
   idx: 0,
   speed: 0,
   total: 0,
@@ -45,12 +45,12 @@ const DEFAULT_CARD: IStats = {
   dates: [],
 };
 
-const DEFAULT: StatsState = {
+const DEFAULT: StatsState  = {
   selected: DEFAULT_CARD,
   cards: [DEFAULT_CARD],
 };
 
-const statsReducer = (state = DEFAULT, action: StatsAction) => {
+const statsReducer = (state = DEFAULT, action) => {
   switch (action.type) {
     case actionType.ADD_CARD:
       return {
@@ -70,9 +70,10 @@ const statsReducer = (state = DEFAULT, action: StatsAction) => {
         selected: action.payload,
       };
     case actionType.FETCH_CARDS:
+      // debugger;
       return {
         ...state,
-        cards: action.payload,
+        cards: action.payload
       };
     case actionType.CLEAR_CARDS:
       return state;

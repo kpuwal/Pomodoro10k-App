@@ -6,7 +6,13 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Icon from "../../../svg/Icon";
 import ListLabel from "./ListLabel";
 
-const ListItem = ({ focus, relax, onPress }) => {
+interface ListItemProps {
+  focus: number;
+  relax: number;
+  onPress: () => void;
+};
+
+const ListItem = ({ focus, relax, onPress }: ListItemProps) => {
   return (
     <View style={styles.container}>
       <Icon color="#29304D" bgcolor="#EFF0F4" fTime={focus} rTime={relax} />

@@ -5,8 +5,15 @@ import { useSelector } from "react-redux";
 
 import StyleGuide from "../../../config/StyleGuide";
 import Icon from "../../../svg/Icon";
+import { TimerProps } from "../../../redux/reducers/timers"; 
 
-const Timer = ({ item, selected, toggleSession }) => {
+interface TimerIconProps {
+  item: TimerProps;
+  selected: boolean;
+  toggleSession: (item: TimerProps) => void;
+};
+
+const TimerIcon = ({ item, selected, toggleSession }: TimerIconProps) => {
   const start = useSelector((state) => state.counter.start);
   const tSelected = StyleGuide.palette.main.secondary;
   const tUnselected = StyleGuide.palette.main.tertiary;
@@ -35,4 +42,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Timer;
+export default TimerIcon;

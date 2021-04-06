@@ -2,7 +2,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const ListLabel = ({ focus, relax }) => {
+interface ListLabelProps {
+  focus: number;
+  relax: number;
+};
+
+const ListLabel = ({ focus, relax }: ListLabelProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.labels}>

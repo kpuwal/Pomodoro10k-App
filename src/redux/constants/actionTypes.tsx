@@ -20,6 +20,7 @@ export const CLEAR_TIMERS = "CLEAR_TIMERS";
 // cards
 export const FETCH_SESSIONS = "FETCH_SESSIONS";
 export const FETCH_CARDS = "FETCH_CARDS";
+export const GET_CARDS = "GET_CARDS";
 export const CREATE_CARD = "CREATE_CARD";
 export const ADD_CARD = "ADD_CARD";
 export const DELETE_CARD = "DELETE_CARD";

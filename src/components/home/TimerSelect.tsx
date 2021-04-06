@@ -1,16 +1,20 @@
 "use strict";
 import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { selectTimer, selectSession, setMin } from "../../redux/actions";
 import TimerIcon from "../modules/home/TimerIcon";
+import { TimerState, TimerProps } from "../../redux/reducers/timers";
 
-const TimerSelect = () => {
-  const timers = useSelector((state) => state.timers);
+interface TimerSelectProp {
+  timers: TimerState;
+};
+
+const TimerSelect = ({ timers }: TimerSelectProp) => {
   const dispatch = useDispatch();
 
-  const toggleSession = (item) => {
+  const toggleSession = (item: TimerProps) => {
     dispatch(selectTimer(item));
     dispatch(selectSession(item.data.focus));
     dispatch(setMin(item.data.focus));
@@ -28,6 +32,7 @@ const TimerSelect = () => {
           />
         )}
         keyExtractor={(_, index) => index.toString()}
+        extraData={timers.selected}
         horizontal
       />
     </View>

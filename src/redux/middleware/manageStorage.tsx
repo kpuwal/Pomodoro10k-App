@@ -9,7 +9,7 @@ import { Card } from "./models/Card";
 const TIMERS_KEY: string = "@TIMERS";
 const CARDS_KEY: string = "@CARDS";
 
-export const manageStorage = (store) => (next) => (action) => {
+const manageStorage = (store) => (next) => (action) => {
   const cardsList = store.getState().stats.cards;
   const timers = store.getState().timers.timersList;
 
@@ -34,3 +34,5 @@ export const manageStorage = (store) => (next) => (action) => {
   }
   return next(action);
 };
+
+export default manageStorage;

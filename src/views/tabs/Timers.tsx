@@ -11,21 +11,26 @@ const Timers: React.FC = ({ navigation }) => {
     <View style={styles.container}>
       <DeleteTimer />
       <AddTimer />
-      <Button
-        title="Done"
-        onPress={() => navigation.navigate("Home")}
-        disabled={false}
-      />
+      <View style={styles.button}>
+        <Button
+          title="Done"
+          onPress={() => navigation.navigate("Home")}
+          disabled={false}
+        />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    // alignItems: "center",
-    backgroundColor: "yellow"
+    flex: 2,
+    // backgroundColor: "yellow",
   },
+  button: {
+    flex: 1 / 6,
+    justifyContent: "flex-start"
+  }
 });
 
 export default Timers;

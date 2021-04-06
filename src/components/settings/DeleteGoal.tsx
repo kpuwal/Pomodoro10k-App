@@ -6,11 +6,15 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { deleteCard } from "../../redux/actions";
 import GoalsListItem from "../modules/settings/GoalListItem";
+import { loadPartialConfigAsync } from "@babel/core";
 
 const DeleteGoal = () => {
   const cardsList = useSelector((state) => state.stats.cards);
   const list = cardsList.slice(1);
   const dispatch = useDispatch();
+
+  console.log("loading DeleteGoal")
+  console.log("cards list ", cardsList)
 
   const handleDelete = (item: object) => {
     dispatch(deleteCard(item));

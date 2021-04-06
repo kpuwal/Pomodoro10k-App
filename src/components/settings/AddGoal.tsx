@@ -10,9 +10,9 @@ import ColorBox from "../modules/settings/ColorBox";
 const COLORS = ["#FE5E33", "#FFC641", "#BFEAF5", "#442CB9"];
 
 const AddGoal = () => {
-  const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
-  const [color, setColor] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [amount, setAmount] = useState<string>("");
+  const [color, setColor] = useState<string>("");
   const dispatch = useDispatch();
 
   const pickColor = (col: string) => {

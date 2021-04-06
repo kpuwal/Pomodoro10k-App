@@ -8,8 +8,8 @@ import InputController from "../settings/InputController";
 import { createTimer } from "../../redux/actions";
 
 const AddTimer: React.FC = () => {
-  const [focus, setFocus] = useState(0);
-  const [relax, setRelax] = useState(0);
+  const [focus, setFocus] = useState<number>(0);
+  const [relax, setRelax] = useState<number>(0);
   const dispatch = useDispatch();
 
   const handleCreateTimer = () => {
@@ -39,8 +39,9 @@ const AddTimer: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2 / 8,
-    backgroundColor: "pink",
+    flex: 2 / 6,
+    // backgroundColor: "pink",
+    justifyContent: "space-around"
   },
   inputs: {
     justifyContent: "center",

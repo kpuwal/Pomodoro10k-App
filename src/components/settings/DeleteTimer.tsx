@@ -10,6 +10,7 @@ const DeleteTimer = () => {
   const timersList = useSelector((state) => state.timers.timersList);
   const displayList = timersList.slice(2);
   const dispatch = useDispatch();
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -29,11 +30,11 @@ const DeleteTimer = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 4 / 8,
-    marginTop: "5%",
+    flex: 3 / 6,
+    marginTop: "3%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "green",
+    // backgroundColor: "green",
   },
 });
 

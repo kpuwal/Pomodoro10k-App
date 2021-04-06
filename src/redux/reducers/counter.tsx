@@ -5,18 +5,29 @@ import {
   CYCLE_COUNTER,
 } from "../constants/actionTypes";
 
-const DEFAULT = {
+interface CounterProps {
+  cycle: boolean;
+  start: boolean;
+  pause: boolean;
+}
+
+type CounterAction = {
+  type: string;
+  payload: boolean;
+}
+
+const DEFAULT: CounterProps = {
   cycle: true,
   start: false,
   pause: false,
 };
 
-const counterReducer = (state = DEFAULT, action) => {
+const counterReducer = (state = DEFAULT, action: CounterAction) => {
   switch (action.type) {
     case CYCLE_COUNTER:
       return {
         ...state,
-        cycle: action.cycle,
+        cycle: action.payload,
       };
     case START_COUNTER:
       return {
@@ -26,7 +37,7 @@ const counterReducer = (state = DEFAULT, action) => {
     case PAUSE_COUNTER:
       return {
         ...state,
-        pause: action.pause,
+        pause: action.payload,
       };
     default:
       return state;

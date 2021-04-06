@@ -4,7 +4,12 @@ import { View, Text, StyleSheet } from "react-native";
 
 import ColorBox from "./ColorBox";
 
-const GoalsListItem = ({ textBody, color }) => {
+interface GoalsListItemProps {
+  textBody: string;
+  color: string;
+};
+
+const GoalsListItem = ({ textBody, color }: GoalsListItemProps) => {
   return (
     <View style={styles.list}>
       <ColorBox {...{ color }} />

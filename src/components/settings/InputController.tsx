@@ -1,13 +1,17 @@
 "use strict";
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { TextInput, View, StyleSheet } from "react-native";
 
-import SettingsInput from "../modules/settings/Input";
 import SmallButton from "../modules/settings/SmallButton";
 
-const InputController = ({ type, dispatchType }) => {
-  const handleCount = (num: number) => {
-    dispatchType(type + num);
+interface InputControllerProps {
+  type: number;
+  dispatchType: (num: number) => void;
+};
+
+const InputController = ({ type, dispatchType }: InputControllerProps) => {
+  const handleCount = (num1: number, num2: number) => {
+    dispatchType(num1 + num2);
   };
 
   return (
@@ -22,9 +26,15 @@ const InputController = ({ type, dispatchType }) => {
         onPress={() => handleCount(-1, type)}
         disabled={type <= 0 ? true : false}
       />
-      <SettingsInput
+      <TextInput
+        style={styles.input}
+        keyboardType="numeric"
+        clearTextOnFocus={true}
+        maxLength={3}
+        textAlign="center"
+        defaultValue="0"
         value={type.toString()}
-        onChangeText={(text) => dispatchType(parseInt(text, 10) || "0")}
+        onChangeText={(text) => dispatchType(parseInt(text, 10) || 0)}
       />
       <SmallButton
         title="+"
@@ -45,8 +55,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginHorizontal: 5,
-    marginVertical: 20,
+    // marginHorizontal: 5,
+    // marginVertical: 20,
+  },
+  input: {
+    width: 120,
   },
 });
 

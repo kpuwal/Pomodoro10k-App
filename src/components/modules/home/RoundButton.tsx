@@ -2,7 +2,15 @@
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 
-const RoundButton = ({ size, type, onPress, disabled, colorStripe }) => {
+interface RoundButtonProps {
+  size: number;
+  type: object;
+  onPress: () => void;
+  disabled: boolean;
+  colorStripe: string;
+};
+
+const RoundButton = ({ size, type, onPress, disabled, colorStripe }: RoundButtonProps) => {
   const color = disabled ? "#8D91A1" : "white";
   return (
     <View

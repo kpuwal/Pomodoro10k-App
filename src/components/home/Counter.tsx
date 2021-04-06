@@ -7,7 +7,11 @@ import useInterval from "../modules/home/useInterval";
 
 import DisplayCounter from "./display/Counter";
 
-const Counter = ({ countOver }) => {
+interface CounterProps {
+  countOver: () => void;
+};
+
+const Counter = ({ countOver }: CounterProps) => {
   const dispatch = useDispatch();
   const pause = useSelector((state) => state.counter.pause);
   const count = useSelector((state) => state.session.session);

@@ -5,19 +5,26 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import reducers from "./redux/reducers";
 
+// TO BE REMOVED
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import multiactionArray from "./redux/middleware/multiactionArray";
-import createCard from "./redux/middleware/createCard";
-import { manageStorage } from "./redux/middleware/manageStorage";
+import manageStorage from "./redux/middleware/manageStorage";
+import saveSession from "./redux/middleware/saveSession";
 import { fetchData } from "./redux/actions";
+
+const store = createStore(
+  reducers,
+  composeWithDevTools(applyMiddleware(thunk, multiactionArray, manageStorage, saveSession))
+);
 
 // TO FIX type of Root
 const Root = ({ children }) => {
-  const store = createStore(
-    reducers,
-    applyMiddleware(thunk, multiactionArray, manageStorage, createCard)
-  );
   store.dispatch(fetchData());
   return <Provider store={store}>{children}</Provider>;
 };
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
 
 export default Root;

@@ -1,6 +1,6 @@
 "use strict";
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Vibration } from "react-native";
 
 import {
@@ -11,17 +11,20 @@ import {
   startStop,
   pauseResume,
   saveSession,
-  // fetchStats,
 } from "../../redux/actions";
 
 import DisplayMessage from "./display/Message";
 import Counter from "./Counter";
+import { TimerProps } from "../../redux/reducers/timers";
 
-export default function CounterCycle() {
+interface CounterCycleProps {
+  cycle: boolean;
+  message: string;
+  timer: TimerProps;
+}
+
+export default function CounterCycle({ cycle, message, timer }: CounterCycleProps) {
   const dispatch = useDispatch();
-  const cycle = useSelector((state) => state.counter.cycle);
-  const message = useSelector((state) => state.session.message);
-  const timer = useSelector((state) => state.timers.selected.data);
 
   useEffect(() => {
     dispatch(setMessage(0));
@@ -29,12 +32,12 @@ export default function CounterCycle() {
 
   const completeFirstCycle = () => {
     dispatch(changeCycle(true));
-    if (timer.relax === 0) {
+    if (timer.data.relax === 0) {
       completeSecondCycle();
     }
     dispatch(setMessage(1));
     // Vibration.vibrate();
-    dispatch(setMin(timer.relax));
+    dispatch(setMin(timer.data.relax));
     dispatch(setMode(1));
   };
 
@@ -44,11 +47,8 @@ export default function CounterCycle() {
     dispatch(startStop());
     dispatch(pauseResume(false));
     dispatch(setMode(0));
-    dispatch(setMin(timer.focus));
+    dispatch(setMin(timer.data.focus));
     dispatch(saveSession());
-    // setTimeout(() => {
-    //   dispatch(fetchStats());
-    // }, 2000);
   };
 
   const handleMessageOver = () => {

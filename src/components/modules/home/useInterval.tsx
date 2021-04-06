@@ -1,7 +1,7 @@
 "use strict";
 import { useRef, useEffect } from "react";
 
-const useInterval = (callback, delay) => {
+const useInterval = (callback, delay: number) => {
   const savedCallback = useRef();
 
   useEffect(() => {

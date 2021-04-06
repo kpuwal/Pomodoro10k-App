@@ -1,12 +1,13 @@
 "use strict";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { useSelector } from "react-redux";
 
-const Mode = () => {
-  const sessionType = useSelector((state) => state.session.mode);
-  const start = useSelector((state) => state.counter.start);
+interface ModeProps {
+  start: boolean;
+  sessionType: string;
+};
 
+const Mode = ({ start, sessionType }: ModeProps) => {
   return (
     <View style={styles.container}>
       {start ? <Text style={styles.txt}>{sessionType}</Text> : null}

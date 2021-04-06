@@ -1,6 +1,8 @@
 "use strict";
 import * as actionType from "../constants/actionTypes";
 import { getDataFromStorage } from "../../storage/storage";
+import { IStats } from "../../redux/reducers/stats";
+import { ITimer } from "../../redux/reducers/timers";
 
 export const startStop = () => {
   return {
@@ -8,17 +10,17 @@ export const startStop = () => {
   };
 };
 
-export const pauseResume = (value) => {
+export const pauseResume = (value: boolean) => {
   return {
     type: actionType.PAUSE_COUNTER,
-    pause: value,
+    payload: value,
   };
 };
 
-export const changeCycle = (value) => {
+export const changeCycle = (value: boolean) => {
   return {
     type: actionType.CYCLE_COUNTER,
-    cycle: value,
+    payload: value,
   };
 };
 
@@ -127,6 +129,7 @@ export const clearCards = () => {
 };
 
 export const fetchData = () => {
+  console.log("fetchin Data From Storage")
   return async (dispatch) => {
     try {
       const values = await getDataFromStorage();

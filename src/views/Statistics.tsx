@@ -34,7 +34,7 @@ const Statistics = () => {
               key={idx}
               style={[
                 styles.background,
-                { backgroundColor: item.color, opacity },
+                // { backgroundColor: item.color, opacity },
               ]}
             />
           );
