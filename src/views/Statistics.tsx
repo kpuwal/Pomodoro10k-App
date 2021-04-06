@@ -18,7 +18,7 @@ const Statistics = () => {
     <View style={styles.container}>
       <StatusBar style="dark" />
       <View>
-        {cards.map((item, idx) => {
+        {cards.map((item, idx: number) => {
           const inputRange = [
             (idx - 1) * width,
             idx * width,

@@ -5,7 +5,7 @@ import {
   CYCLE_COUNTER,
 } from "../constants/actionTypes";
 
-interface CounterProps {
+export interface CounterProps {
   cycle: boolean;
   start: boolean;
   pause: boolean;

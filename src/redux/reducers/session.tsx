@@ -8,10 +8,27 @@ import {
   SESSION_SAVE,
 } from "../constants/actionTypes";
 
-const MODE = ["FOCUS", "RELAX", " "];
-const MESSAGE = ["End of Focus Session", "End of Cycle"];
+const MODE: string[] = ["FOCUS", "RELAX", " "];
+const MESSAGE: string[] = ["End of Focus Session", "End of Cycle"];
 
-export const DEFAULT = {
+export interface SessionProps {
+  min: number;
+  sec: number;
+};
+
+export type SessionState = {
+  session: SessionProps;
+  selected: SessionProps;
+  mode: string;
+  message: string;
+};
+
+type SessionAction = {
+  type: string;
+  payload: SessionProps;
+};
+
+export const DEFAULT: SessionState = {
   session: {
     min: 25,
     sec: 0,
@@ -20,39 +37,39 @@ export const DEFAULT = {
     min: 25,
     sec: 0,
   },
-  mode: MODE[0],
-  message: MESSAGE[0],
+  // mode and message will never return undefined or null
+  mode: MODE[0]!, 
+  message: MESSAGE[0]!,
 };
 
-const sessionReducer = (state = DEFAULT, action) => {
+const sessionReducer = (state = DEFAULT, action: SessionAction) => {
   switch (action.type) {
     case SELECTED_SESSION:
       return {
         ...state,
-        selected: action.select,
+        selected: action.payload,
       };
     case SESSION_MODE:
       return {
         ...state,
-        mode: MODE[action.idx],
+        mode: MODE[action.payload],
       };
     case SESSION_MESSAGE:
       return {
         ...state,
-        message: MESSAGE[action.idx],
+        message: MESSAGE[action.payload],
       };
     case SESSION_MIN:
       return {
         ...state,
-        session: action.countMin,
+        session: action.payload,
       };
     case SESSION_SEC:
       return {
         ...state,
-        session: action.countSec,
+        session: action.payload,
       };
     case SESSION_SAVE:
-      return state;
     default:
       return state;
   }

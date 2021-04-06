@@ -1,11 +1,13 @@
 "use strict";
 import React from "react";
 import { Text, StyleSheet } from "react-native";
-import { useSelector } from "react-redux";
+import { SessionProps } from "../../../redux/reducers/session";
 
-const Idle = () => {
-  const selectedSession = useSelector((state) => state.session.selected);
+interface IdleProp {
+  selectedSession: SessionProps;
+}
 
+const Idle = ({ selectedSession }: IdleProp) => {
   return (
     <>
       <Text style={styles.txt}>

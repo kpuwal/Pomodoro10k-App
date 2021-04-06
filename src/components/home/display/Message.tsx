@@ -1,16 +1,15 @@
 "use strict";
 import React from "react";
 import { Text, StyleSheet } from "react-native";
-import { useSelector } from "react-redux";
 
 import useInterval from "../../modules/home/useInterval";
 
 interface MessageProps {
   messageOver: () => void;
+  message: string;
 };
 
-const Message = ({ messageOver }: MessageProps) => {
-  const message = useSelector((state) => state.session.message);
+const Message = ({ messageOver, message }: MessageProps) => {
   useInterval(() => messageOver(), 5000);
 
   return (

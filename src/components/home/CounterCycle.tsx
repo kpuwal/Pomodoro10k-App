@@ -16,14 +16,16 @@ import {
 import DisplayMessage from "./display/Message";
 import Counter from "./Counter";
 import { TimerProps } from "../../redux/reducers/timers";
+import { CounterProps } from "../../redux/reducers/counter";
+import { SessionState } from "../../redux/reducers/session";
 
 interface CounterCycleProps {
-  cycle: boolean;
-  message: string;
+  counter: CounterProps;
+  session: SessionState;
   timer: TimerProps;
 }
 
-export default function CounterCycle({ cycle, message, timer }: CounterCycleProps) {
+export default function CounterCycle({ counter, session, timer }: CounterCycleProps) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -53,7 +55,7 @@ export default function CounterCycle({ cycle, message, timer }: CounterCycleProp
 
   const handleMessageOver = () => {
     completeFirstCycle();
-    if (message === "End of Cycle") {
+    if (session.message === "End of Cycle") {
       completeSecondCycle();
     }
   };
@@ -63,9 +65,20 @@ export default function CounterCycle({ cycle, message, timer }: CounterCycleProp
     dispatch(setMode(2));
   };
 
-  if (cycle) {
-    return <Counter countOver={() => handleCountOver()} />;
+  if (counter.cycle) {
+    return (
+      <Counter
+        session={session.session}
+        pause={counter.pause}
+        countOver={() => handleCountOver()}
+      />
+    );
   } else {
-    return <DisplayMessage messageOver={() => handleMessageOver()} />;
+    return (
+      <DisplayMessage 
+        messageOver={() => handleMessageOver()}
+        message={session.message}
+      />
+    );
   }
 }

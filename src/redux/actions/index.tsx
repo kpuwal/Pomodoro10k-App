@@ -24,47 +24,47 @@ export const changeCycle = (value: boolean) => {
   };
 };
 
-export const selectSession = (min) => {
+export const selectSession = (min: number) => {
   return {
     type: actionType.SELECTED_SESSION,
-    select: {
+    payload: {
       min: min,
       sec: 0,
     },
   };
 };
 
-export const setMin = (min) => {
+export const setMin = (min: number) => {
   return {
     type: actionType.SESSION_MIN,
-    countMin: {
+    payload: {
       min: min - 1,
       sec: 59,
     },
   };
 };
 
-export const setSec = (min, sec) => {
+export const setSec = (min: number, sec: number) => {
   return {
     type: actionType.SESSION_SEC,
-    countSec: {
+    payload: {
       min: min,
       sec: sec - 1,
     },
   };
 };
 
-export const setMode = (index) => {
+export const setMode = (index: number) => {
   return {
     type: actionType.SESSION_MODE,
-    idx: index,
+    payload: index,
   };
 };
 
-export const setMessage = (index) => {
+export const setMessage = (index: number) => {
   return {
     type: actionType.SESSION_MESSAGE,
-    idx: index,
+    payload: index,
   };
 };
 

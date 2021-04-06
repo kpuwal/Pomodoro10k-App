@@ -19,13 +19,12 @@ function Timer() {
       {counter.start 
         ? 
           <CounterCycle
-            cycle={counter.cycle}
-            message={session.message}
             timer={timers.selected}
+            {...{ counter, session }}
           />
         : 
-          <DisplayIdle 
-          />}
+          <DisplayIdle selectedSession={session.selected} />
+      }
       <DisplayMode
         start={counter.start}
         sessionType={session.mode}

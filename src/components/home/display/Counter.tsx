@@ -1,16 +1,18 @@
 "use strict";
 import React from "react";
 import { Text, StyleSheet } from "react-native";
-import { useSelector } from "react-redux";
+import { SessionProps } from "../../../redux/reducers/session";
 
-const Counter = () => {
-  const count = useSelector((state) => state.session.session);
+interface CounterProp {
+  session: SessionProps;
+}
 
+const Counter = ({ session }: CounterProp) => {
   return (
     <>
       <Text style={styles.txt}>
-        {count.min.toString().padStart(2, "0")}:
-        {count.sec.toString().padStart(2, "0")}
+        {session.min.toString().padStart(2, "0")}:
+        {session.sec.toString().padStart(2, "0")}
       </Text>
     </>
   );
