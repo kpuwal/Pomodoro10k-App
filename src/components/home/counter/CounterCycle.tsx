@@ -11,9 +11,9 @@ import {
   startStop,
   pauseResume,
   saveSession,
-} from "../../redux/actions";
+} from "../../../redux/actions";
 
-import DisplayMessage from "./display/Message";
+import DisplayMessage from "../info/Message";
 import Counter from "./Counter";
 
 interface CounterCycleProps {

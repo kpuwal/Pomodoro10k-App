@@ -5,9 +5,9 @@ import { Text, StyleSheet } from "react-native";
 interface CounterProp {
   min: number;
   sec: number;
-}
+};
 
-const Counter = ({ sec, min }: CounterProp) => {
+const DisplayCounter = ({ sec, min }: CounterProp) => {
   return (
     <>
       <Text style={styles.txt}>
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Counter;
+export default DisplayCounter;

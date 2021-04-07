@@ -3,9 +3,9 @@ import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import { useDispatch } from "react-redux";
 
-import { selectTimer, selectSession, setMin } from "../../redux/actions";
-import TimerIcon from "../modules/home/TimerIcon";
-import { TimerState, TimerProps } from "../../redux/reducers/timers";
+import { selectTimer, selectSession, setMin } from "../../../redux/actions";
+import TimerIcon from "./TimerIcon";
+import { TimerState, TimerProps } from "../../../redux/reducers/timers";
 
 interface TimerSelectProp {
   timers: TimerState;

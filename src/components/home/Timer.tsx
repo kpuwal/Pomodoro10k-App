@@ -2,11 +2,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import CounterCycle from "./CounterCycle";
-import DisplayIdle from "./display/Idle";
-import DisplayMode from "./display/Mode";
-import Controller from "./Controller";
-import TimerSelect from "./TimerSelect";
+import CounterCycle from "./counter/CounterCycle";
+import DisplayIdle from "./counter/DisplayIdle";
+import DisplayMode from "./info/Mode";
+import Controller from "./controller/Controller";
+import TimerSelect from "./timerselect/TimerSelect";
 
 function Timer() {
   const counter = useSelector((state) => state.counter);

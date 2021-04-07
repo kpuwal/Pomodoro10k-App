@@ -2,10 +2,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { setMin, setSec } from "../../redux/actions";
-import useInterval from "../modules/home/useInterval";
+import { setMin, setSec } from "../../../redux/actions";
+import useInterval from "../../../hooks/useInterval";
 
-import DisplayCounter from "./display/Counter";
+import DisplayCounter from "./DisplayCounter";
 
 interface CounterProps {
   countOver: () => void;

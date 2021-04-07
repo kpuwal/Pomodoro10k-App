@@ -5,9 +5,9 @@ import { TouchableOpacity, View } from "react-native";
 interface RoundButtonProps {
   size: number;
   type: object;
-  onPress: () => void;
   disabled: boolean;
-  colorStripe: string;
+  colorStripe?: string;
+  onPress: () => void;
 };
 
 const RoundButton = ({ size, type, onPress, disabled, colorStripe }: RoundButtonProps) => {

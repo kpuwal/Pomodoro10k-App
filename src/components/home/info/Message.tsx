@@ -2,7 +2,7 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
 
-import useInterval from "../../modules/home/useInterval";
+import useInterval from "../../../hooks/useInterval";
 import { messageDuration } from "../../../config/settings";
 
 interface MessageProps {

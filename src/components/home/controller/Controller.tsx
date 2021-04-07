@@ -8,11 +8,11 @@ import {
   stopIcon,
   pauseIcon,
   resumeIcon,
-} from "../../config/iconsFile";
-import { startStop, pauseResume, setMin, setMode } from "../../redux/actions";
-import RoundButton from "../modules/home/RoundButton";
+} from "../../../config/iconsFile";
+import { startStop, pauseResume, setMin, setMode } from "../../../redux/actions";
+import RoundButton from "./RoundButton";
 
-import { CardProps } from "../../redux/reducers/stats";
+import { CardProps } from "../../../redux/reducers/stats";
 
 const { width } = Dimensions.get("window");
 
