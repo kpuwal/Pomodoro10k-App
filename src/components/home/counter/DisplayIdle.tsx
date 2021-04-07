@@ -5,9 +5,9 @@ import { Text, StyleSheet } from "react-native";
 interface IdleProp {
   min: number;
   sec: number;
-}
+};
 
-const Idle = ({ min, sec }: IdleProp) => {
+const DisplayIdle = ({ min, sec }: IdleProp) => {
   return (
     <>
       <Text style={styles.txt}>
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Idle;
+export default DisplayIdle;

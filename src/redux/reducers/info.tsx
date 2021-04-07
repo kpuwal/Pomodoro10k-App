@@ -4,10 +4,7 @@ import {
   SESSION_MESSAGE,
 } from "../constants/actionTypes";
 
-type NonEmptyArray<T> = [T, ...T[]];
-
-const MODE: NonEmptyArray<string> = ["FOCUS", "RELAX", " "];
-const MESSAGE: NonEmptyArray<string> = ["End of Focus Session", "End of Cycle"];
+import { MODE, MESSAGE } from "../../config/constants";
 
 export interface InfoProps {
   mode: string;

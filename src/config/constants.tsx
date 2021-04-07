@@ -1,4 +1,9 @@
-export const WEEKDAYS: string[] = [
+type NonEmptyArray<T> = [T, ...T[]];
+
+export const MODE: NonEmptyArray<string> = ["FOCUS", "RELAX", " "];
+export const MESSAGE: NonEmptyArray<string> = ["End of Focus Session", "End of Cycle"];
+
+export const WEEKDAYS: NonEmptyArray<string> = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -8,7 +13,7 @@ export const WEEKDAYS: string[] = [
   "Saturday",
 ];
 
-export const MONTHS: string[] = [
+export const MONTHS: NonEmptyArray<string> = [
   "January",
   "February",
   "March",

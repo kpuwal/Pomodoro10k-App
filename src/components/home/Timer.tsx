@@ -6,9 +6,9 @@ import CounterCycle from "./counter/CounterCycle";
 import DisplayIdle from "./counter/DisplayIdle";
 import DisplayMode from "./info/Mode";
 import Controller from "./controller/Controller";
-import TimerSelect from "./timerselect/TimerSelect";
+import TimerSelect from "./timer/TimerSelect";
 
-function Timer() {
+const Timer: React.FC = () => {
   const counter = useSelector((state) => state.counter);
   const session = useSelector((state) => state.session);
   const timers = useSelector((state) => state.timers);

@@ -2,9 +2,9 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
-import Button from "../../components/modules/settings/Button";
-import AddTimer from "../../components/settings/AddTimer";
-import DeleteTimer from "../../components/settings/DeleteTimer";
+import Button from "../../components/settings/Button";
+import AddTimer from "../../components/settings/timer/AddTimer";
+import DeleteTimer from "../../components/settings/timer/DeleteTimer";
 
 const Timers: React.FC = ({ navigation }) => {
   return (

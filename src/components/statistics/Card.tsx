@@ -13,7 +13,7 @@ const Card = ({
   total,
   speed,
   timeLeft,
-  date,
+  date
 }) => {
   const newTitle = title.toUpperCase();
   return (

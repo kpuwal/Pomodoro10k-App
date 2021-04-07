@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { useDispatch } from "react-redux";
 
-import Button from "../modules/settings/Button";
-import InputController from "../settings/InputController";
-import { createTimer } from "../../redux/actions";
+import Button from "../Button";
+import InputController from "./InputController";
+import { createTimer } from "../../../redux/actions";
 
 const AddTimer: React.FC = () => {
   const [focus, setFocus] = useState<number>(0);

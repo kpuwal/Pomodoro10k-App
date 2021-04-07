@@ -9,8 +9,8 @@ import Root from "./src/Root";
 import Home from "./src/views/Home";
 import Settings from "./src/views/Settings";
 import Statistics from "./src/views/Statistics";
-import GoBackIcon from "./src/components/modules/GoBackIcon";
-import { settingsHeader, statisticsHeader } from "./src/components/modules/Headers";
+import GoBackIcon from "./src/views/tabs/GoBackIcon";
+import { settingsHeader, statisticsHeader } from "./src/views/tabs/Headers";
 
 
 const Stack = createStackNavigator();

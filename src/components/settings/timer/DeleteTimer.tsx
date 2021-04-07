@@ -3,8 +3,8 @@ import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 
-import { deleteTimer } from "../../redux/actions";
-import ListItem from "../modules/settings/ListItem";
+import { deleteTimer } from "../../../redux/actions";
+import ListItem from "./ListItem";
 
 const DeleteTimer = () => {
   const timersList = useSelector((state) => state.timers.timersList);

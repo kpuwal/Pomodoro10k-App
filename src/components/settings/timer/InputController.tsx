@@ -2,7 +2,7 @@
 import React from "react";
 import { TextInput, View, StyleSheet } from "react-native";
 
-import SmallButton from "../modules/settings/SmallButton";
+import SmallButton from "./SmallButton";
 
 interface InputControllerProps {
   type: number;

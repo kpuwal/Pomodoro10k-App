@@ -2,8 +2,8 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
-import AddGoal from "../../components/settings/AddGoal";
-import DeleteGoal from "../../components/settings/DeleteGoal";
+import AddGoal from "../../components/settings/goal/AddGoal";
+import DeleteGoal from "../../components/settings/goal/DeleteGoal";
 
 const GoalsManager = () => {
   return (

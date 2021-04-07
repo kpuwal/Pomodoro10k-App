@@ -4,7 +4,7 @@ import { Dimensions, View, StyleSheet, Animated } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useSelector } from "react-redux";
 
-import Card from "../components/modules/statistics/Card";
+import Card from "../components/statistics/Card";
 
 const { width, height } = Dimensions.get("window");
 const cardW = width * 0.8;

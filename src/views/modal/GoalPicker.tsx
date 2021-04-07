@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { selectCard } from "../../redux/actions";
-import GoalsListItem from "../../components/modules/settings/GoalListItem";
+import GoalsListItem from "../../components/settings/goal/GoalListItem";
 
 const GoalPicker = () => {
   const [isVisible, setIsVisible] = useState(false);

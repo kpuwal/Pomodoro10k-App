@@ -4,9 +4,8 @@ import { View, FlatList, StyleSheet, TouchableOpacity } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { deleteCard } from "../../redux/actions";
-import GoalsListItem from "../modules/settings/GoalListItem";
-import { loadPartialConfigAsync } from "@babel/core";
+import { deleteCard } from "../../../redux/actions";
+import GoalsListItem from "./GoalListItem";
 
 const DeleteGoal = () => {
   const cardsList = useSelector((state) => state.stats.cards);

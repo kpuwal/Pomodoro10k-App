@@ -7,7 +7,12 @@ import ChartBar from "./ChartBar";
 const { width, height } = Dimensions.get("window");
 const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-const WeeklyChart = ({ weekdaysTotals, color }) => {
+interface WeeklyChartProps {
+  color: string;
+  weekdaysTotals: number[];
+};
+
+const WeeklyChart = ({ weekdaysTotals, color }: WeeklyChartProps) => {
   return (
     <View style={styles.container}>
       {DAYS.map((item, idx) => (

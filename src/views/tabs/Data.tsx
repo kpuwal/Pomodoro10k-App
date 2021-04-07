@@ -3,11 +3,11 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { useDispatch } from "react-redux";
 
-import SettingsButton from "../../components/modules/settings/Button";
+import SettingsButton from "../../components/settings/Button";
 import { clearStorage } from "../../storage/storage";
 import { clearTimers, clearCards } from "../../redux/actions";
 
-const DataManager = () => {
+const DataManager: React.FC = () => {
   const dispatch = useDispatch();
   const handleErase = () => {
     clearStorage();

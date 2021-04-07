@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { View, TextInput, Text, StyleSheet, FlatList } from "react-native";
 import { useDispatch } from "react-redux";
 
-import { createCard } from "../../redux/actions";
-import SettingsButton from "../modules/settings/Button";
-import ColorBox from "../modules/settings/ColorBox";
+import { createCard } from "../../../redux/actions";
+import SettingsButton from "../Button";
+import ColorBox from "./ColorBox";
 
 const COLORS = ["#FE5E33", "#FFC641", "#BFEAF5", "#442CB9"];
 
