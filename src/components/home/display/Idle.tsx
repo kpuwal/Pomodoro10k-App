@@ -1,18 +1,18 @@
 "use strict";
 import React from "react";
 import { Text, StyleSheet } from "react-native";
-import { SessionProps } from "../../../redux/reducers/session";
 
 interface IdleProp {
-  selectedSession: SessionProps;
+  min: number;
+  sec: number;
 }
 
-const Idle = ({ selectedSession }: IdleProp) => {
+const Idle = ({ min, sec }: IdleProp) => {
   return (
     <>
       <Text style={styles.txt}>
-        {selectedSession.min.toString().padStart(2, "0")}:
-        {selectedSession.sec.toString().padStart(2, "0")}
+        {min.toString().padStart(2, "0")}:
+        {sec.toString().padStart(2, "0")}
       </Text>
     </>
   );

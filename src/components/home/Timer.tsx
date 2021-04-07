@@ -13,26 +13,35 @@ function Timer() {
   const session = useSelector((state) => state.session);
   const timers = useSelector((state) => state.timers);
   const card = useSelector((state) => state.stats);
+  const info = useSelector((state) => state.info);
   
   return (
     <>
       {counter.start 
         ? 
           <CounterCycle
-            timer={timers.selected}
-            {...{ counter, session }}
+            focus={timers.selected.data.focus}
+            relax={timers.selected.data.relax}
+            infoMessage={info.message}
+            min={session.session.min}
+            sec={session.session.sec}
+            cycle={counter.cycle}
+            pause={counter.pause}
           />
         : 
-          <DisplayIdle selectedSession={session.selected} />
+          <DisplayIdle
+            min={session.selected.min}
+            sec={session.selected.sec}  
+          />
       }
       <DisplayMode
         start={counter.start}
-        sessionType={session.mode}
+        infoMode={info.mode}
       />
       <Controller
         start={counter.start}
         pause={counter.pause}
-        timer={timers.selected}
+        focus={timers.selected.data.focus}
         card={card.selected}
       />
       <TimerSelect {...{ timers }} />

@@ -7,12 +7,14 @@ import counterReducer from "./counter";
 import sessionReducer from "./session";
 import timersReducer from "./timers";
 import statsReducer from "./stats";
+import infoReducer from "./info";
 
 const allReducers = combineReducers({
   counter: counterReducer,
   session: sessionReducer,
   timers: timersReducer,
   stats: statsReducer,
+  info: infoReducer,
 });
 
 const rootReducer = (state, action) => {

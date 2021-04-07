@@ -1,15 +1,10 @@
 "use strict";
 import {
   SELECTED_SESSION,
-  SESSION_MODE,
-  SESSION_MESSAGE,
   SESSION_MIN,
   SESSION_SEC,
   SESSION_SAVE,
 } from "../constants/actionTypes";
-
-const MODE: string[] = ["FOCUS", "RELAX", " "];
-const MESSAGE: string[] = ["End of Focus Session", "End of Cycle"];
 
 export interface SessionProps {
   min: number;
@@ -19,8 +14,6 @@ export interface SessionProps {
 export type SessionState = {
   session: SessionProps;
   selected: SessionProps;
-  mode: string;
-  message: string;
 };
 
 type SessionAction = {
@@ -37,9 +30,6 @@ export const DEFAULT: SessionState = {
     min: 25,
     sec: 0,
   },
-  // mode and message will never return undefined or null
-  mode: MODE[0]!, 
-  message: MESSAGE[0]!,
 };
 
 const sessionReducer = (state = DEFAULT, action: SessionAction) => {
@@ -48,16 +38,6 @@ const sessionReducer = (state = DEFAULT, action: SessionAction) => {
       return {
         ...state,
         selected: action.payload,
-      };
-    case SESSION_MODE:
-      return {
-        ...state,
-        mode: MODE[action.payload],
-      };
-    case SESSION_MESSAGE:
-      return {
-        ...state,
-        message: MESSAGE[action.payload],
       };
     case SESSION_MIN:
       return {

@@ -6,15 +6,15 @@ import { setMin, setSec } from "../../redux/actions";
 import useInterval from "../modules/home/useInterval";
 
 import DisplayCounter from "./display/Counter";
-import { SessionProps } from "../../redux/reducers/session";
 
 interface CounterProps {
   countOver: () => void;
   pause: boolean;
-  session: SessionProps;
+  min: number;
+  sec: number;
 };
 
-const Counter = ({ countOver, pause, session }: CounterProps) => {
+const Counter = ({ countOver, pause, min, sec }: CounterProps) => {
   const dispatch = useDispatch();
 
   useInterval(() => tick(), 1000);
@@ -23,18 +23,18 @@ const Counter = ({ countOver, pause, session }: CounterProps) => {
     if (pause) {
       return;
     }
-    if (session.min === 0 && session.sec === 0) {
+    if (min === 0 && sec === 0) {
       return countOver();
     }
 
-    if (session.sec === 0) {
-      dispatch(setMin(session.min));
+    if (sec === 0) {
+      dispatch(setMin(min));
     } else {
-      dispatch(setSec(session.min, session.sec));
+      dispatch(setSec(min, sec));
     }
   };
 
-  return <DisplayCounter {...{ session }} />;
+  return <DisplayCounter {...{ sec, min }} />;
 };
 
 export default Counter;

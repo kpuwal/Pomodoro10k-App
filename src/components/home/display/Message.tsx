@@ -3,6 +3,7 @@ import React from "react";
 import { Text, StyleSheet } from "react-native";
 
 import useInterval from "../../modules/home/useInterval";
+import { messageDuration } from "../../../config/settings";
 
 interface MessageProps {
   messageOver: () => void;
@@ -10,7 +11,7 @@ interface MessageProps {
 };
 
 const Message = ({ messageOver, message }: MessageProps) => {
-  useInterval(() => messageOver(), 5000);
+  useInterval(() => messageOver(), messageDuration);
 
   return (
     <>

@@ -12,7 +12,6 @@ import {
 import { startStop, pauseResume, setMin, setMode } from "../../redux/actions";
 import RoundButton from "../modules/home/RoundButton";
 
-import { TimerProps } from "../../redux/reducers/timers";
 import { CardProps } from "../../redux/reducers/stats";
 
 const { width } = Dimensions.get("window");
@@ -20,11 +19,11 @@ const { width } = Dimensions.get("window");
 interface ControllerProps {
   start: boolean;
   pause: boolean;
-  timer: TimerProps;
+  focus: number;
   card: CardProps;
 }
 
-const Controler = ({ start, pause, timer, card }: ControllerProps) => {
+const Controler = ({ start, pause, focus, card }: ControllerProps) => {
   const dispatch = useDispatch();
   const startStopCount = () => dispatch(startStop());
   const pauseResumeCount = (value: boolean) => dispatch(pauseResume(value));
@@ -32,7 +31,7 @@ const Controler = ({ start, pause, timer, card }: ControllerProps) => {
   const toggleStartStop = () => {
     startStopCount();
     pauseResumeCount(false);
-    dispatch(setMin(timer.data.focus));
+    dispatch(setMin(focus));
     dispatch(setMode(0));
   };
 

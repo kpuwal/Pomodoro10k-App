@@ -15,17 +15,18 @@ import {
 
 import DisplayMessage from "./display/Message";
 import Counter from "./Counter";
-import { TimerProps } from "../../redux/reducers/timers";
-import { CounterProps } from "../../redux/reducers/counter";
-import { SessionState } from "../../redux/reducers/session";
 
 interface CounterCycleProps {
-  counter: CounterProps;
-  session: SessionState;
-  timer: TimerProps;
+  focus: number;
+  relax: number;
+  min: number;
+  sec: number;
+  cycle: boolean;
+  pause: boolean;
+  infoMessage: string;
 }
 
-export default function CounterCycle({ counter, session, timer }: CounterCycleProps) {
+export default function CounterCycle({ cycle, pause, min, sec, focus, relax, infoMessage }: CounterCycleProps) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,12 +35,12 @@ export default function CounterCycle({ counter, session, timer }: CounterCyclePr
 
   const completeFirstCycle = () => {
     dispatch(changeCycle(true));
-    if (timer.data.relax === 0) {
+    if (relax === 0) {
       completeSecondCycle();
     }
     dispatch(setMessage(1));
     // Vibration.vibrate();
-    dispatch(setMin(timer.data.relax));
+    dispatch(setMin(relax));
     dispatch(setMode(1));
   };
 
@@ -49,13 +50,13 @@ export default function CounterCycle({ counter, session, timer }: CounterCyclePr
     dispatch(startStop());
     dispatch(pauseResume(false));
     dispatch(setMode(0));
-    dispatch(setMin(timer.data.focus));
+    dispatch(setMin(focus));
     dispatch(saveSession());
   };
 
   const handleMessageOver = () => {
     completeFirstCycle();
-    if (session.message === "End of Cycle") {
+    if (infoMessage === "End of Cycle") {
       completeSecondCycle();
     }
   };
@@ -65,19 +66,18 @@ export default function CounterCycle({ counter, session, timer }: CounterCyclePr
     dispatch(setMode(2));
   };
 
-  if (counter.cycle) {
+  if (cycle) {
     return (
       <Counter
-        session={session.session}
-        pause={counter.pause}
         countOver={() => handleCountOver()}
+        {...{ min, sec, pause }}
       />
     );
   } else {
     return (
       <DisplayMessage 
         messageOver={() => handleMessageOver()}
-        message={session.message}
+        message={infoMessage}
       />
     );
   }

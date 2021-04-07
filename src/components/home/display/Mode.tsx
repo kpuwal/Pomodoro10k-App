@@ -4,13 +4,13 @@ import { View, Text, StyleSheet } from "react-native";
 
 interface ModeProps {
   start: boolean;
-  sessionType: string;
+  infoMode: string;
 };
 
-const Mode = ({ start, sessionType }: ModeProps) => {
+const Mode = ({ start, infoMode }: ModeProps) => {
   return (
     <View style={styles.container}>
-      {start ? <Text style={styles.txt}>{sessionType}</Text> : null}
+      {start ? <Text style={styles.txt}>{infoMode}</Text> : null}
     </View>
   );
 };
