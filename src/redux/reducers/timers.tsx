@@ -50,7 +50,6 @@ const timersReducer = (state = DEFAULT, action: TimerAction) => {
         }),
       };
     case actionTypes.FETCH_TIMERS:
-      console.log(" TYPE ", typeof action.payload)
       return {
         ...state,
         // check if the action needs to be spreaded

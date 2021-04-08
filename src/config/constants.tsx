@@ -3,6 +3,8 @@ type NonEmptyArray<T> = [T, ...T[]];
 export const MODE: NonEmptyArray<string> = ["FOCUS", "RELAX", " "];
 export const MESSAGE: NonEmptyArray<string> = ["End of Focus Session", "End of Cycle"];
 
+export const DAYS: NonEmptyArray<string> = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
 export const WEEKDAYS: NonEmptyArray<string> = [
   "Sunday",
   "Monday",

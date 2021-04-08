@@ -3,9 +3,9 @@ import React from "react";
 import { View, Dimensions, StyleSheet } from "react-native";
 
 import ChartBar from "./ChartBar";
+import { DAYS } from "../../config/constants";
 
 const { width, height } = Dimensions.get("window");
-const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 interface WeeklyChartProps {
   color: string;
@@ -15,13 +15,13 @@ interface WeeklyChartProps {
 const WeeklyChart = ({ weekdaysTotals, color }: WeeklyChartProps) => {
   return (
     <View style={styles.container}>
-      {DAYS.map((item, idx) => (
+      {weekdaysTotals.map((item: number, idx: number) => (
         <ChartBar
           key={idx}
-          value={weekdaysTotals[idx]}
+          total={item}
           color={color}
           width={width / 10}
-          label={item}
+          label={DAYS[idx]!}
         />
       ))}
     </View>

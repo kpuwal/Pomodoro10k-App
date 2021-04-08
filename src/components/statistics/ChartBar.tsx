@@ -2,15 +2,22 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const ChartBar = ({ value, color, width, label }) => {
+interface ChartBarProps {
+  total: number;
+  color: string;
+  width: number;
+  label: string;
+}
+
+const ChartBar = ({ total, color, width, label }: ChartBarProps) => {
   return (
     <View style={{ width, alignItems: "center" }}>
       <View style={styles.container}>
-        <Text style={{ color }}>{value}</Text>
+        <Text style={{ color }}>{total}</Text>
         <View
           style={{
             width: width / 3,
-            height: value * 5,
+            height: total * 5,
             backgroundColor: color,
           }}
         />

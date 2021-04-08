@@ -3,6 +3,13 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import WeeklyChart from "./WeeklyChart";
+import { CardProps } from "../../redux/reducers/stats";
+
+interface ICardProps extends CardProps {
+  title: string;
+  width: number;
+  height: number;
+};
 
 const Card = ({
   weekdaysTotals,
@@ -14,7 +21,7 @@ const Card = ({
   speed,
   timeLeft,
   date
-}) => {
+}: ICardProps) => {
   const newTitle = title.toUpperCase();
   return (
     <View style={[styles.container, { ...{ width, height } }]}>

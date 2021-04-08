@@ -23,11 +23,11 @@ type SessionAction = {
 
 export const DEFAULT: SessionState = {
   session: {
-    min: 25,
+    min: 45,
     sec: 0,
   },
   selected: {
-    min: 25,
+    min: 45,
     sec: 0,
   },
 };

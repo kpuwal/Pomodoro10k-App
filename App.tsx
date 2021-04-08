@@ -12,7 +12,6 @@ import Statistics from "./src/views/Statistics";
 import GoBackIcon from "./src/views/tabs/GoBackIcon";
 import { settingsHeader, statisticsHeader } from "./src/views/tabs/Headers";
 
-
 const Stack = createStackNavigator();
 
 const NavigationWrapper: React.FC = () => {
