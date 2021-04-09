@@ -10,7 +10,7 @@ export class Card {
     day: string,
     month: string,
     year: string,
-  };
+  }
   weekdaysTotals: number[];
   goal: string;
   color: string;
@@ -32,4 +32,4 @@ export class Card {
     this.color = value.color;
     this.dates = new Array(0);
   }
-}
+};

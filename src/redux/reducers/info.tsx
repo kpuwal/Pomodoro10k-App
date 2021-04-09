@@ -1,4 +1,5 @@
 "use strict";
+import { AnyAction } from "redux";
 import {
   SESSION_MODE,
   SESSION_MESSAGE,
@@ -11,27 +12,29 @@ export interface InfoProps {
   message: string;
 };
 
-type SessionAction = {
-  type: string;
-  payload: number;
-};
+// type SessionAction = {
+//   type: string;
+//   payload: number;
+// };
 
 export const DEFAULT: InfoProps = {
   mode: MODE[0], 
   message: MESSAGE[0],
 };
 
-const infoReducer = (state = DEFAULT, action: SessionAction) => {
+const infoReducer = (state = DEFAULT, action: AnyAction) => {
   switch (action.type) {
     case SESSION_MODE:
+      const newMode = MODE[action.payload]!;
       return {
         ...state,
-        mode: MODE[action.payload],
+        mode: newMode,
       };
     case SESSION_MESSAGE:
+      const newMessage = MESSAGE[action.payload]!;
       return {
         ...state,
-        message: MESSAGE[action.payload],
+        message: newMessage,
       };
     default:
       return state;

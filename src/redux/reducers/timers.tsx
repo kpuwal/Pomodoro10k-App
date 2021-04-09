@@ -1,26 +1,19 @@
 "use strict";
-
+import { AnyAction } from "redux";
 import * as actionTypes from "../constants/actionTypes";
-
-export interface TimerProps {
-  idx: number,
-  data: {
-    focus: number,
-    relax: number,
-  }
-};
+import { Timer } from "../models/Timer";
 
 export type TimerState = {
-  timersList: TimerProps[],
-  selected: TimerProps,
+  timersList: Timer[],
+  selected: Timer,
 };
 
-type TimerAction = {
-  type: string,
-  payload: TimerProps
-};
+// type TimerAction = {
+//   type: string,
+//   payload: Timer
+// };
 
-export type DispatchType = (payload: TimerAction) => TimerAction;
+// export type DispatchType = (payload: TimerAction) => TimerAction;
 
 const DEFAULT: TimerState = {
   timersList: [
@@ -30,7 +23,7 @@ const DEFAULT: TimerState = {
   selected: { idx: 1, data: { focus: 45, relax: 15 } },
 };
 
-const timersReducer = (state = DEFAULT, action: TimerAction) => {
+const timersReducer = (state = DEFAULT, action: AnyAction) => {
   switch (action.type) {
     case actionTypes.SELECTED_TIMER:
       return {

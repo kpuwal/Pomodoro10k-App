@@ -5,21 +5,21 @@ import { getDataFromStorage } from "../../storage/storage";
 export const startStop = () => {
   return {
     type: actionType.START_COUNTER,
-  };
+  } as const;
 };
 
 export const pauseResume = (value: boolean) => {
   return {
     type: actionType.PAUSE_COUNTER,
     payload: value,
-  };
+  } as const;
 };
 
 export const changeCycle = (value: boolean) => {
   return {
     type: actionType.CYCLE_COUNTER,
     payload: value,
-  };
+  } as const;
 };
 
 export const selectSession = (min: number) => {
@@ -29,7 +29,7 @@ export const selectSession = (min: number) => {
       min: min,
       sec: 0,
     },
-  };
+  } as const;
 };
 
 export const setMin = (min: number) => {
@@ -39,7 +39,7 @@ export const setMin = (min: number) => {
       min: min - 1,
       sec: 59,
     },
-  };
+  } as const;
 };
 
 export const setSec = (min: number, sec: number) => {
@@ -49,28 +49,28 @@ export const setSec = (min: number, sec: number) => {
       min: min,
       sec: sec - 1,
     },
-  };
+  } as const;
 };
 
 export const setMode = (index: number) => {
   return {
     type: actionType.SESSION_MODE,
     payload: index,
-  };
+  } as const;
 };
 
 export const setMessage = (index: number) => {
   return {
     type: actionType.SESSION_MESSAGE,
     payload: index,
-  };
+  } as const;
 };
 
 export const selectTimer = (item: object) => {
   return {
     type: actionType.SELECTED_TIMER,
     payload: item,
-  };
+  } as const;
 };
 
 export const createTimer = (focus: number, relax: number) => {
@@ -80,27 +80,27 @@ export const createTimer = (focus: number, relax: number) => {
       focus,
       relax,
     },
-  };
+  } as const;
 };
 
 export const deleteTimer = (item: object) => {
   return {
     type: actionType.DELETE_TIMER,
     payload: item,
-  };
+  } as const;
 };
 
 export const clearTimers = () => {
   return {
     type: actionType.CLEAR_TIMERS,
-  };
+  } as const;
 };
 
 export const selectCard = (item: object) => {
   return {
     type: actionType.SELECTED_CARD,
     payload: item,
-  };
+  } as const;
 };
 
 export const createCard = (color: string, title: string) => {
@@ -110,7 +110,7 @@ export const createCard = (color: string, title: string) => {
       color,
       title,
     },
-  };
+  } as const;
 };
 
 export const deleteCard = (item: object) => {
@@ -123,7 +123,7 @@ export const deleteCard = (item: object) => {
 export const clearCards = () => {
   return {
     type: actionType.CLEAR_CARDS,
-  };
+  } as const;
 };
 
 export const fetchData = () => {

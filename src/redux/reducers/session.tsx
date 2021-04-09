@@ -1,4 +1,5 @@
 "use strict";
+import { AnyAction } from "redux";
 import {
   SELECTED_SESSION,
   SESSION_MIN,
@@ -16,10 +17,10 @@ export type SessionState = {
   selected: SessionProps;
 };
 
-type SessionAction = {
-  type: string;
-  payload: SessionProps;
-};
+// type SessionAction = {
+//   type: string;
+//   payload: SessionProps;
+// };
 
 export const DEFAULT: SessionState = {
   session: {
@@ -32,7 +33,7 @@ export const DEFAULT: SessionState = {
   },
 };
 
-const sessionReducer = (state = DEFAULT, action: SessionAction) => {
+const sessionReducer = (state = DEFAULT, action: AnyAction) => {
   switch (action.type) {
     case SELECTED_SESSION:
       return {

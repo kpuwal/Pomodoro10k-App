@@ -1,7 +1,7 @@
 "use strict";
 import React from "react";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
+import { Store as ReduxStore, createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import reducers from "./redux/reducers";
 
@@ -13,14 +13,14 @@ import manageStorage from "./redux/middleware/manageStorage";
 import saveSession from "./redux/middleware/saveSession";
 import { fetchData } from "./redux/actions";
 
-const store = createStore(
+const store: ReduxStore = createStore(
   reducers,
   composeWithDevTools(applyMiddleware(thunk, multiactionArray, manageStorage, saveSession))
 );
 
 // TO FIX type of Root
-const Root = ({ children }) => {
-  store.dispatch(fetchData());
+const Root: React.FC = ({ children }) => {
+  // store.dispatch(fetchData());
   return <Provider store={store}>{children}</Provider>;
 };
 

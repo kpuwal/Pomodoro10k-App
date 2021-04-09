@@ -1,20 +1,9 @@
 "use strict";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { IStats } from "../redux/reducers/stats";
-import { ITimer } from "../redux/reducers/timers";
 
 const TIMERS_KEY: string = "@TIMERS";
 const CARDS_KEY: string = "@CARDS";
-
-// TO FIX wrong interface
-interface Iitem {
-  idx: number,
-  data: {
-    focus: number,
-    relax: number,
-  }
-}
 
 export const clearStorage = async (): Promise<void> => {
   try {
@@ -53,7 +42,7 @@ export const removeItemFromStorage = async (key: string, idx: number) => {
   try {
     const previousItem = await getItemFromStorage(key);
     if (previousItem !== null) {
-      const newItem = previousItem.items.filter((item: Iitem) => item.idx !== idx);
+      const newItem = previousItem.items.filter((item) => item.idx !== idx);
       saveItem(key, { items: newItem });
     }
   } catch (error) {
@@ -61,7 +50,7 @@ export const removeItemFromStorage = async (key: string, idx: number) => {
   }
 };
 
-export const getDataFromStorage = async (): Promise<{items: ITimer | IStats}[]> => {
+export const getDataFromStorage = async () => {
   // clearStorage()
   let items;
   try {
@@ -73,6 +62,5 @@ export const getDataFromStorage = async (): Promise<{items: ITimer | IStats}[]> 
   } catch (error) {
     console.log("error while getDataFromStorage ", error);
   }
-  console.log(items)
   return items;
 };

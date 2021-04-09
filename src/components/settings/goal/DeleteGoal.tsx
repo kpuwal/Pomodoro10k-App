@@ -3,25 +3,24 @@ import React from "react";
 import { View, FlatList, StyleSheet, TouchableOpacity } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { RootState } from "../../../Root";
+import { Card } from "../../../redux/models/Card";
 
 import { deleteCard } from "../../../redux/actions";
 import GoalsListItem from "./GoalListItem";
 
 const DeleteGoal = () => {
-  const cardsList = useSelector((state) => state.stats.cards);
+  const cardsList = useSelector((state: RootState) => state.stats.cards);
   const list = cardsList.slice(1);
   const dispatch = useDispatch();
 
-  console.log("loading DeleteGoal")
-  console.log("cards list ", cardsList)
-
-  const handleDelete = (item: object) => {
+  const handleDelete = (item: Card) => {
     dispatch(deleteCard(item));
   };
 
   return (
     <View style={styles.container}>
-      <FlatList
+      <FlatList<Card>
         data={list}
         renderItem={({ item }) => (
           <View style={styles.listRow}>

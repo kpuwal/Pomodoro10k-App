@@ -1,34 +1,19 @@
 "use strict";
+import { AnyAction } from "redux";
 import * as actionType from "../constants/actionTypes";
-
-export interface CardProps {
-  idx: number,
-  speed: number,
-  total: number,
-  timeLeft: number,
-  date: {
-    weekday: string,
-    day: string,
-    month: string,
-    year: string,
-  }
-  weekdaysTotals: number[],
-  goal: string,
-  color: string,
-  dates: string[],
-};
+import { Card } from "../models/Card";
 
 type StatsState = {
-  selected: CardProps,
-  cards: CardProps[],
+  selected: Card,
+  cards: Card[],
 };
 
-type StatsAction = {
-  type: string,
-  payload: CardProps,
-};
+// type StatsAction = {
+//   type: string,
+//   payload: Card,
+// };
 
-const DEFAULT_CARD: CardProps = {
+const DEFAULT_CARD: Card = {
   idx: 0,
   speed: 0,
   total: 0,
@@ -50,7 +35,7 @@ const DEFAULT: StatsState  = {
   cards: [DEFAULT_CARD],
 };
 
-const statsReducer = (state = DEFAULT, action) => {
+const statsReducer = (state = DEFAULT, action: AnyAction) => {
   switch (action.type) {
     case actionType.ADD_CARD:
       return {

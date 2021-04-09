@@ -12,7 +12,7 @@ import {
 import { startStop, pauseResume, setMin, setMode } from "../../../redux/actions";
 import RoundButton from "./RoundButton";
 
-import { CardProps } from "../../../redux/reducers/stats";
+import { Card } from "../../../redux/models/Card";
 
 const { width } = Dimensions.get("window");
 
@@ -20,7 +20,7 @@ interface ControllerProps {
   start: boolean;
   pause: boolean;
   focus: number;
-  card: CardProps;
+  card: Card;
 }
 
 const Controler = ({ start, pause, focus, card }: ControllerProps) => {

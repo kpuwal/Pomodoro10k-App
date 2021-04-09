@@ -1,6 +1,7 @@
 "use strict";
 import React from "react";
 import { useSelector } from "react-redux";
+import { RootState } from "../../Root";
 
 import CounterCycle from "./counter/CounterCycle";
 import DisplayIdle from "./counter/DisplayIdle";
@@ -9,11 +10,11 @@ import Controller from "./controller/Controller";
 import TimerSelect from "./timer/TimerSelect";
 
 const Timer: React.FC = () => {
-  const counter = useSelector((state) => state.counter);
-  const session = useSelector((state) => state.session);
-  const timers = useSelector((state) => state.timers);
-  const card = useSelector((state) => state.stats);
-  const info = useSelector((state) => state.info);
+  const counter = useSelector((state: RootState) => state.counter);
+  const session = useSelector((state: RootState) => state.session);
+  const timers = useSelector((state: RootState) => state.timers);
+  const card = useSelector((state: RootState) => state.stats);
+  const info = useSelector((state: RootState) => state.info);
   
   return (
     <>

@@ -1,4 +1,5 @@
 "use strict";
+import { AnyAction } from "redux";
 import {
   START_COUNTER,
   PAUSE_COUNTER,
@@ -11,10 +12,10 @@ export interface CounterProps {
   pause: boolean;
 }
 
-type CounterAction = {
-  type: string;
-  payload: boolean;
-}
+// type CounterAction = {
+//   type: string;
+//   payload: boolean;
+// }
 
 const DEFAULT: CounterProps = {
   cycle: true,
@@ -22,7 +23,7 @@ const DEFAULT: CounterProps = {
   pause: false,
 };
 
-const counterReducer = (state = DEFAULT, action: CounterAction) => {
+const counterReducer = (state: CounterProps = DEFAULT, action: AnyAction) => {
   switch (action.type) {
     case CYCLE_COUNTER:
       return {

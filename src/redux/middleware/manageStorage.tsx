@@ -3,8 +3,8 @@
 import * as actionType from "../constants/actionTypes";
 import { updateDataStorage, removeItemFromStorage } from "../../storage/storage";
 
-import { Timer } from "./models/Timer";
-import { Card } from "./models/Card";
+import { Timer } from "../models/Timer";
+import { Card }from "../models/Card";
 
 const TIMERS_KEY: string = "@TIMERS";
 const CARDS_KEY: string = "@CARDS";

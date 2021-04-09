@@ -3,22 +3,24 @@ import React from "react";
 import { Dimensions, View, StyleSheet, Animated } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useSelector } from "react-redux";
+import { RootState } from "../Root";
 
-import Card from "../components/statistics/Card";
+import CardSlide from "../components/statistics/CardSlide";
+import { Card } from "../redux/models/Card";
 
 const { width, height } = Dimensions.get("window");
 const cardW = width * 0.8;
 const cardH = cardW * 1.8;
 
 const Statistics = () => {
-  const cards = useSelector((state) => state.stats.cards);
+  const cards = useSelector((state: RootState) => state.stats.cards);
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
       <View>
-        {cards.map((item, idx: number) => {
+        {cards.map((item: Card, idx: number) => {
           const inputRange = [
             (idx - 1) * width,
             idx * width,
@@ -34,13 +36,13 @@ const Statistics = () => {
               key={idx}
               style={[
                 styles.background,
-                // { backgroundColor: item.color, opacity },
+                { backgroundColor: item.color, opacity },
               ]}
             />
           );
         })}
       </View>
-      <Animated.FlatList
+      <Animated.FlatList<Card>
         data={cards}
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { x: scrollX } } }],
@@ -52,9 +54,11 @@ const Statistics = () => {
         keyExtractor={(_, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.card}>
-            <Card
+            <CardSlide
+              idx={item.idx}
+              dates={item.dates}
               weekdaysTotals={item.weekdaysTotals}
-              title={item.goal}
+              goal={item.goal}
               color={item.color}
               total={item.total}
               speed={item.speed}
