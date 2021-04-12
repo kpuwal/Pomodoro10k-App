@@ -1,17 +1,12 @@
 "use strict";
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../reduxToolkit/store";
 import { Vibration } from "react-native";
 
-import {
-  setMessage,
-  setMin,
-  changeCycle,
-  setMode,
-  startStop,
-  pauseResume,
-  saveSession,
-} from "../../../redux/actions";
+import { message, mode } from "../../../reduxToolkit/infoSlice";
+import { minutes } from "../../../reduxToolkit/sessionSlice";
+import { updateCard } from "../../../reduxToolkit/cardSlice";
+import { cycleCounter, startCounter, pauseCounter } from "../../../reduxToolkit/counterSlice";
 
 import DisplayMessage from "../info/Message";
 import Counter from "./Counter";
@@ -27,31 +22,31 @@ interface CounterCycleProps {
 }
 
 export default function CounterCycle({ cycle, pause, min, sec, focus, relax, infoMessage }: CounterCycleProps) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(setMessage(0));
+    dispatch(message(0));
   }, [dispatch]);
 
   const completeFirstCycle = () => {
-    dispatch(changeCycle(true));
+    dispatch(cycleCounter(true));
     if (relax === 0) {
       completeSecondCycle();
     }
-    dispatch(setMessage(1));
+    dispatch(message(1));
     // Vibration.vibrate();
-    dispatch(setMin(relax));
-    dispatch(setMode(1));
+    dispatch(minutes(relax));
+    dispatch(mode(1));
   };
 
   const completeSecondCycle = () => {
     // Vibration.vibrate();
     // Vibration.vibrate();
-    dispatch(startStop());
-    dispatch(pauseResume(false));
-    dispatch(setMode(0));
-    dispatch(setMin(focus));
-    dispatch(saveSession());
+    dispatch(startCounter());
+    dispatch(pauseCounter(false));
+    dispatch(mode(0));
+    dispatch(minutes(focus));
+    dispatch(updateCard());
   };
 
   const handleMessageOver = () => {
@@ -62,8 +57,8 @@ export default function CounterCycle({ cycle, pause, min, sec, focus, relax, inf
   };
 
   const handleCountOver = () => {
-    dispatch(changeCycle(false));
-    dispatch(setMode(2));
+    dispatch(cycleCounter(false));
+    dispatch(mode(2));
   };
 
   if (cycle) {

@@ -2,20 +2,20 @@
 import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../Root";
-import { Timer } from "../../../redux/models/Timer";
+import { RootState } from "../../../reduxToolkit/store";
+import { TimerProps } from "../../../redux/models/Timer";
 
-import { deleteTimer } from "../../../redux/actions";
+import { deleteTimer } from "../../../reduxToolkit/timerSlice";
 import ListItem from "./ListItem";
 
 const DeleteTimer = () => {
-  const timersList = useSelector((state: RootState) => state.timers.timersList);
+  const timersList = useSelector((state: RootState) => state.timer.timersList);
   const displayList = timersList.slice(2);
   const dispatch = useDispatch();
 
   return (
     <View style={styles.container}>
-      <FlatList<Timer>
+      <FlatList<TimerProps>
         data={displayList}
         renderItem={({ item }) => (
           <ListItem

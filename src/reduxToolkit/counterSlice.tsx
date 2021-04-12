@@ -12,11 +12,11 @@ export const counterSlice = createSlice({
     cycleCounter: (state, action: PayloadAction<boolean>) => {
       state.cycle = action.payload
     },
-    startCounter: (state, action: PayloadAction<boolean>) => {
-      state.start = !action.payload
+    startCounter: (state) => {
+      state.start = !state.start
     },
     pauseCounter: (state, action: PayloadAction<boolean>) => {
-      state.start = action.payload
+      state.pause = action.payload
     },
   }
 });

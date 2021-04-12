@@ -1,9 +1,9 @@
 "use strict";
 import React, { useState } from "react";
 import { View, TextInput, Text, StyleSheet, FlatList } from "react-native";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../reduxToolkit/store";
 
-import { createCard } from "../../../redux/actions";
+import { createCard } from "../../../reduxToolkit/cardSlice";
 import SettingsButton from "../Button";
 import ColorBox from "./ColorBox";
 
@@ -13,14 +13,14 @@ const AddGoal = () => {
   const [title, setTitle] = useState<string>("");
   const [amount, setAmount] = useState<string>("");
   const [color, setColor] = useState<string>("");
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const pickColor = (col: string) => {
     setColor(col);
   };
 
   const handleCreateGoal = () => {
-    dispatch(createCard(color, title));
+    dispatch(createCard({color, title}));
     setTitle("");
     setAmount("");
   };

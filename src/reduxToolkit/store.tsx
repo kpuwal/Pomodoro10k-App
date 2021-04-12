@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 
 import infoReducer from "./infoSlice";
@@ -15,6 +15,9 @@ export const store = configureStore({
     timer: timerReducer,
     card: cardReducer,
   },
+  // middleware: getDefaultMiddleware({
+  //   serializableCheck: false,
+  // }),
 })
 
 export type RootState = ReturnType<typeof store.getState>

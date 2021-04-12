@@ -4,14 +4,6 @@ import { View, Text } from "react-native";
 
 import { statsIcon, settingsIcon } from "../../config/iconsFile";
 
-export const statisticsHeader: React.FC = () => {
-  return header("STATISTICS", statsIcon("#29304D"), true);
-};
-
-export const settingsHeader: React.FC = () => {
-  return header("SETTINGS", settingsIcon("#29304D"), false);
-};
-
 function header(title: string, icon: object, isBottom: boolean) {
   const align = isBottom ? "flex-end" : "center";
   return (
@@ -30,4 +22,12 @@ function header(title: string, icon: object, isBottom: boolean) {
       </Text>
     </View>
   );
-}
+};
+
+export const statisticsHeader: React.FC = () => {
+  return header("STATISTICS", statsIcon("#29304D"), true);
+};
+
+export const settingsHeader: React.FC = () => {
+  return header("SETTINGS", settingsIcon("#29304D"), false);
+};

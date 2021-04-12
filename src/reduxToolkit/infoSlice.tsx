@@ -9,14 +9,14 @@ export const infoSlice = createSlice({
     message: MESSAGE[0],
   },
   reducers: {
-    sessionMode: (state, action: PayloadAction<number>) => {
+    mode: (state, action: PayloadAction<number>) => {
       state.mode = MODE[action.payload]!
     },
-    sessionMessage: (state, action: PayloadAction<number>) => {
+    message: (state, action: PayloadAction<number>) => {
       state.message = MESSAGE[action.payload]!
     }
   }
 });
 
-export const { sessionMode, sessionMessage } = infoSlice.actions;
+export const { mode, message } = infoSlice.actions;
 export default infoSlice.reducer;

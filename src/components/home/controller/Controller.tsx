@@ -1,7 +1,7 @@
 "use strict";
 import React from "react";
 import { Dimensions, View, StyleSheet } from "react-native";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../reduxToolkit/store";
 
 import {
   playIcon,
@@ -9,10 +9,12 @@ import {
   pauseIcon,
   resumeIcon,
 } from "../../../config/iconsFile";
-import { startStop, pauseResume, setMin, setMode } from "../../../redux/actions";
+
+import { startCounter, pauseCounter } from "../../../reduxToolkit/counterSlice";
+import { minutes, seconds } from "../../../reduxToolkit/sessionSlice";
 import RoundButton from "./RoundButton";
 
-import { Card } from "../../../redux/models/Card";
+import { CardProps } from "../../../redux/models/Card";
 
 const { width } = Dimensions.get("window");
 
@@ -20,19 +22,19 @@ interface ControllerProps {
   start: boolean;
   pause: boolean;
   focus: number;
-  card: Card;
+  card: CardProps;
 }
 
 const Controler = ({ start, pause, focus, card }: ControllerProps) => {
-  const dispatch = useDispatch();
-  const startStopCount = () => dispatch(startStop());
-  const pauseResumeCount = (value: boolean) => dispatch(pauseResume(value));
+  const dispatch = useAppDispatch();
+  const startStopCount = () => dispatch(startCounter());
+  const pauseResumeCount = (value: boolean) => dispatch(pauseCounter(value));
 
   const toggleStartStop = () => {
     startStopCount();
     pauseResumeCount(false);
-    dispatch(setMin(focus));
-    dispatch(setMode(0));
+    dispatch(minutes(focus));
+    // dispatch(seconds({min: focus, sec: 0}));
   };
 
   return (

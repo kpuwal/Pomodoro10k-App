@@ -3,9 +3,9 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import WeeklyChart from "./WeeklyChart";
-import { Card } from "../../redux/models/Card";
+import { CardProps } from "../../redux/models/Card";
 
-interface ICardProps extends Card {
+interface ICardProps extends CardProps {
   width: number;
   height: number;
 };

@@ -7,25 +7,25 @@ import {
   FlatList,
   View,
 } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { RootState, useAppDispatch } from "../../reduxToolkit/store";
 
-import { selectCard } from "../../redux/actions";
+import { selectCard } from "../../reduxToolkit/cardSlice";
 import GoalsListItem from "../../components/settings/goal/GoalListItem";
+import { CardProps } from "../../redux/models/Card";
 
-const GoalPicker = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardsList = useSelector((state) => state.stats.cards);
-  const selected = useSelector((state) => state.stats.selected);
-  const dispatch = useDispatch();
+const GoalPicker: React.FC = () => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const cardsList = useSelector((state: RootState) => state.card.cardsList);
+  const selected = useSelector((state: RootState) => state.card.selected);
+  const dispatch = useAppDispatch();
 
-  console.log("loading GoalPicker")
-
-  const activateModal = (val) => {
-    setIsVisible(val);
+  const activateModal = (value: boolean) => {
+    setIsVisible(value);
   };
 
-  const handleSelect = (item) => {
+  const handleSelect = (item: CardProps) => {
     dispatch(selectCard(item));
     setIsVisible(false);
   };

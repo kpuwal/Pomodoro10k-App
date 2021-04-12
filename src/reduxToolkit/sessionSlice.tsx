@@ -19,21 +19,17 @@ export const sessionSlice = createSlice({
     } as Session,
   },
   reducers: {
-    saveSession: (state) => {
-      state.session = {min: 45, sec: 0};
-      state.selected = {min: 45, sec: 0};
+    selectSession: (state, action: PayloadAction<number>) => {
+      state.selected = { min: action.payload, sec: 0 }
     },
-    selectedSession: (state, action: PayloadAction<Session>) => {
-      state.selected = action.payload
-    },
-    minutes: (state, action: PayloadAction<Session>) => {
-      state.session = action.payload
+    minutes: (state, action: PayloadAction<number>) => {
+      state.session = {min: action.payload - 1, sec: 59}
     },
     seconds: (state, action: PayloadAction<Session>) => {
-      state.session = action.payload
+      state.session.sec = action.payload.sec - 1}
     },
   }
-});
+)
 
-export const { saveSession, selectedSession, minutes, seconds } = sessionSlice.actions;
+export const { saveSession, selectSession, minutes, seconds } = sessionSlice.actions;
 export default sessionSlice.reducer;

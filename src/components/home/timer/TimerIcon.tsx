@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 
 import StyleGuide from "../../../config/StyleGuide";
 import Icon from "../../../svg/Icon";
-import { TimerProps } from "../../../redux/reducers/timers"; 
+import { TimerProps } from "../../../redux/models/Timer"; 
+import { RootState } from "../../../reduxToolkit/store";
 
 interface TimerIconProps {
   item: TimerProps;
@@ -14,7 +15,7 @@ interface TimerIconProps {
 };
 
 const TimerIcon = ({ item, selected, toggleSession }: TimerIconProps) => {
-  const start = useSelector((state) => state.counter.start);
+  const start = useSelector((state: RootState) => state.counter.start);
   const tSelected = StyleGuide.palette.main.secondary;
   const tUnselected = StyleGuide.palette.main.tertiary;
 

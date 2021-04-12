@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 import Button from "../Button";
 import InputController from "./InputController";
-import { createTimer } from "../../../redux/actions";
+import { createTimer } from "../../../reduxToolkit/timerSlice";
 
 const AddTimer: React.FC = () => {
   const [focus, setFocus] = useState<number>(0);
@@ -13,7 +13,7 @@ const AddTimer: React.FC = () => {
   const dispatch = useDispatch();
 
   const handleCreateTimer = () => {
-    dispatch(createTimer(focus, relax));
+    dispatch(createTimer({focus, relax}));
     setFocus(0);
     setRelax(0);
   };

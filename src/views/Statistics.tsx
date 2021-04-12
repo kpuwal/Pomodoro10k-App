@@ -3,24 +3,24 @@ import React from "react";
 import { Dimensions, View, StyleSheet, Animated } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useSelector } from "react-redux";
-import { RootState } from "../Root";
+import { RootState } from "../reduxToolkit/store";
 
 import CardSlide from "../components/statistics/CardSlide";
-import { Card } from "../redux/models/Card";
+import { CardProps } from "../redux/models/Card";
 
 const { width, height } = Dimensions.get("window");
 const cardW = width * 0.8;
 const cardH = cardW * 1.8;
 
-const Statistics = () => {
-  const cards = useSelector((state: RootState) => state.stats.cards);
+const Statistics: React.FC = () => {
+  const cards = useSelector((state: RootState) => state.card.cardsList);
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
       <View>
-        {cards.map((item: Card, idx: number) => {
+        {cards.map((item: CardProps, idx: number) => {
           const inputRange = [
             (idx - 1) * width,
             idx * width,
@@ -42,7 +42,7 @@ const Statistics = () => {
           );
         })}
       </View>
-      <Animated.FlatList<Card>
+      <Animated.FlatList<CardProps>
         data={cards}
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { x: scrollX } } }],
@@ -55,8 +55,6 @@ const Statistics = () => {
         renderItem={({ item }) => (
           <View style={styles.card}>
             <CardSlide
-              idx={item.idx}
-              dates={item.dates}
               weekdaysTotals={item.weekdaysTotals}
               goal={item.goal}
               color={item.color}

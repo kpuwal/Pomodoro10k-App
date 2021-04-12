@@ -1,8 +1,8 @@
 "use strict";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../reduxToolkit/store";
 
-import { setMin, setSec } from "../../../redux/actions";
+import { minutes, seconds } from "../../../reduxToolkit/sessionSlice";
 import useInterval from "../../../hooks/useInterval";
 
 import DisplayCounter from "./DisplayCounter";
@@ -15,7 +15,7 @@ interface CounterProps {
 };
 
 const Counter = ({ countOver, pause, min, sec }: CounterProps) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useInterval(() => tick(), 1000);
 
@@ -28,9 +28,9 @@ const Counter = ({ countOver, pause, min, sec }: CounterProps) => {
     }
 
     if (sec === 0) {
-      dispatch(setMin(min));
+      dispatch(minutes(min));
     } else {
-      dispatch(setSec(min, sec));
+      dispatch(seconds({min, sec}));
     }
   };
 

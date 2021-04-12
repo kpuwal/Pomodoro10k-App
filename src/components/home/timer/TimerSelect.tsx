@@ -1,23 +1,27 @@
 "use strict";
 import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../reduxToolkit/store";
 
-import { selectTimer, selectSession, setMin } from "../../../redux/actions";
 import TimerIcon from "./TimerIcon";
-import { TimerState, TimerProps } from "../../../redux/reducers/timers";
+import { TimerProps } from '../../../redux/models/Timer';
+import { selectTimer } from "../../../reduxToolkit/timerSlice";
+import { selectSession, minutes } from "../../../reduxToolkit/sessionSlice";
 
 interface TimerSelectProp {
-  timers: TimerState;
+  timers: {
+    timersList: TimerProps[],
+    selected: TimerProps,
+  };
 };
 
 const TimerSelect = ({ timers }: TimerSelectProp) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const toggleSession = (item: TimerProps) => {
     dispatch(selectTimer(item));
     dispatch(selectSession(item.data.focus));
-    dispatch(setMin(item.data.focus));
+    dispatch(minutes(item.data.focus));
   };
 
   return (
