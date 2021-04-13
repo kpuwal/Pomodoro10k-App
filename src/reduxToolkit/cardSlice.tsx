@@ -1,6 +1,7 @@
 "use strict";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Card, CardProps } from "../redux/models/Card";
+import { updateSelectedCard } from "./helper";
 
 const DEFAULT_CARD = {
   idx: 0,
@@ -41,8 +42,8 @@ export const cardSlice = createSlice({
     selectCard: (state, action: PayloadAction<CardProps>) => {
       state.selected = action.payload
     },
-    updateCard: (state) => {
-      console.log("Card updated!")
+    updateCard: (state, action: PayloadAction<number>) => {
+      state.cardsList = updateSelectedCard(state.cardsList , state.selected.idx, action.payload);
     },
   }
 });

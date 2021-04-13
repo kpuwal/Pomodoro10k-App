@@ -1,8 +1,8 @@
 "use strict";
-import React from "react";
+import React, { useState } from "react";
 import { useAppDispatch } from "../../../reduxToolkit/store";
 
-import { minutes, seconds } from "../../../reduxToolkit/sessionSlice";
+// import { minutes, seconds } from "../../../reduxToolkit/sessionSlice";
 import useInterval from "../../../hooks/useInterval";
 
 import DisplayCounter from "./DisplayCounter";
@@ -14,8 +14,14 @@ interface CounterProps {
   sec: number;
 };
 
+type TimerProps = {
+  min: number,
+  sec: number,
+};
+
 const Counter = ({ countOver, pause, min, sec }: CounterProps) => {
-  const dispatch = useAppDispatch();
+  const [timer, setTimer] = useState<TimerProps>({min, sec});
+  // const dispatch = useAppDispatch();
 
   useInterval(() => tick(), 1000);
 
@@ -23,18 +29,20 @@ const Counter = ({ countOver, pause, min, sec }: CounterProps) => {
     if (pause) {
       return;
     }
-    if (min === 0 && sec === 0) {
+    if (timer.min === 0 && timer.sec === 0) {
       return countOver();
     }
 
-    if (sec === 0) {
-      dispatch(minutes(min));
+    if (timer.sec === 0) {
+      setTimer({ min: timer.min - 1, sec: 59 });
+      // dispatch(minutes(min));
     } else {
-      dispatch(seconds({min, sec}));
+      // dispatch(seconds({min, sec}));
+      setTimer({ min: timer.min, sec: timer.sec - 1 });
     }
   };
 
-  return <DisplayCounter {...{ sec, min }} />;
+  return <DisplayCounter sec={timer.sec} min={timer.min} />;
 };
 
 export default Counter;

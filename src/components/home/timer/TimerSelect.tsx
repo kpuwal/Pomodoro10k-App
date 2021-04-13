@@ -21,7 +21,7 @@ const TimerSelect = ({ timers }: TimerSelectProp) => {
   const toggleSession = (item: TimerProps) => {
     dispatch(selectTimer(item));
     dispatch(selectSession(item.data.focus));
-    dispatch(minutes(item.data.focus));
+    // dispatch(minutes(item.data.focus));
   };
 
   return (

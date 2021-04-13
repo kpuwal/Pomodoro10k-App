@@ -1,7 +1,7 @@
 "use strict";
 
 export interface CardProps {
-  idx?: number;
+  idx: number;
   speed: number;
   total: number;
   timeLeft: number;
@@ -14,7 +14,7 @@ export interface CardProps {
   weekdaysTotals: number[];
   goal: string;
   color: string;
-  dates?: string[];
+  dates: string[];
 };
 
 export const Card = (color: string, title: string): CardProps => {

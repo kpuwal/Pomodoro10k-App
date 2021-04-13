@@ -2,8 +2,8 @@
 import { useRef, useEffect } from "react";
 
 const useInterval = (callback, delay: number) => {
-  const savedCallback = useRef<HTMLDivElement>();
-  let id;
+  const savedCallback = useRef();
+
   useEffect(() => {
     savedCallback.current = callback;
   }, [callback]);
@@ -12,10 +12,9 @@ const useInterval = (callback, delay: number) => {
     function tick() {
       savedCallback.current();
     }
-    if (delay !== null) {
-      id = setInterval(tick, delay);
-      console.log("about to clear interval!");
-    }
+    
+    const id = setInterval(tick, delay);
+    console.log("about to clear interval!");
     return () => clearInterval(id);
   }, [delay]);
 };

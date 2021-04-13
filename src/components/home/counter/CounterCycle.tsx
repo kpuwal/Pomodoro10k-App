@@ -21,11 +21,12 @@ interface CounterCycleProps {
   infoMessage: string;
 }
 
-export default function CounterCycle({ cycle, pause, min, sec, focus, relax, infoMessage }: CounterCycleProps) {
+const  CounterCycle = ({ cycle, pause, min, sec, focus, relax, infoMessage }: CounterCycleProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(message(0));
+    dispatch(mode(0));
   }, [dispatch]);
 
   const completeFirstCycle = () => {
@@ -46,7 +47,7 @@ export default function CounterCycle({ cycle, pause, min, sec, focus, relax, inf
     dispatch(pauseCounter(false));
     dispatch(mode(0));
     dispatch(minutes(focus));
-    dispatch(updateCard());
+    dispatch(updateCard(focus));
   };
 
   const handleMessageOver = () => {
@@ -77,3 +78,4 @@ export default function CounterCycle({ cycle, pause, min, sec, focus, relax, inf
     );
   }
 }
+export default CounterCycle;

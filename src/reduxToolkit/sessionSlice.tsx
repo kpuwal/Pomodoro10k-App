@@ -31,5 +31,5 @@ export const sessionSlice = createSlice({
   }
 )
 
-export const { saveSession, selectSession, minutes, seconds } = sessionSlice.actions;
+export const { selectSession, minutes, seconds } = sessionSlice.actions;
 export default sessionSlice.reducer;
