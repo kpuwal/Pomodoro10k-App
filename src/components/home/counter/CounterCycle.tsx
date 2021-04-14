@@ -4,7 +4,6 @@ import { useAppDispatch } from "../../../reduxToolkit/store";
 import { Vibration } from "react-native";
 
 import { message, mode } from "../../../reduxToolkit/slices/infoSlice";
-import { minutes } from "../../../reduxToolkit/slices/sessionSlice";
 import { updateCard } from "../../../reduxToolkit/slices/cardSlice";
 import { cycleCounter, startCounter, pauseCounter } from "../../../reduxToolkit/slices/counterSlice";
 
@@ -36,7 +35,6 @@ const  CounterCycle = ({ cycle, pause, min, sec, focus, relax, infoMessage }: Co
     }
     dispatch(message(1));
     // Vibration.vibrate();
-    dispatch(minutes(relax));
     dispatch(mode(1));
   };
 
@@ -46,7 +44,6 @@ const  CounterCycle = ({ cycle, pause, min, sec, focus, relax, infoMessage }: Co
     dispatch(startCounter());
     dispatch(pauseCounter(false));
     dispatch(mode(0));
-    dispatch(minutes(focus));
     dispatch(updateCard(focus));
   };
 

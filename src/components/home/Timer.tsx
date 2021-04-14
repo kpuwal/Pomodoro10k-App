@@ -11,7 +11,6 @@ import TimerSelect from "./timer/TimerSelect";
 
 const Timer: React.FC = () => {
   const counter = useSelector((state: RootState) => state.counter);
-  const session = useSelector((state: RootState) => state.session);
   const timers = useSelector((state: RootState) => state.timer);
   const card = useSelector((state: RootState) => state.card);
   const info = useSelector((state: RootState) => state.info);
@@ -24,15 +23,15 @@ const Timer: React.FC = () => {
             focus={timers.selected.data.focus}
             relax={timers.selected.data.relax}
             infoMessage={info.message}
-            min={session.session.min}
-            sec={session.session.sec}
+            min={timers.runningTimer.min}
+            sec={timers.runningTimer.sec}
             cycle={counter.cycle}
             pause={counter.pause}
           />
         : 
           <DisplayCounter
-            min={session.selected.min}
-            sec={session.selected.sec}  
+            min={timers.runningTimer.min}
+            sec={timers.runningTimer.sec}  
           />
       }
       <DisplayMode
@@ -42,7 +41,6 @@ const Timer: React.FC = () => {
       <Controller
         start={counter.start}
         pause={counter.pause}
-        focus={timers.selected.data.focus}
         card={card.selected}
       />
       <TimerSelect {...{ timers }} />

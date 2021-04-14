@@ -6,7 +6,6 @@ import { useAppDispatch } from "../../../reduxToolkit/store";
 import TimerIcon from "./TimerIcon";
 import { TimerProps } from '../../../reduxToolkit/models';
 import { selectTimer } from "../../../reduxToolkit/slices/timerSlice";
-import { selectSession, minutes } from "../../../reduxToolkit/slices/sessionSlice";
 
 interface TimerSelectProp {
   timers: {
@@ -20,8 +19,6 @@ const TimerSelect = ({ timers }: TimerSelectProp) => {
 
   const toggleSession = (item: TimerProps) => {
     dispatch(selectTimer(item));
-    dispatch(selectSession(item.data.focus));
-    // dispatch(minutes(item.data.focus));
   };
 
   return (

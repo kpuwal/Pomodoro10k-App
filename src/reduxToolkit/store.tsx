@@ -15,14 +15,12 @@ import { useDispatch } from "react-redux";
 
 import infoReducer from "./slices/infoSlice";
 import counterReducer from "./slices/counterSlice";
-import sessionReducer from "./slices/sessionSlice";
 import timerReducer from "./slices/timerSlice";
 import cardReducer from "./slices/cardSlice";
 
 const reducer = combineReducers({
   info: infoReducer,
   counter: counterReducer,
-  session: sessionReducer,
   timer: timerReducer,
   card: cardReducer,
 });
@@ -46,6 +44,6 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
-export const useAppDispatch = () => useDispatch<AppDispatch>()
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch = () => useDispatch<AppDispatch>();

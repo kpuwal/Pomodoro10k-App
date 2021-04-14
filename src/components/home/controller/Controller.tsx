@@ -11,7 +11,6 @@ import {
 } from "../../../config/iconsFile";
 
 import { startCounter, pauseCounter } from "../../../reduxToolkit/slices/counterSlice";
-import { minutes, seconds } from "../../../reduxToolkit/slices/sessionSlice";
 import RoundButton from "./RoundButton";
 
 import { CardProps } from "../../../reduxToolkit/models";
@@ -21,11 +20,10 @@ const { width } = Dimensions.get("window");
 interface ControllerProps {
   start: boolean;
   pause: boolean;
-  focus: number;
   card: CardProps;
 }
 
-const Controler = ({ start, pause, focus, card }: ControllerProps) => {
+const Controler = ({ start, pause, card }: ControllerProps) => {
   const dispatch = useAppDispatch();
   const startStopCount = () => dispatch(startCounter());
   const pauseResumeCount = (value: boolean) => dispatch(pauseCounter(value));
@@ -33,8 +31,6 @@ const Controler = ({ start, pause, focus, card }: ControllerProps) => {
   const toggleStartStop = () => {
     startStopCount();
     pauseResumeCount(false);
-    dispatch(minutes(focus));
-    // dispatch(seconds({min: focus, sec: 0}));
   };
 
   return (
