@@ -1,13 +1,6 @@
 "use strict";
-import { AnyAction } from "redux";
-import { SESSION_SAVE } from "../constants/actionTypes";
 import { WEEKDAYS, MONTHS } from "../config/constants";
-import { updateDataStorage } from "../../storage/storage";
-
-import { CardProps } from "../redux/models/Card";
-import React from "react";
-
-// const CARDS_KEY = "@CARDS";
+import { CardProps } from "./models";
 
 type DateType = {
   weekday: string, day: string, month: string, year: string
@@ -71,23 +64,8 @@ const updateCard = (item: CardProps, amount: number): void => {
   item.date = updateDate(item, day);
 };
 
-export const updateSelectedCard = (list: CardProps[], cardIdx: number, amount: number) => {
+export const updateSelectedCard = (list: CardProps[], cardIdx: number, amount: number): CardProps[] => {
   const card = list.find((el: CardProps) => el.idx === cardIdx)!;
   updateCard(card, amount);
   return list;
-}
-
-// const saveSession = (store) => (next: AppDispatch) => (action: AnyAction) => {
-//   const newAmount = store.getState().timers.selected.data.focus;
-//   const cardIdx = store.getState().stats.selected.idx;
-//   const cardsList = store.getState().stats.cards;
-//   const card = cardsList.find((el: CardProps) => el.idx === cardIdx);
-
-//   if (action.type === SESSION_SAVE) {
-//     updateCard(card, newAmount);
-//     updateDataStorage(CARDS_KEY, { items: cardsList });
-//   }
-//   return next(action);
-// };
-
-// export default updateCard;
+};

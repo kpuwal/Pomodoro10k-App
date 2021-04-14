@@ -4,15 +4,14 @@ import { View, StyleSheet } from "react-native";
 import { useAppDispatch } from "../../reduxToolkit/store";
 
 import SettingsButton from "../../components/settings/Button";
-import { clearStorage } from "../../storage/storage";
-import { clearTimers, clearCards } from "../../redux/actions";
+import { clearTimersAS } from "../../reduxToolkit/timerSlice";
+import { clearCardsAS } from "../../reduxToolkit/cardSlice";
 
 const DataManager: React.FC = () => {
   const dispatch = useAppDispatch();
   const handleErase = () => {
-    clearStorage();
-    // dispatch(clearTimers());
-    // dispatch(clearCards());
+    dispatch(clearTimersAS());
+    dispatch(clearCardsAS());
   };
   return (
     <View style={styles.container}>

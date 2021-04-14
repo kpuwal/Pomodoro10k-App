@@ -4,7 +4,7 @@ import { View, FlatList, StyleSheet } from "react-native";
 import { useAppDispatch } from "../../../reduxToolkit/store";
 
 import TimerIcon from "./TimerIcon";
-import { TimerProps } from '../../../redux/models/Timer';
+import { TimerProps } from '../../../reduxToolkit/models';
 import { selectTimer } from "../../../reduxToolkit/timerSlice";
 import { selectSession, minutes } from "../../../reduxToolkit/sessionSlice";
 

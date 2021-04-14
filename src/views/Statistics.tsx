@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../reduxToolkit/store";
 
 import CardSlide from "../components/statistics/CardSlide";
-import { CardProps } from "../redux/models/Card";
+import { CardProps } from "../reduxToolkit/models";
 
 const { width, height } = Dimensions.get("window");
 const cardW = width * 0.8;

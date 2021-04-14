@@ -13,7 +13,7 @@ import { RootState, useAppDispatch } from "../../reduxToolkit/store";
 
 import { selectCard } from "../../reduxToolkit/cardSlice";
 import GoalsListItem from "../../components/settings/goal/GoalListItem";
-import { CardProps } from "../../redux/models/Card";
+import { CardProps } from "../../reduxToolkit/models";
 
 const GoalPicker: React.FC = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);

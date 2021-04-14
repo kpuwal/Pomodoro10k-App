@@ -1,20 +1,19 @@
 "use strict";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Timer, TimerProps, DataProps } from "../redux/models/Timer"
+import { Timer, TimerProps, DataProps } from "./models";
+
+const initialState = {
+  timersList: [
+    { idx: 1, data: { focus: 45, relax: 15 } },
+    { idx: 2, data: { focus: 25, relax: 5 } },
+  ] as TimerProps[],
+  selected: { idx: 1, data: { focus: 45, relax: 15 } } as TimerProps,
+};
 
 export const timerSlice = createSlice({
   name: "timer",
-  initialState: {
-    timersList: [
-      { idx: 1, data: { focus: 45, relax: 15 } },
-      { idx: 2, data: { focus: 25, relax: 5 } },
-    ] as TimerProps[],
-    selected: { idx: 1, data: { focus: 45, relax: 15 } } as TimerProps,
-  },
+  initialState,
   reducers: {
-    fetchTimers: (state, action: PayloadAction<TimerProps[]>) => {
-      state.timersList = [...state.timersList, ...action.payload]
-    },
     createTimer: (state, action: PayloadAction<DataProps>) => {
       const timer = Timer(action.payload)
       state.timersList.push(timer)
@@ -27,8 +26,9 @@ export const timerSlice = createSlice({
     selectTimer: (state, action: PayloadAction<TimerProps>) => {
       state.selected = action.payload
     },
+    clearTimersAS: () => initialState
   }
 });
 
-export const { fetchTimers, createTimer, deleteTimer, selectTimer } = timerSlice.actions;
+export const { createTimer, deleteTimer, selectTimer, clearTimersAS } = timerSlice.actions;
 export default timerSlice.reducer;

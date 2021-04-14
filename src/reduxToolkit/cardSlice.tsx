@@ -1,9 +1,9 @@
 "use strict";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Card, CardProps } from "../redux/models/Card";
+import { Card, CardProps } from "./models";
 import { updateSelectedCard } from "./helper";
 
-const DEFAULT_CARD = {
+const DEFAULT_CARD: CardProps = {
   idx: 0,
   speed: 0,
   total: 0,
@@ -20,16 +20,15 @@ const DEFAULT_CARD = {
   dates: [],
 };
 
+const initialState = {
+  cardsList: [DEFAULT_CARD] as CardProps[],
+  selected: DEFAULT_CARD as CardProps,
+}
+
 export const cardSlice = createSlice({
   name: "card",
-  initialState: {
-    cardsList: [DEFAULT_CARD] as CardProps[],
-    selected: DEFAULT_CARD as CardProps,
-  },
+  initialState,
   reducers: {
-    fetchCards: (state, action: PayloadAction<CardProps[]>) => {
-      state.cardsList = action.payload
-    },
     createCard: (state, action: PayloadAction<{color: string, title: string}>) => {
       const card = Card(action.payload.color, action.payload.title);
       state.cardsList.push(card)
@@ -45,8 +44,9 @@ export const cardSlice = createSlice({
     updateCard: (state, action: PayloadAction<number>) => {
       state.cardsList = updateSelectedCard(state.cardsList , state.selected.idx, action.payload);
     },
+    clearCardsAS: () => initialState
   }
 });
 
-export const { fetchCards, createCard, deleteCard, selectCard, updateCard } = cardSlice.actions;
+export const { createCard, deleteCard, selectCard, updateCard, clearCardsAS } = cardSlice.actions;
 export default cardSlice.reducer;

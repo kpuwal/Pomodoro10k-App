@@ -3,7 +3,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import WeeklyChart from "./WeeklyChart";
-import { CardProps } from "../../redux/models/Card";
+import { CardProps } from "../../reduxToolkit/models";
 
 interface ICardProps extends CardProps {
   width: number;

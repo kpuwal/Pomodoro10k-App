@@ -1,27 +1,17 @@
 "use strict";
 import React from "react";
 import { Provider } from "react-redux";
-import { store } from "./reduxToolkit/store";
-// import { Store as ReduxStore, createStore, applyMiddleware } from "redux";
-// import thunk from "redux-thunk";
-// import reducers from "./redux/reducers";
+import { store, persistor } from "./reduxToolkit/store";
 
-// // TO BE REMOVED
-// import { composeWithDevTools } from 'redux-devtools-extension';
-
-// import multiactionArray from "./redux/middleware/multiactionArray";
-// import manageStorage from "./redux/middleware/manageStorage";
-// import saveSession from "./redux/middleware/saveSession";
-// import { fetchData } from "./redux/actions";
-
-// const store: ReduxStore = createStore(
-//   reducers,
-//   composeWithDevTools(applyMiddleware(thunk, multiactionArray, manageStorage, saveSession))
-// );
+import { PersistGate } from "redux-persist/lib/integration/react";
 
 const Root: React.FC = ({ children }) => {
-  // store.dispatch(fetchData());
-  return <Provider store={store}>{children}</Provider>;
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor} >
+        {children}
+      </PersistGate>
+    </Provider>);
 };
 
 export default Root;

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 import StyleGuide from "../../../config/StyleGuide";
 import Icon from "../../../svg/Icon";
-import { TimerProps } from "../../../redux/models/Timer"; 
+import { TimerProps } from "../../../reduxToolkit/models"; 
 import { RootState } from "../../../reduxToolkit/store";
 
 interface TimerIconProps {

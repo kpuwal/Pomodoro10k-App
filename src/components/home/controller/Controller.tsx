@@ -14,7 +14,7 @@ import { startCounter, pauseCounter } from "../../../reduxToolkit/counterSlice";
 import { minutes, seconds } from "../../../reduxToolkit/sessionSlice";
 import RoundButton from "./RoundButton";
 
-import { CardProps } from "../../../redux/models/Card";
+import { CardProps } from "../../../reduxToolkit/models";
 
 const { width } = Dimensions.get("window");
 

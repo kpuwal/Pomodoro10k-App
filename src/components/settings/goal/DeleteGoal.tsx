@@ -4,7 +4,7 @@ import { View, FlatList, StyleSheet, TouchableOpacity } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { RootState } from "../../../reduxToolkit/store";
-import { CardProps } from "../../../redux/models/Card";
+import { CardProps } from "../../../reduxToolkit/models";
 
 import { deleteCard } from "../../../reduxToolkit/cardSlice";
 import GoalsListItem from "./GoalListItem";

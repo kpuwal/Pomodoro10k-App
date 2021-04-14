@@ -3,7 +3,7 @@ import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../reduxToolkit/store";
-import { TimerProps } from "../../../redux/models/Timer";
+import { TimerProps } from "../../../reduxToolkit/models";
 
 import { deleteTimer } from "../../../reduxToolkit/timerSlice";
 import ListItem from "./ListItem";
