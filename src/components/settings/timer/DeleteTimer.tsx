@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../reduxToolkit/store";
 import { TimerProps } from "../../../reduxToolkit/models";
 
-import { deleteTimer } from "../../../reduxToolkit/timerSlice";
+import { deleteTimer } from "../../../reduxToolkit/slices/timerSlice";
 import ListItem from "./ListItem";
 
 const DeleteTimer = () => {

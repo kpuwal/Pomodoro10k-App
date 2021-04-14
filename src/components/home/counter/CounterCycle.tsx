@@ -3,10 +3,10 @@ import React, { useEffect } from "react";
 import { useAppDispatch } from "../../../reduxToolkit/store";
 import { Vibration } from "react-native";
 
-import { message, mode } from "../../../reduxToolkit/infoSlice";
-import { minutes } from "../../../reduxToolkit/sessionSlice";
-import { updateCard } from "../../../reduxToolkit/cardSlice";
-import { cycleCounter, startCounter, pauseCounter } from "../../../reduxToolkit/counterSlice";
+import { message, mode } from "../../../reduxToolkit/slices/infoSlice";
+import { minutes } from "../../../reduxToolkit/slices/sessionSlice";
+import { updateCard } from "../../../reduxToolkit/slices/cardSlice";
+import { cycleCounter, startCounter, pauseCounter } from "../../../reduxToolkit/slices/counterSlice";
 
 import DisplayMessage from "../info/Message";
 import Counter from "./Counter";

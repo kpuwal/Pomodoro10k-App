@@ -13,11 +13,11 @@ import {
 import { combineReducers } from "redux";
 import { useDispatch } from "react-redux";
 
-import infoReducer from "./infoSlice";
-import counterReducer from "./counterSlice";
-import sessionReducer from "./sessionSlice";
-import timerReducer from "./timerSlice";
-import cardReducer from "./cardSlice";
+import infoReducer from "./slices/infoSlice";
+import counterReducer from "./slices/counterSlice";
+import sessionReducer from "./slices/sessionSlice";
+import timerReducer from "./slices/timerSlice";
+import cardReducer from "./slices/cardSlice";
 
 const reducer = combineReducers({
   info: infoReducer,

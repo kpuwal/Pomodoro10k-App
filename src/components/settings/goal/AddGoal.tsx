@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { View, TextInput, Text, StyleSheet, FlatList } from "react-native";
 import { useAppDispatch } from "../../../reduxToolkit/store";
 
-import { createCard } from "../../../reduxToolkit/cardSlice";
+import { createCard } from "../../../reduxToolkit/slices/cardSlice";
 import SettingsButton from "../Button";
 import ColorBox from "./ColorBox";
 

@@ -1,7 +1,7 @@
 "use strict";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Card, CardProps } from "./models";
-import { updateSelectedCard } from "./helper";
+import { Card, CardProps } from "../models";
+import { updateSelectedCard } from "../helper";
 
 const DEFAULT_CARD: CardProps = {
   idx: 0,

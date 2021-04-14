@@ -6,7 +6,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { RootState } from "../../../reduxToolkit/store";
 import { CardProps } from "../../../reduxToolkit/models";
 
-import { deleteCard } from "../../../reduxToolkit/cardSlice";
+import { deleteCard } from "../../../reduxToolkit/slices/cardSlice";
 import GoalsListItem from "./GoalListItem";
 
 const DeleteGoal = () => {

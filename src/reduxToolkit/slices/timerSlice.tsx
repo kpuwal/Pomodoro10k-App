@@ -1,6 +1,6 @@
 "use strict";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Timer, TimerProps, DataProps } from "./models";
+import { Timer, TimerProps, DataProps } from "../models";
 
 const initialState = {
   timersList: [

@@ -10,8 +10,8 @@ import {
   resumeIcon,
 } from "../../../config/iconsFile";
 
-import { startCounter, pauseCounter } from "../../../reduxToolkit/counterSlice";
-import { minutes, seconds } from "../../../reduxToolkit/sessionSlice";
+import { startCounter, pauseCounter } from "../../../reduxToolkit/slices/counterSlice";
+import { minutes, seconds } from "../../../reduxToolkit/slices/sessionSlice";
 import RoundButton from "./RoundButton";
 
 import { CardProps } from "../../../reduxToolkit/models";

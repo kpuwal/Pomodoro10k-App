@@ -4,8 +4,8 @@ import { View, StyleSheet } from "react-native";
 import { useAppDispatch } from "../../reduxToolkit/store";
 
 import SettingsButton from "../../components/settings/Button";
-import { clearTimersAS } from "../../reduxToolkit/timerSlice";
-import { clearCardsAS } from "../../reduxToolkit/cardSlice";
+import { clearTimersAS } from "../../reduxToolkit/slices/timerSlice";
+import { clearCardsAS } from "../../reduxToolkit/slices/cardSlice";
 
 const DataManager: React.FC = () => {
   const dispatch = useAppDispatch();

@@ -1,6 +1,6 @@
 "use strict";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { MODE, MESSAGE } from "../config/constants";
+import { MODE, MESSAGE } from "../../config/constants";
 
 export const infoSlice = createSlice({
   name: "info",

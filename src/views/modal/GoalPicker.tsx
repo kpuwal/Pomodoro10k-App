@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { RootState, useAppDispatch } from "../../reduxToolkit/store";
 
-import { selectCard } from "../../reduxToolkit/cardSlice";
+import { selectCard } from "../../reduxToolkit/slices/cardSlice";
 import GoalsListItem from "../../components/settings/goal/GoalListItem";
 import { CardProps } from "../../reduxToolkit/models";
 

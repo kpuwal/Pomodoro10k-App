@@ -5,8 +5,8 @@ import { useAppDispatch } from "../../../reduxToolkit/store";
 
 import TimerIcon from "./TimerIcon";
 import { TimerProps } from '../../../reduxToolkit/models';
-import { selectTimer } from "../../../reduxToolkit/timerSlice";
-import { selectSession, minutes } from "../../../reduxToolkit/sessionSlice";
+import { selectTimer } from "../../../reduxToolkit/slices/timerSlice";
+import { selectSession, minutes } from "../../../reduxToolkit/slices/sessionSlice";
 
 interface TimerSelectProp {
   timers: {
