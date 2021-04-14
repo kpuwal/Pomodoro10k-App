@@ -15,13 +15,30 @@ const initialState = {
   runningTimer: { min: 45, sec: 0 } as RunningTimerProps,
 };
 
+const timer45 = {
+  idx: 1,
+  focus: { min: 45, sec: 0 },
+  relax: { min: 15, sec: 0 },
+};
+
+const timer25 = {
+  idx: 1,
+  focus: { min: 25, sec: 0 },
+  relax: { min: 5, sec: 0 },
+};
+
+const initState = {
+  timersList: [ timer45, timer25 ],
+  selected: timer45,
+};
+
 export const timerSlice = createSlice({
   name: "timer",
   initialState,
   reducers: {
-    runTimer: (state, action: PayloadAction<number>) => {
-      state.runningTimer = {min: action.payload, sec: 0};
-    },
+    // runTimer: (state, action: PayloadAction<number>) => {
+    //   state.runningTimer = {min: action.payload, sec: 0};
+    // },
     createTimer: (state, action: PayloadAction<DataProps>) => {
       const timer = Timer(action.payload);
       state.timersList.push(timer);

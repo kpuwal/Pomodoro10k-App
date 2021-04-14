@@ -1,8 +1,8 @@
 "use strict";
 import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../reduxToolkit/store";
+import { useSelector } from "react-redux";
+import { RootState, useAppDispatch } from "../../../reduxToolkit/store";
 import { TimerProps } from "../../../reduxToolkit/models";
 
 import { deleteTimer } from "../../../reduxToolkit/slices/timerSlice";
@@ -11,7 +11,7 @@ import ListItem from "./ListItem";
 const DeleteTimer = () => {
   const timersList = useSelector((state: RootState) => state.timer.timersList);
   const displayList = timersList.slice(2);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <View style={styles.container}>

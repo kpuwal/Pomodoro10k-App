@@ -34,17 +34,17 @@ const  CounterCycle = ({ cycle, pause, min, sec, focus, relax, infoMessage }: Co
       completeSecondCycle();
     }
     dispatch(message(1));
-    // Vibration.vibrate();
     dispatch(mode(1));
+    // Vibration.vibrate();
   };
 
   const completeSecondCycle = () => {
-    // Vibration.vibrate();
-    // Vibration.vibrate();
     dispatch(startCounter());
     dispatch(pauseCounter(false));
     dispatch(mode(0));
     dispatch(updateCard(focus));
+    // Vibration.vibrate();
+    // Vibration.vibrate();
   };
 
   const handleMessageOver = () => {

@@ -1,7 +1,7 @@
 "use strict";
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../reduxToolkit/store";
 
 import Button from "../Button";
 import InputController from "./InputController";
@@ -10,7 +10,7 @@ import { createTimer } from "../../../reduxToolkit/slices/timerSlice";
 const AddTimer: React.FC = () => {
   const [focus, setFocus] = useState<number>(0);
   const [relax, setRelax] = useState<number>(0);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleCreateTimer = () => {
     dispatch(createTimer({focus, relax}));
