@@ -7,7 +7,8 @@ export type DataProps = {
 
 export interface TimerProps {
   idx: number,
-  data: DataProps,
+  focus: { min: number, sec: number },
+  relax: { min: number, sec: number },
 };
 
 export interface CardProps {
@@ -30,10 +31,8 @@ export interface CardProps {
 export const Timer = (value: DataProps): TimerProps => {
   return {
     idx: Math.random(),
-    data: {
-      focus: value.focus,
-      relax: value.relax,
-    },
+    focus: { min: value.focus, sec: 0 },
+    relax: { min: value.relax, sec: 0 },
   };
 };
 

@@ -11,7 +11,6 @@ import DisplayMessage from "../info/Message";
 import Counter from "./Counter";
 
 interface CounterCycleProps {
-  focus: number;
   relax: number;
   min: number;
   sec: number;
@@ -20,7 +19,7 @@ interface CounterCycleProps {
   infoMessage: string;
 }
 
-const  CounterCycle = ({ cycle, pause, min, sec, focus, relax, infoMessage }: CounterCycleProps) => {
+const  CounterCycle = ({ cycle, pause, min, sec, relax, infoMessage }: CounterCycleProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -42,7 +41,7 @@ const  CounterCycle = ({ cycle, pause, min, sec, focus, relax, infoMessage }: Co
     dispatch(startCounter());
     dispatch(pauseCounter(false));
     dispatch(mode(0));
-    dispatch(updateCard(focus));
+    dispatch(updateCard(min));
     // Vibration.vibrate();
     // Vibration.vibrate();
   };

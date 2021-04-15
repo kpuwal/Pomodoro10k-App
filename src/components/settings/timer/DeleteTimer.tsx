@@ -20,8 +20,8 @@ const DeleteTimer = () => {
         renderItem={({ item }) => (
           <ListItem
             onPress={() => dispatch(deleteTimer(item))}
-            focus={item.data.focus}
-            relax={item.data.relax}
+            focus={item.focus.min}
+            relax={item.relax.min}
           />
         )}
         keyExtractor={(_, idx) => idx.toString()}

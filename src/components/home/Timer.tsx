@@ -14,24 +14,23 @@ const Timer: React.FC = () => {
   const timers = useSelector((state: RootState) => state.timer);
   const card = useSelector((state: RootState) => state.card);
   const info = useSelector((state: RootState) => state.info);
-  
+
   return (
     <>
       {counter.start 
         ? 
           <CounterCycle
-            focus={timers.selected.data.focus}
-            relax={timers.selected.data.relax}
-            infoMessage={info.message}
-            min={timers.runningTimer.min}
-            sec={timers.runningTimer.sec}
+            relax={timers.selected.relax.min}
+            min={timers.selected.focus.min}
+            sec={timers.selected.focus.sec}
             cycle={counter.cycle}
             pause={counter.pause}
+            infoMessage={info.message}
           />
         : 
           <DisplayCounter
-            min={timers.runningTimer.min}
-            sec={timers.runningTimer.sec}  
+            min={timers.selected.focus.min}
+            sec={timers.selected.focus.sec}  
           />
       }
       <DisplayMode

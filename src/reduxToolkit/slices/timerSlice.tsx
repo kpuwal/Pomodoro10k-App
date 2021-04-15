@@ -2,19 +2,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Timer, TimerProps, DataProps } from "../models";
 
-type RunningTimerProps = {
-  min: number, sec: number,
-};
-
-const initialState = {
-  timersList: [
-    { idx: 1, data: { focus: 45, relax: 15 } },
-    { idx: 2, data: { focus: 25, relax: 5 } },
-  ] as TimerProps[],
-  selected: { idx: 1, data: { focus: 45, relax: 15 } } as TimerProps,
-  runningTimer: { min: 45, sec: 0 } as RunningTimerProps,
-};
-
 const timer45 = {
   idx: 1,
   focus: { min: 45, sec: 0 },
@@ -22,12 +9,12 @@ const timer45 = {
 };
 
 const timer25 = {
-  idx: 1,
+  idx: 2,
   focus: { min: 25, sec: 0 },
   relax: { min: 5, sec: 0 },
 };
 
-const initState = {
+const initialState = {
   timersList: [ timer45, timer25 ],
   selected: timer45,
 };
@@ -36,9 +23,6 @@ export const timerSlice = createSlice({
   name: "timer",
   initialState,
   reducers: {
-    // runTimer: (state, action: PayloadAction<number>) => {
-    //   state.runningTimer = {min: action.payload, sec: 0};
-    // },
     createTimer: (state, action: PayloadAction<DataProps>) => {
       const timer = Timer(action.payload);
       state.timersList.push(timer);
@@ -50,7 +34,6 @@ export const timerSlice = createSlice({
     },
     selectTimer: (state, action: PayloadAction<TimerProps>) => {
       state.selected = action.payload;
-      state.runningTimer = {min: action.payload.data.focus, sec: 0};
     },
     clearTimersAS: () => initialState
   }

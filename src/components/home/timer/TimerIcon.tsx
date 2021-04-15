@@ -25,11 +25,11 @@ const TimerIcon = ({ item, selected, toggleSession }: TimerIconProps) => {
         <Icon
           color={selected ? tSelected : tUnselected}
           bgcolor={StyleGuide.palette.main.primary}
-          fTime={item.data.focus}
-          rTime={item.data.relax}
+          fTime={item.focus.min}
+          rTime={item.relax.min}
         />
         <Text style={{ color: selected ? tSelected : tUnselected }}>
-          {item.data.focus}|{item.data.relax}
+          {item.focus.min}|{item.relax.min}
         </Text>
       </View>
     </TouchableOpacity>
