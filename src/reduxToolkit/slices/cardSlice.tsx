@@ -42,7 +42,7 @@ export const cardSlice = createSlice({
       state.selected = action.payload
     },
     updateCard: (state, action: PayloadAction<number>) => {
-      state.cardsList = updateSelectedCard(state.cardsList , state.selected.idx, action.payload);
+      state.cardsList = updateSelectedCard(state.cardsList , state.selected.idx, action.payload, new Date());
     },
     clearCardsAS: () => initialState
   }

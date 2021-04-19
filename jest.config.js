@@ -11,5 +11,8 @@ module.exports = {
     "!**/jest.setup.js"
   ],
   verbose: true,
-  moduleFileExtensions: ["js", "jsx", "json", "ts", "tsx"]
+  moduleFileExtensions: ["js", "jsx", "json", "ts", "tsx"],
+  testPathIgnorePatterns : [
+    "<rootDir>/__tests__/helpers/" 
+  ]
 };

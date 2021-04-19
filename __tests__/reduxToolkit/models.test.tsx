@@ -1,9 +1,9 @@
-import { Timer, Card } from "./models";
+import { Timer, Card } from "../../src/reduxToolkit/models";
 
 beforeEach(() => {
   jest
     .spyOn(global.Math, 'random')
-    .mockReturnValue(0.123456789);
+    .mockReturnValue(0.1234);
 });
 
 afterEach(() => {
@@ -13,7 +13,7 @@ afterEach(() => {
 describe("Model", () => {
   test("it should return correct Timer object", () => {
     const newTimer = {
-      idx: 0.123456789,
+      idx: 0.1234,
       focus: { min: 15, sec: 0 },
       relax: { min: 5, sec: 0 }
     };
@@ -23,7 +23,7 @@ describe("Model", () => {
 
   test("it should return correct Card object", () => {
     const newCard = {
-      idx: 0.123456789,
+      idx: 0.1234,
       speed: 0,
       total: 0,
       timeLeft: 0,
