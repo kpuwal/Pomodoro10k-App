@@ -20,7 +20,7 @@ const DEFAULT_CARD: CardProps = {
   dates: [],
 };
 
-const initialState = {
+export const initialState = {
   cardsList: [DEFAULT_CARD] as CardProps[],
   selected: DEFAULT_CARD as CardProps,
 }

@@ -61,7 +61,8 @@ buck-out/
 /ios/Pods/
 
 # Expo
-.expo/*
+.expo/
+.vscode/
 web-build/
 
 # env
