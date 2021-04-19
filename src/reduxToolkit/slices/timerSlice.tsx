@@ -14,7 +14,7 @@ const timer25 = {
   relax: { min: 5, sec: 0 },
 };
 
-const initialState = {
+export const initialState = {
   timersList: [ timer45, timer25 ],
   selected: timer45,
 };

@@ -1,11 +1,5 @@
 import { store } from "../../../src/reduxToolkit/store";
-import { cycleCounter, startCounter, pauseCounter } from "../../../src/reduxToolkit/slices/counterSlice";
-
-const initialState = {
-  cycle: true,
-  start: false,
-  pause: false,
-};
+import { initialState, cycleCounter, startCounter, pauseCounter } from "../../../src/reduxToolkit/slices/counterSlice";
 
 describe("ReduxToolkit counterSlice", () => {
   test("it changes counter Cycle state", () => {

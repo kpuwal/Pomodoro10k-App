@@ -1,13 +1,15 @@
 "use strict";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+export const initialState = {
+  cycle: true,
+  start: false,
+  pause: false,
+};
+
 export const counterSlice = createSlice({
   name: "counter",
-  initialState: {
-    cycle: true,
-    start: false,
-    pause: false,
-  },
+  initialState,
   reducers: {
     cycleCounter: (state, action: PayloadAction<boolean>) => {
       state.cycle = action.payload
