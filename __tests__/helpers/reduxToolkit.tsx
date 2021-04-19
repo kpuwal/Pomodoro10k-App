@@ -1,3 +1,26 @@
+export const newTimer = {
+  idx: 0.9876,
+  focus: { min: 15, sec: 0 },
+  relax: { min: 5, sec: 0 }
+};
+
+export const newCard = {
+  idx: 0.9876,
+  speed: 0,
+  total: 0,
+  timeLeft: 0,
+  date: {
+    weekday: "n/a",
+    day: "n/a",
+    month: "n/a",
+    year: "n/a",
+  },
+  weekdaysTotals: [0, 0, 0, 0, 0, 0, 0],
+  goal: "Another Goal",
+  color: "#000000",
+  dates: []
+};
+
 const initTestCard = {
   idx: 0.1234,
   speed: 0.00022768670309653916,
@@ -32,22 +55,5 @@ const updatedTestCard = {
   dates: ["02/07/2017", "02/07/2018"]
 };
 
-const testCardDummy = {
-  idx: 0.5678,
-  speed: 0,
-  total: 0,
-  timeLeft: 0,
-  date: {
-    weekday: "n/a",
-    day: "n/a",
-    month: "n/a",
-    year: "n/a",
-  },
-  weekdaysTotals: [0, 0, 0, 0, 0, 0, 0],
-  goal: "Another Goal",
-  color: "#fff",
-  dates: ["19/04/2021"]
-};
-
-export const initList = [ initTestCard, testCardDummy ];
-export const updatedList = [ updatedTestCard, testCardDummy ];
+export const initList = [ initTestCard, newCard ];
+export const updatedList = [ updatedTestCard, newCard ];
