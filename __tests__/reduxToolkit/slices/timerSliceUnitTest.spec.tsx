@@ -55,7 +55,7 @@ describe("ReduxToolkit timerSlice", () => {
     expect(state.selected).toEqual(newTimer);
   });
 
-  test("it clears TimersList to initial state", () => {
+  test("it resets TimersList to initial state", () => {
     let state = store.getState().timer;
     expect(state).toEqual(initialState);
 

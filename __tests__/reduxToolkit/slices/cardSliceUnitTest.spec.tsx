@@ -63,10 +63,10 @@ describe("ReduxToolkit cardSlice", () => {
     store.dispatch(selectCard(newCard));
     store.dispatch(updateCard({min: 25, date: currentDay()}));
     state = store.getState().card;
-    expect(state.cardsList).toEqual([...initialState.cardsList, updatedNewCard]);
+    expect(state.cardsList).toEqual([...initialState.cardsList, updatedNewCard])
   });
 
-  test("it clears TimersList to initial state", () => {
+  test("it resets CardsList to initial state", () => {
     let state = store.getState().card;
     expect(state).toEqual(initialState);
 
