@@ -1,6 +1,6 @@
 import { store } from "../../../src/reduxToolkit/store";
-import { initialState, createCard, deleteCard, selectCard, clearCardsAS } from "../../../src/reduxToolkit/slices/cardSlice";
-import { newCard } from "../../helpers/reduxToolkit";
+import { initialState, createCard, deleteCard, selectCard, updateCard, clearCardsAS } from "../../../src/reduxToolkit/slices/cardSlice";
+import { newCard, updatedNewCard } from "../../helpers/reduxToolkit";
 
 const currentDay = () => new Date(Date.now());
 
@@ -54,6 +54,16 @@ describe("ReduxToolkit cardSlice", () => {
     store.dispatch(selectCard(newCard));
     state = store.getState().card;
     expect(state.selected).toEqual(newCard);
+    expect(state.selected.goal).toEqual("Another Goal");
+  });
+
+  test("it updates currently selected Card", () => {
+    let state = store.getState().card;
+    store.dispatch(createCard({color: "#000000", title: "Another Goal"}));
+    store.dispatch(selectCard(newCard));
+    store.dispatch(updateCard({min: 25, date: currentDay()}));
+    state = store.getState().card;
+    expect(state.cardsList).toEqual([...initialState.cardsList, updatedNewCard]);
   });
 
   test("it clears TimersList to initial state", () => {

@@ -41,7 +41,7 @@ const  CounterCycle = ({ cycle, pause, min, sec, relax, infoMessage }: CounterCy
     dispatch(startCounter());
     dispatch(pauseCounter(false));
     dispatch(mode(0));
-    dispatch(updateCard(min));
+    dispatch(updateCard({min, date: new Date()}));
     // Vibration.vibrate();
     // Vibration.vibrate();
   };

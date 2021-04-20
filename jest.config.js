@@ -4,7 +4,7 @@ module.exports = {
   ],
   collectCoverage: false,
   collectCoverageFrom: [
-    "**/*.{js,jsx}",
+    "**/*.{tsx,js,jsx}",
     "!**/coverage/**",
     "!**/node_modules/**",
     "!**/babel.config.js",

@@ -21,6 +21,23 @@ export const newCard = {
   dates: []
 };
 
+export const updatedNewCard = {
+  idx: 0.9876,
+  speed: 0.4166666666666667,
+  total: 25,
+  timeLeft: 9999.583333333334,
+  date: {
+    weekday: "Thursday",
+    day: "16",
+    month: "November",
+    year: "2045",
+  },
+  weekdaysTotals: [0, 25, 0, 0, 0, 0, 0],
+  goal: "Another Goal",
+  color: "#000000",
+  dates: ["02/07/2018"]
+};
+
 const initTestCard = {
   idx: 0.1234,
   speed: 0.00022768670309653916,
