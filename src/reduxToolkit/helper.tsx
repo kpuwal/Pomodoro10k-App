@@ -6,8 +6,8 @@ type DateType = {
   weekday: string, day: string, month: string, year: string
 };
 
-const updateTotal = (amount: number, item: CardProps): number => {
-  return item.total + amount;
+const updateTotal = (amount: number, item: number): number => {
+  return item + amount;
 };
 
 const updateWeekdaysTotal = (amount: number, item: number[], day: Date): number[] => {
@@ -23,7 +23,7 @@ const updateDates = (item: string[], day: Date): string[] => {
 
 const updateSpeed = (item: CardProps, day: Date): number => {
   const date1: number = new Date(day.toLocaleDateString()).valueOf();
-  const date2: number = new Date(item.dates[0]!).valueOf()
+  const date2: number = new Date(item.dates[0]!).valueOf();
   const diff = Math.abs(date1 - date2);
   // 1 DAY = 24 hrs X 60 mins X 60 secs X 1000 ms = 86400000 ms
   const diffdays = Math.floor(diff / 86400000) + 1;
@@ -54,9 +54,8 @@ const updateDate = (item: CardProps, day: Date): DateType => {
   };
 };
 
-const updateCard = (item: CardProps, amount: number): void => {
-  const day: Date = new Date();
-  item.total = updateTotal(amount, item);
+const updateCard = (item: CardProps, amount: number, day: Date): void => {
+  item.total = updateTotal(amount, item.total);
   item.weekdaysTotals = updateWeekdaysTotal(amount, item.weekdaysTotals, day);
   item.dates = updateDates(item.dates!, day);
   item.speed = updateSpeed(item, day);
@@ -64,8 +63,8 @@ const updateCard = (item: CardProps, amount: number): void => {
   item.date = updateDate(item, day);
 };
 
-export const updateSelectedCard = (list: CardProps[], cardIdx: number, amount: number): CardProps[] => {
+export const updateSelectedCard = (list: CardProps[], cardIdx: number, amount: number, day: Date, ): CardProps[] => {
   const card = list.find((el: CardProps) => el.idx === cardIdx)!;
-  updateCard(card, amount);
+  updateCard(card, amount, day);
   return list;
 };

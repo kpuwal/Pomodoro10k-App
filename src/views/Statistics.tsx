@@ -55,6 +55,8 @@ const Statistics: React.FC = () => {
         renderItem={({ item }) => (
           <View style={styles.card}>
             <CardSlide
+              idx={item.idx}
+              dates={item.dates}
               weekdaysTotals={item.weekdaysTotals}
               goal={item.goal}
               color={item.color}
@@ -86,6 +88,7 @@ const styles = StyleSheet.create({
     width,
     height: height,
     marginTop: height / 3.1,
+    borderRadius: 10,
     ...StyleSheet.absoluteFillObject,
   },
 });

@@ -2,12 +2,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { MODE, MESSAGE } from "../../config/constants";
 
+export const initialState = {
+  mode: MODE[0], 
+  message: MESSAGE[0],
+};
+
 export const infoSlice = createSlice({
   name: "info",
-  initialState: {
-    mode: MODE[0], 
-    message: MESSAGE[0],
-  },
+  initialState,
   reducers: {
     mode: (state, action: PayloadAction<number>) => {
       state.mode = MODE[action.payload]!

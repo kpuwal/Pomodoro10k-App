@@ -20,7 +20,7 @@ const DEFAULT_CARD: CardProps = {
   dates: [],
 };
 
-const initialState = {
+export const initialState = {
   cardsList: [DEFAULT_CARD] as CardProps[],
   selected: DEFAULT_CARD as CardProps,
 }
@@ -41,8 +41,10 @@ export const cardSlice = createSlice({
     selectCard: (state, action: PayloadAction<CardProps>) => {
       state.selected = action.payload
     },
-    updateCard: (state, action: PayloadAction<number>) => {
-      state.cardsList = updateSelectedCard(state.cardsList , state.selected.idx, action.payload);
+    updateCard: (state, action: PayloadAction<{min: number, date: Date}>) => {
+      state.cardsList = updateSelectedCard(
+        state.cardsList , state.selected.idx, action.payload.min, action.payload.date
+      );
     },
     clearCardsAS: () => initialState
   }
