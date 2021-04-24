@@ -1,5 +1,5 @@
 "use strict";
-import { WEEKDAYS, MONTHS } from "../config/constants";
+import { WEEKDAYS, MONTHS2 } from "../config/constants";
 import { CardProps } from "./models";
 
 type DateType = {
@@ -16,18 +16,19 @@ const updateWeekdaysTotal = (amount: number, item: number[], day: Date): number[
   return item;
 };
 
-const updateDates = (item: string[], day: Date): string[] => {
-  item.push(day.toLocaleDateString());
+const updateDates = (item: number[], day: Date): number[] => {
+  item.push(day.valueOf());
   return item;
 };
 
 const updateSpeed = (item: CardProps, day: Date): number => {
-  const date1: number = new Date(day.toLocaleDateString()).valueOf();
-  const date2: number = new Date(item.dates[0]!).valueOf();
-  const diff = Math.abs(date1 - date2);
+  const date1: number = day.valueOf();
+  const firstDate: number = item.dates[0]!;
+  const diff = Math.abs(date1 - firstDate);
   // 1 DAY = 24 hrs X 60 mins X 60 secs X 1000 ms = 86400000 ms
   const diffdays = Math.floor(diff / 86400000) + 1;
-  return (item.total / diffdays / 60);
+  const speed = (item.total / diffdays) / 60;
+  return speed;
 };
 
 const updateTimeLeft = (item: CardProps): number => {
@@ -41,7 +42,7 @@ const convertWeekday = (value: Date): string => {
 
 const convertMonth = (value: Date): string => {
   const month = value.getMonth() + 1;
-  return MONTHS[month - 1]!;
+  return MONTHS2[month - 1]!;
 };
 
 const updateDate = (item: CardProps, day: Date): DateType => {

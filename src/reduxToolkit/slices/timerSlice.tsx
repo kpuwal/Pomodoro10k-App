@@ -30,7 +30,8 @@ export const timerSlice = createSlice({
     deleteTimer: (state, action: PayloadAction<TimerProps>) => {
       state.timersList = state.timersList.filter((item) => {
         return item.idx !== action.payload.idx;
-      })
+      });
+      state.selected = initialState.selected;
     },
     selectTimer: (state, action: PayloadAction<TimerProps>) => {
       state.selected = action.payload;

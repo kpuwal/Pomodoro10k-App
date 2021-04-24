@@ -1,11 +1,11 @@
 "use strict";
 import React from "react";
-import { View, Dimensions, StyleSheet } from "react-native";
+import { View, Platform, Dimensions, StyleSheet } from "react-native";
 
 import ChartBar from "./ChartBar";
 import { DAYS } from "../../config/constants";
 
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
 interface WeeklyChartProps {
   color: string;
@@ -14,6 +14,7 @@ interface WeeklyChartProps {
 
 const WeeklyChart = ({ weekdaysTotals, color }: WeeklyChartProps) => {
   return (
+    <>
     <View style={styles.container}>
       {weekdaysTotals.map((item: number, idx: number) => (
         <ChartBar
@@ -25,16 +26,39 @@ const WeeklyChart = ({ weekdaysTotals, color }: WeeklyChartProps) => {
         />
       ))}
     </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    padding: "5%",
+    backgroundColor: "#fcfcfc",
+    borderColor: "#e0e0e0",
+    borderWidth: 0,
+    borderRadius: 15,
     flexDirection: "row",
+    height: "30%",
+    width: "100%",
     alignItems: "flex-end",
-    height: height * 0.25,
-    width: width - 120,
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOpacity: 0.1,
+        // shadowRadius: 5,
+        shadowOffset: {
+          width: 3,
+          height: 4
+        }
+      },
+      android: {
+        elevation: 5
+      },
+    }),
   },
+  title: {
+   fontFamily: "Roboto-Light",
+  }
 });
 
 export default WeeklyChart;

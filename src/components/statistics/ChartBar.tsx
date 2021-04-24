@@ -13,7 +13,7 @@ const ChartBar = ({ total, color, width, label }: ChartBarProps) => {
   return (
     <View style={{ width, alignItems: "center" }}>
       <View style={styles.container}>
-        <Text style={{ color }}>{total}</Text>
+        <Text style={{ color: "#8D91A1" }}>{total}</Text>
         <View
           style={{
             width: width / 3,
@@ -21,7 +21,7 @@ const ChartBar = ({ total, color, width, label }: ChartBarProps) => {
             backgroundColor: color,
           }}
         />
-        <Text style={styles.label}>{label}</Text>
+        <Text style={[styles.label, { color }]}>{label}</Text>
       </View>
     </View>
   );
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   label: {
     paddingTop: 5,
-    color: "white",
+    // color: "white",
     fontWeight: "bold",
   },
 });

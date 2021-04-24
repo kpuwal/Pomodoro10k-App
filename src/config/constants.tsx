@@ -29,3 +29,18 @@ export const MONTHS: NonEmptyArray<string> = [
   "November",
   "December",
 ];
+
+export const MONTHS2: NonEmptyArray<string> = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];

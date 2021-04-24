@@ -6,17 +6,23 @@ import Svg, { Path, Circle } from "react-native-svg";
 const { width } = Dimensions.get("window");
 const iconSize = 0.07;
 
-export const getCoordinates = (time, r, vo) => {
+export const getCoordinates = (time: number, r: number, vo: number) => {
   const radians = percentage(time);
   const x = vo + r * Math.cos(2 * Math.PI * radians - Math.PI / 2);
   const y = vo + r * Math.sin(2 * Math.PI * radians - Math.PI / 2);
   return [x, y];
 };
 
-const percentage = (time) => time * (0.1 / 6);
+const percentage = (time: number) => time * (0.1 / 6);
 
+interface IconProps {
+  fTime: number,
+  rTime: number,
+  color: string,
+  bgcolor: string,
+};
 
-const Icon = ({ fTime, rTime, color, bgcolor }) => {
+const Icon = ({ fTime, rTime, color, bgcolor }: IconProps) => {
   const size = Math.floor(width) * iconSize;
   const radius = size / 2;
   const [fEndX, fEndY] = getCoordinates(fTime, radius, size);

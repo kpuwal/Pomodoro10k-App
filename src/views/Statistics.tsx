@@ -1,6 +1,6 @@
 "use strict";
 import React from "react";
-import { Dimensions, View, StyleSheet, Animated } from "react-native";
+import { Dimensions, Platform, View, Text, StyleSheet, Animated } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useSelector } from "react-redux";
 import { RootState } from "../reduxToolkit/store";
@@ -9,8 +9,8 @@ import CardSlide from "../components/statistics/CardSlide";
 import { CardProps } from "../reduxToolkit/models";
 
 const { width, height } = Dimensions.get("window");
-const cardW = width * 0.8;
-const cardH = cardW * 1.8;
+const cardW = width * 0.9;
+const cardH = height * 0.7;
 
 const Statistics: React.FC = () => {
   const cards = useSelector((state: RootState) => state.card.cardsList);
@@ -70,6 +70,12 @@ const Statistics: React.FC = () => {
           </View>
         )}
       />
+      <View style={styles.historyBox}>
+        <View style={[styles.upperBox]}>
+          <Text style={styles.title}>History</Text>
+        </View>
+        <View style={styles.downBox} />
+      </View>
     </View>
   );
 };
@@ -80,16 +86,47 @@ const styles = StyleSheet.create({
     backgroundColor: "#EFF0F4",
   },
   card: {
+    // backgroundColor: "pink",
     width,
     alignItems: "center",
-    paddingTop: width / 10,
+    // paddingTop: width / 10,
   },
   background: {
+    flex: 2,
     width,
-    height: height,
-    marginTop: height / 3.1,
-    borderRadius: 10,
+    height,
+    marginTop: "43%",
+    borderTopLeftRadius: 30,
+    // borderTopRightRadius: 30,
     ...StyleSheet.absoluteFillObject,
+  },
+  historyBox: {
+    flex: 6,
+    // borderTopLeftRadius: 15,
+    // backgroundColor: "#EFF0F4",
+    // marginLeft: "1%",
+    // alignItems: "flex-end",
+    flexDirection: "column",
+  },
+  upperBox: {
+    height: 20,
+    borderBottomRightRadius: 25,
+  },
+  downBox: {
+    height: 50,
+    backgroundColor: "#EFF0F4",
+    borderTopLeftRadius: 15,
+    borderBottomLeftRadius: 15,
+    marginLeft: "5%",
+  },
+  title: {
+    // marginTop: "2%",
+    marginBottom: "1%",
+    fontFamily: "Roboto-Light",
+    marginLeft: "5%",
+    color: "#EFF0F4",
+    // paddingVertical: 50,
+    // alignItems: "flex-start",
   },
 });
 

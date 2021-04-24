@@ -36,7 +36,8 @@ export const cardSlice = createSlice({
     deleteCard: (state, action: PayloadAction<CardProps>) => {
       state.cardsList = state.cardsList.filter((item) => {
         return item.idx !== action.payload.idx;
-      })
+      });
+      state.selected = initialState.selected;
     },
     selectCard: (state, action: PayloadAction<CardProps>) => {
       state.selected = action.payload

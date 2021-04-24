@@ -9,3 +9,5 @@ const StyleGuide = {
 }
 
 export default StyleGuide;
+
+// "#242E58"

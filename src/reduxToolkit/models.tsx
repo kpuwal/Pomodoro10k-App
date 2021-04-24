@@ -25,7 +25,7 @@ export interface CardProps {
   weekdaysTotals: number[];
   goal: string;
   color: string;
-  dates: string[];
+  dates: number[];
 };
 
 export const Timer = (value: DataProps): TimerProps => {
