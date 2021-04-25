@@ -16,7 +16,7 @@ const DistanceBox = ({total, timeLeft, goal, color}: DistanceBoxProps) => {
   return (
     <View style={styles.container}>
       <View style={[styles.indicatorIcon, {paddingLeft: distance - 4}]}>
-        <Text style={[styles.txt, {marginBottom: "1%"}]}>{(total / 60).toFixed(1)}h</Text>
+        <Text style={[styles.txt, {marginBottom: "1%"}]}>{(total / 60).toFixed(2)}h</Text>
         <FontAwesome5 style={styles.icon} name="map-marker-alt" size={24} color="#F76B6B" />
       </View>
       <View style={styles.lines}>

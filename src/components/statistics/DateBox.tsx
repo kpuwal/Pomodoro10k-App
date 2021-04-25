@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 
-import Calendar from "../../svg/Calendar";
+import TrophyIcon from "../../svg/TrophyIcon";
 
 const { width, height } = Dimensions.get("window");
 
@@ -17,10 +17,10 @@ interface DateBoxProps {
 const DateBox = ({ date }: DateBoxProps) => {
   return (
     <View style={styles.container}>
-      <Calendar />
+      <TrophyIcon />
       <View style={styles.data}>
-        <Text style={styles.txt}>{date.weekday},</Text>
-        <Text style={styles.txt}>{date.day} {date.month} {date.year}</Text>
+
+        <Text style={styles.txt}>{date.weekday}, {date.day} {date.month} {date.year}</Text>
       </View>
     </View>
   )
@@ -30,18 +30,17 @@ const styles = StyleSheet.create({
   container: {
     height: height * 0.18,
     width: width * 0.43,
-    padding: 10,
-    // backgroundColor: "#fff",
-    borderRadius: 15,
-    alignItems: "center",
-    justifyContent: "flex-start"
+    // borderRadius: 15,
+    alignItems: "flex-end",
+    justifyContent: "space-around",
+    paddingRight: "10%",
+    // backgroundColor: "#EFF0F4"
   },
   data: {
-    ...StyleSheet.absoluteFillObject,
-    // justifyContent: "center",
-    // alignItems: "flex-start",
-    paddingLeft: "18%",
-    paddingTop: "50%"
+    // height: "40%",
+    // width: "100%",
+    // borderRadius: 10,
+    // marginTop: "8%",
   },
   txt: {
     alignSelf: "center",

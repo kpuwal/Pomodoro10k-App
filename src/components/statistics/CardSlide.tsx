@@ -37,9 +37,11 @@ const CardSlide = ({
       <DistanceBox goal={10000} {...{ total, timeLeft, color }} />
       <View style={[styles.speedDateBox, { width }]}>
         <View style={styles.box}>
-          <SpeedBox {...{ speed }} />
+          <Text style={[styles.title, {color: "#EFF0F4"}]}>Progress</Text>
+          <SpeedBox {...{ speed, color }} />
         </View>
         <View style={styles.box}>
+          <Text style={[styles.title, {color: "#EFF0F4"}]}>Due on</Text>
           <DateBox {...{ date }} />
         </View>
       </View>
@@ -74,12 +76,12 @@ const styles = StyleSheet.create({
     marginTop: "2%",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "stretch"
+    // alignItems: "stretch"
     // height: "70%",
     // width: "100%"
   },
   box: {
-    flexDirection: "column"
+    flexDirection: "column",
   }
 });
 

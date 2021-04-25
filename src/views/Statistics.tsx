@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "../reduxToolkit/store";
 
 import CardSlide from "../components/statistics/CardSlide";
+import History from "../components/statistics/History";
+
 import { CardProps } from "../reduxToolkit/models";
 
 const { width, height } = Dimensions.get("window");
@@ -74,7 +76,7 @@ const Statistics: React.FC = () => {
         <View style={[styles.upperBox]}>
           <Text style={styles.title}>History</Text>
         </View>
-        <View style={styles.downBox} />
+        <History {...{ cards }} />
       </View>
     </View>
   );

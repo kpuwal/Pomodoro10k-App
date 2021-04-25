@@ -6,6 +6,16 @@ export const MESSAGE: NonEmptyArray<string> = ["End of Focus Session", "End of C
 export const DAYS: NonEmptyArray<string> = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export const WEEKDAYS: NonEmptyArray<string> = [
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+];
+
+export const WEEKDAYS2: NonEmptyArray<string> = [
   "Sunday",
   "Monday",
   "Tuesday",
