@@ -5,7 +5,7 @@ export const MESSAGE: NonEmptyArray<string> = ["End of Focus Session", "End of C
 
 export const DAYS: NonEmptyArray<string> = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-export const WEEKDAYS: NonEmptyArray<string> = [
+export const WEEKDAYS2: NonEmptyArray<string> = [
   "Sun",
   "Mon",
   "Tue",
@@ -15,7 +15,7 @@ export const WEEKDAYS: NonEmptyArray<string> = [
   "Sat",
 ];
 
-export const WEEKDAYS2: NonEmptyArray<string> = [
+export const WEEKDAYS: NonEmptyArray<string> = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -25,7 +25,7 @@ export const WEEKDAYS2: NonEmptyArray<string> = [
   "Saturday",
 ];
 
-export const MONTHS: NonEmptyArray<string> = [
+export const MONTHS2: NonEmptyArray<string> = [
   "January",
   "February",
   "March",
@@ -40,7 +40,7 @@ export const MONTHS: NonEmptyArray<string> = [
   "December",
 ];
 
-export const MONTHS2: NonEmptyArray<string> = [
+export const MONTHS: NonEmptyArray<string> = [
   "Jan",
   "Feb",
   "Mar",

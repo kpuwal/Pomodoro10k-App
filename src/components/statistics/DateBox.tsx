@@ -1,9 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
-
-import TrophyIcon from "../../svg/TrophyIcon";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get("window");
+const DBwidth = width * 0.5;
+const DBheight = height * 0.21;
 
 interface DateBoxProps {
   date: {
@@ -12,15 +13,33 @@ interface DateBoxProps {
     month: string,
     year: string,
   },
+  color: string,
+  speed: number,
 };
 
-const DateBox = ({ date }: DateBoxProps) => {
+const DateBox = ({ date, color, speed }: DateBoxProps) => {
   return (
     <View style={styles.container}>
-      <TrophyIcon />
-      <View style={styles.data}>
-
-        <Text style={styles.txt}>{date.weekday}, {date.day} {date.month} {date.year}</Text>
+      <View style={styles.box}>
+        <MaterialCommunityIcons name="clock-fast" size={24} color="#99a2c9" />
+        <View style={[styles.txtBox, ]}>
+          <View style={{flexDirection: "row", alignItems: "baseline"}}>
+          <Text style={[styles.txt, styles.title]}>Speed:</Text>
+          <Text style={[styles.txt, styles.speed ]}> {speed.toFixed(2)}</Text>
+          <Text style={[styles.txt, styles.title]}>  h/day</Text>
+          </View>
+        </View>
+      </View>
+      <View style={styles.box}>
+        <MaterialCommunityIcons name="trophy-variant" size={24} color="#99a2c9" />
+        <View style={[styles.txtBox, ]}>
+          <View style={{flexDirection: "column"}}>
+            <Text style={[styles.txt, styles.title]}>Due on:
+              <Text style={[styles.txt]}>   {date.weekday},</Text>
+            </Text>
+            <Text style={[styles.txt]}>{date.day} {date.month} {date.year}</Text>
+          </View>
+        </View>
       </View>
     </View>
   )
@@ -28,25 +47,51 @@ const DateBox = ({ date }: DateBoxProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: height * 0.18,
-    width: width * 0.43,
-    // borderRadius: 15,
-    alignItems: "flex-end",
+    height: DBheight,
+    width: DBwidth,
+    // alignItems: "flex-end",
     justifyContent: "space-around",
-    paddingRight: "10%",
     // backgroundColor: "#EFF0F4"
   },
-  data: {
-    // height: "40%",
-    // width: "100%",
-    // borderRadius: 10,
-    // marginTop: "8%",
+  box: {
+    height: "45%",
+    width: "100%",
+    backgroundColor: "#20263d",
+    borderRadius: 5,
+    // paddingVertical: "2%",
+    justifyContent: "space-between",
+    alignItems: "center",
+    // alignSelf: "center",
+    flexDirection: "row",
+    // textAlign: "center",
+    paddingLeft: "6%",
+  },
+  txtBox: {
+    width: "78%",
+    height: "100%",
+    // backgroundColor: "#99a2c9",
+    // paddingLeft: "5%",
+    // marginLeft: "5%",
+    
+    // alignItems: "center",
+    justifyContent: "center",
+    // borderLeftWidth: 1,
   },
   txt: {
-    alignSelf: "center",
-    color: "white",
-    fontFamily: "Roboto-Light",
+    fontWeight: "bold",
+    // alignSelf: "flex-start",
+    color: "#EFF0F4",
+    // fontFamily: "Roboto-Light",
+    fontSize: 12,
+    // padding: "1%"
+  },
+  speed: {
     fontSize: 20,
+    fontWeight: "bold",
+  },
+  title: {
+    color: "#99a2c9",
+    fontSize: 12,
   }
 })
 
