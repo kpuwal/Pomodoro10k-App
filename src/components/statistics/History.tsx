@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import { View, FlatList, StyleSheet } from "react-native";
 import ColorBox from "./ColorBox";
 import { CardProps } from "../../reduxToolkit/models";
 
@@ -28,7 +28,7 @@ const History = ({ cards }: HistoryProps) => {
       .map((x) => x.color);
     return {date, colors: dset.reverse()};
   })
-  
+
   neew.sort((a, b) => a.date.localeCompare(b.date));
   
   return (
