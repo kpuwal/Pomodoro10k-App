@@ -1,8 +1,7 @@
 "use strict";
 import React from "react";
-import { View, FlatList, StyleSheet, TouchableOpacity } from "react-native";
+import { View, FlatList, StyleSheet } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { RootState } from "../../../reduxToolkit/store";
 import { CardProps } from "../../../reduxToolkit/models";
 
@@ -14,21 +13,16 @@ const DeleteGoal = () => {
   const list = cardsList.slice(1);
   const dispatch = useDispatch();
 
-  const handleDelete = (item: CardProps) => {
-    dispatch(deleteCard(item));
-  };
-
   return (
     <View style={styles.container}>
       <FlatList<CardProps>
         data={list}
         renderItem={({ item }) => (
-          <View style={styles.listRow}>
-            <GoalsListItem textBody={item.goal} color={item.color} />
-            <TouchableOpacity onPress={() => handleDelete(item)}>
-              <MaterialCommunityIcons name="delete" size={24} color="#F76B6B" />
-            </TouchableOpacity>
-          </View>
+          <GoalsListItem
+            onPress={() => dispatch(deleteCard(item))}
+            textBody={item.goal}
+            color={item.color}
+          />
         )}
         keyExtractor={(_, idx) => idx.toString()}
       />
@@ -38,14 +32,11 @@ const DeleteGoal = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 4 / 7,
-    marginTop: "5%",
+    flex: 2 / 3,
+    marginTop: "3%",
     justifyContent: "center",
     alignItems: "center",
-  },
-  listRow: {
-    flexDirection: "row",
-    alignItems: "center",
+    // backgroundColor: "green",
   },
 });
 

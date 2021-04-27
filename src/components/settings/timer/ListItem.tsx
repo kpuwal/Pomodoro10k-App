@@ -1,6 +1,6 @@
 "use strict";
 import React from "react";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Platform, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Icon from "../../../svg/Icon";
@@ -15,7 +15,7 @@ interface ListItemProps {
 const ListItem = ({ focus, relax, onPress }: ListItemProps) => {
   return (
     <View style={styles.container}>
-      <Icon color="#29304D" bgcolor="#EFF0F4" fTime={focus} rTime={relax} />
+      <Icon color="#29304D" bgcolor="#f7f7f9" fTime={focus} rTime={relax} />
       <ListLabel {...{ focus, relax }} />
       <TouchableOpacity {...{ onPress }}>
         <MaterialCommunityIcons
@@ -38,7 +38,21 @@ const styles = StyleSheet.create({
     width: "90%",
     height: 70,
     borderRadius: 20,
-    backgroundColor: "#f7f7f9",
+    backgroundColor: "#F5F7FA",
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOpacity: 0.05,
+        // shadowRadius: 5,
+        shadowOffset: {
+          width: 1,
+          height: 2
+        }
+      },
+      android: {
+        elevation: 5
+      },
+    }),
   },
 });
 

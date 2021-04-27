@@ -15,8 +15,8 @@ const timer25 = {
 };
 
 export const initialState = {
-  timersList: [ timer45, timer25 ],
-  selected: timer45,
+  timersList: [ timer45, timer25 ] as TimerProps[],
+  selected: timer45 as TimerProps,
 };
 
 export const timerSlice = createSlice({

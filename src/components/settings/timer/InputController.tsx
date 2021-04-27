@@ -16,6 +16,7 @@ const InputController = ({ type, dispatchType }: InputControllerProps) => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.btnGroup}>
       <SmallButton
         title="-5"
         onPress={() => handleCount(-5, type)}
@@ -26,6 +27,7 @@ const InputController = ({ type, dispatchType }: InputControllerProps) => {
         onPress={() => handleCount(-1, type)}
         disabled={type <= 0 ? true : false}
       />
+      </View>
       <TextInput
         style={styles.input}
         keyboardType="numeric"
@@ -36,6 +38,7 @@ const InputController = ({ type, dispatchType }: InputControllerProps) => {
         value={type.toString()}
         onChangeText={(text) => dispatchType(parseInt(text, 10) || 0)}
       />
+      <View style={styles.btnGroup}>
       <SmallButton
         title="+"
         onPress={() => handleCount(1, type)}
@@ -46,21 +49,32 @@ const InputController = ({ type, dispatchType }: InputControllerProps) => {
         onPress={() => handleCount(5, type)}
         disabled={false}
       />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    width: "95%",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
+    backgroundColor: "#E6E9ED",
     // marginHorizontal: 5,
-    // marginVertical: 20,
+    marginVertical: "2%",
+    padding: ".5%",
+    borderRadius: 5,
   },
   input: {
-    width: 120,
+    width: "40%",
+    fontSize: 18,
+    // backgroundColor: "white"
   },
+  btnGroup: {
+    flexDirection: "row",
+    justifyContent: "center",
+  }
 });
 
 export default InputController;

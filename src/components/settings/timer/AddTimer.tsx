@@ -1,6 +1,6 @@
 "use strict";
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, Text, Platform, StyleSheet } from "react-native";
 import { useAppDispatch } from "../../../reduxToolkit/store";
 
 import Button from "../Button";
@@ -21,7 +21,9 @@ const AddTimer: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.inputs}>
+        <Text style={styles.title}>focus:</Text>
         <InputController type={focus} dispatchType={setFocus} />
+        <Text style={styles.title}>relax:</Text>
         <InputController type={relax} dispatchType={setRelax} />
       </View>
       <Button
@@ -39,13 +41,33 @@ const AddTimer: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2 / 6,
-    // backgroundColor: "pink",
-    justifyContent: "space-around"
+    flex: 1 / 2,
+    // backgroundColor: "#F5F7FA",
+    justifyContent: "space-around",
+    paddingBottom: "10%",
+    // ...Platform.select({
+    //   ios: {
+    //     shadowColor: "#000",
+    //     shadowOpacity: 0.2,
+    //     // shadowRadius: 5,
+    //     shadowOffset: {
+    //       width: 2,
+    //       height: 3
+    //     }
+    //   },
+    //   android: {
+    //     elevation: 5
+    //   },
+    // }),
   },
   inputs: {
-    justifyContent: "center",
+    // justifyContent: "center",
     alignItems: "center",
+  },
+  title: {
+    alignSelf: "flex-start",
+    paddingLeft: "5%",
+    color: "#8D91A1",
   },
 });
 

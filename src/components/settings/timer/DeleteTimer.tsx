@@ -32,7 +32,7 @@ const DeleteTimer = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 3 / 6,
+    flex: 2 / 3,
     marginTop: "3%",
     justifyContent: "center",
     alignItems: "center",

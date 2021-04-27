@@ -18,16 +18,21 @@ const SmallButton = ({ title, onPress, disabled }: SmallButtonProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 10,
+    marginHorizontal: ".5%",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 20,
-    width: 30,
+    backgroundColor: "#f7f7f9",
+    borderRadius: 5,
+    width: 40,
     height: 30,
   },
   txt: {
-    fontSize: 15,
+    fontSize: 16,
+    color: "#29304D",
+    fontFamily: "Roboto-Light"
   }
 });
 
 export default SmallButton;
+
+// #f7f7f9 #f4f3ef

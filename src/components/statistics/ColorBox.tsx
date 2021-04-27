@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   square: {
+    borderRadius: 2,
     width: 5,
     height: 5,
     margin: 1,

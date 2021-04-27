@@ -17,12 +17,14 @@ import infoReducer from "./slices/infoSlice";
 import counterReducer from "./slices/counterSlice";
 import timerReducer from "./slices/timerSlice";
 import cardReducer from "./slices/cardSlice";
+import colorReducer from "./slices/colorSlice";
 
 const reducer = combineReducers({
   info: infoReducer,
   counter: counterReducer,
   timer: timerReducer,
   card: cardReducer,
+  color: colorReducer,
 });
 
 const persistConfig = {
