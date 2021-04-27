@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import StyleGuide from "../../config/StyleGuide";
 
 const { width, height } = Dimensions.get("window");
 const DBwidth = width * 0.5;
@@ -30,7 +31,7 @@ const DateBox = ({ date, color, speed }: DateBoxProps) => {
           </View>
         </View>
       </View>
-      <View style={styles.box}>
+      <View style={[styles.box]}>
         <MaterialCommunityIcons name="trophy-variant" size={24} color="#99a2c9" />
         <View style={[styles.txtBox, ]}>
           <View style={{flexDirection: "column"}}>

@@ -1,4 +1,5 @@
 "use strict";
+// import { StyleGuide, ThemeProps } from "../config/StyleGuide";
 
 export type DataProps = {
   focus: number,
@@ -26,6 +27,7 @@ export interface CardProps {
   goal: string;
   color: string;
   dates: number[];
+  // theme: ThemeProps{},
 };
 
 export const Timer = (value: DataProps): TimerProps => {
@@ -52,5 +54,6 @@ export const Card = (color: string, title: string): CardProps => {
     goal: title,
     color: color,
     dates: [],
+    // theme: StyleGuide.color,
   }
 };

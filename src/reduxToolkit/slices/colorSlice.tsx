@@ -1,6 +1,5 @@
 "use strict";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { MODE, MESSAGE } from "../../config/constants";
 
 interface ColorProps {
   idx: number;
@@ -15,6 +14,7 @@ export const initialState = {
     { idx: 2, color: "#BFEAF5", avaliable: true },
     { idx: 3, color: "#442CB9", avaliable: true },
   ] as ColorProps[],
+  selected: {} as ColorProps,
 };
 
 export const colorSlice = createSlice({
@@ -24,8 +24,8 @@ export const colorSlice = createSlice({
     pickColor: (state, action: PayloadAction<ColorProps>) => {
       state.colorsList.map(item => {
         item.idx === action.payload.idx 
-          ? item.avaliable = false
-          : item.avaliable = true
+          ? item.avaliable = !item.avaliable
+          : item.avaliable
       })
     },
   }

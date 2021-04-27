@@ -6,6 +6,8 @@ import { RootState } from "../../../reduxToolkit/store";
 import { CardProps } from "../../../reduxToolkit/models";
 
 import { deleteCard } from "../../../reduxToolkit/slices/cardSlice";
+import { pickColor } from "../../../reduxToolkit/slices/colorSlice";
+
 import GoalsListItem from "./GoalListItem";
 
 const DeleteGoal = () => {
@@ -13,13 +15,18 @@ const DeleteGoal = () => {
   const list = cardsList.slice(1);
   const dispatch = useDispatch();
 
+  const handleDelete =(item: CardProps) => {
+    dispatch(deleteCard(item));
+    // dispatch(pickColor(item.color));
+  }
+
   return (
     <View style={styles.container}>
       <FlatList<CardProps>
         data={list}
         renderItem={({ item }) => (
           <GoalsListItem
-            onPress={() => dispatch(deleteCard(item))}
+            onPress={() => handleDelete(item)}
             textBody={item.goal}
             color={item.color}
           />

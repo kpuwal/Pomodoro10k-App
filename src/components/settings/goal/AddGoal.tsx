@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import { useAppDispatch, RootState } from "../../../reduxToolkit/store";
 
 import { createCard } from "../../../reduxToolkit/slices/cardSlice";
+import { pickColor } from "../../../reduxToolkit/slices/colorSlice";
+
 import SettingsButton from "../Button";
 import ColorBox from "./ColorBox";
 
@@ -15,17 +17,27 @@ const COLOR_THEMES = [
   { idx: 2, color: "#BFEAF5", state: true },
   { idx: 3, color: "#442CB9", state: true },
 ];
+interface ColorProps {
+  idx: number;
+  color: string;
+  avaliable: boolean;
+};
 
 const AddGoal = () => {
-  const colors = useSelector((state: RootState) => state.colorsList);
-console.log(colors)
+  const colors = useSelector((state: RootState) => state.color.colorsList);
+
+  const filteredColors = colors.filter((item) => {
+    return item.avaliable === true;
+  });
+  console.log("COLORS ", filteredColors)
   const [title, setTitle] = useState<string>("");
   const [amount, setAmount] = useState<string>("");
   const [color, setColor] = useState<string>("");
   const dispatch = useAppDispatch();
 
-  const pickColor = (col: string) => {
-    setColor(col);
+  const pickCol = (col: ColorProps) => {
+    setColor(col.color);
+    dispatch(pickColor(col));
   };
 
   const handleCreateGoal = () => {
@@ -39,9 +51,9 @@ console.log(colors)
         <Text>color theme:</Text>
         <FlatList
           showsHorizontalScrollIndicator={false}
-          data={COLOR_THEMES}
+          data={filteredColors}
           renderItem={({ item }) => (
-            <ColorBox color={item.color} onPress={() => pickColor(item.color)} />
+            <ColorBox color={item.color} onPress={() => pickCol(item)} />
           )}
           keyExtractor={(_, index) => index.toString()}
           horizontal
