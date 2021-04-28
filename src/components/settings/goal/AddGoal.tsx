@@ -5,46 +5,37 @@ import { useSelector } from "react-redux";
 import { useAppDispatch, RootState } from "../../../reduxToolkit/store";
 
 import { createCard } from "../../../reduxToolkit/slices/cardSlice";
-import { pickColor } from "../../../reduxToolkit/slices/colorSlice";
+import { ColorProps, pickColor } from "../../../reduxToolkit/slices/colorSlice";
 
 import SettingsButton from "../Button";
 import ColorBox from "./ColorBox";
-
-const COLORS = ["#FE5E33", "#FFC641", "#BFEAF5", "#442CB9"];
-const COLOR_THEMES = [
-  { idx: 0, color: "#FE5E33", state: true },
-  { idx: 1, color: "#FFC641", state: true },
-  { idx: 2, color: "#BFEAF5", state: true },
-  { idx: 3, color: "#442CB9", state: true },
-];
-interface ColorProps {
-  idx: number;
-  color: string;
-  avaliable: boolean;
-};
+import { StyleGuide } from "../../../config/StyleGuide";
 
 const AddGoal = () => {
   const colors = useSelector((state: RootState) => state.color.colorsList);
 
   const filteredColors = colors.filter((item) => {
-    return item.avaliable === true;
+    return item.active === true;
   });
   console.log("COLORS ", filteredColors)
   const [title, setTitle] = useState<string>("");
   const [amount, setAmount] = useState<string>("");
-  const [color, setColor] = useState<string>("");
+  const [theme, setTheme] = useState<ColorProps>(
+    { idx: 1, theme: StyleGuide.themeB, active: true }
+    );
   const dispatch = useAppDispatch();
 
-  const pickCol = (col: ColorProps) => {
-    setColor(col.color);
-    dispatch(pickColor(col));
+  const pickCol = (theme: ColorProps) => {
+    setTheme(theme);
   };
 
   const handleCreateGoal = () => {
-    dispatch(createCard({color, title}));
+    dispatch(createCard({theme, title}));
+    dispatch(pickColor(theme.idx));
     setTitle("");
     setAmount("");
   };
+
   return (
     <View style={styles.container}>
       <View style={styles.colorPicker}>
@@ -53,7 +44,7 @@ const AddGoal = () => {
           showsHorizontalScrollIndicator={false}
           data={filteredColors}
           renderItem={({ item }) => (
-            <ColorBox color={item.color} onPress={() => pickCol(item)} />
+            <ColorBox color={item.theme.main} onPress={() => pickCol(item)} />
           )}
           keyExtractor={(_, index) => index.toString()}
           horizontal

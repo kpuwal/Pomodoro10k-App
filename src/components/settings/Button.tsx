@@ -2,7 +2,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import StyleGuide from "../../config/StyleGuide";
+import { StyleGuide } from "../../config/StyleGuide";
 
 interface ButtonProps {
   onPress: () => void;
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 8,
-    backgroundColor: StyleGuide.palette.main.primary,
+    backgroundColor: StyleGuide.themeA.main,
   },
   txt: {
     color: "white",

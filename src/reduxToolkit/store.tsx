@@ -30,7 +30,7 @@ const reducer = combineReducers({
 const persistConfig = {
   key: "DATA",
   storage: AsyncStorage,
-  whitelist: ["timer", "card"],
+  whitelist: ["timer", "card", "color"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);

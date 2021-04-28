@@ -1,17 +1,19 @@
 import React from "react";
 import { View,Text, StyleSheet, Dimensions } from "react-native";
+import { ThemeProps } from "../../config/StyleGuide";
 const { width, height } = Dimensions.get("window");
 
 import MeterIcon from "../../svg/MeterIcon";
 
 interface SpeedBoxProps {
-  color: string,
+  theme: ThemeProps,
+  speed: number,
 };
 
-const SpeedBox = ({ color }: SpeedBoxProps) => {
+const SpeedBox = ({ speed, theme }: SpeedBoxProps) => {
   return (
     <View style={styles.container}>
-      <View><MeterIcon {...{ color }} /></View>
+      <View><MeterIcon colorBrain={theme.main} colorActive={theme.secondary} /></View>
       <Text style={styles.txt}>Progress</Text>
     </View>
   )

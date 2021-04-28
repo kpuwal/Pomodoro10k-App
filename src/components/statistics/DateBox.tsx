@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import StyleGuide from "../../config/StyleGuide";
+import { ThemeProps } from "../../config/StyleGuide";
 
 const { width, height } = Dimensions.get("window");
 const DBwidth = width * 0.5;
@@ -14,16 +14,20 @@ interface DateBoxProps {
     month: string,
     year: string,
   },
-  color: string,
+  theme: ThemeProps,
   speed: number,
 };
 
-const DateBox = ({ date, color, speed }: DateBoxProps) => {
+const DateBox = ({ date, theme, speed }: DateBoxProps) => {
   return (
     <View style={styles.container}>
-      <View style={styles.box}>
-        <MaterialCommunityIcons name="clock-fast" size={24} color="#99a2c9" />
-        <View style={[styles.txtBox, ]}>
+      <View style={[styles.box, {backgroundColor: theme.shadeMain}]}>
+        <MaterialCommunityIcons
+          name="clock-fast"
+          size={24}
+          color={theme.shadeSecondary}
+        />
+        <View style={[styles.txtBox]}>
           <View style={{flexDirection: "row", alignItems: "baseline"}}>
           <Text style={[styles.txt, styles.title]}>Speed:</Text>
           <Text style={[styles.txt, styles.speed ]}> {speed.toFixed(2)}</Text>
@@ -31,8 +35,12 @@ const DateBox = ({ date, color, speed }: DateBoxProps) => {
           </View>
         </View>
       </View>
-      <View style={[styles.box]}>
-        <MaterialCommunityIcons name="trophy-variant" size={24} color="#99a2c9" />
+      <View style={[styles.box, {backgroundColor: theme.shadeMain}]}>
+        <MaterialCommunityIcons
+          name="trophy-variant"
+          size={24}
+          color={theme.shadeSecondary}
+        />
         <View style={[styles.txtBox, ]}>
           <View style={{flexDirection: "column"}}>
             <Text style={[styles.txt, styles.title]}>Due on:
@@ -57,7 +65,7 @@ const styles = StyleSheet.create({
   box: {
     height: "45%",
     width: "100%",
-    backgroundColor: "#20263d",
+    // backgroundColor: "#20263d",
     borderRadius: 10,
     // paddingVertical: "2%",
     justifyContent: "space-between",

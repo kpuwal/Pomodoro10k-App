@@ -3,7 +3,7 @@ import React from "react";
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 
-import StyleGuide from "../../../config/StyleGuide";
+import { StyleGuide } from "../../../config/StyleGuide";
 import Icon from "../../../svg/Icon";
 import { TimerProps } from "../../../reduxToolkit/models"; 
 import { RootState } from "../../../reduxToolkit/store";
@@ -16,15 +16,15 @@ interface TimerIconProps {
 
 const TimerIcon = ({ item, selected, toggleSession }: TimerIconProps) => {
   const start = useSelector((state: RootState) => state.counter.start);
-  const tSelected = StyleGuide.palette.main.secondary;
-  const tUnselected = StyleGuide.palette.main.tertiary;
+  const tSelected = StyleGuide.themeA.secondary;
+  const tUnselected = StyleGuide.themeA.tertiary;
 
   return (
     <TouchableOpacity disabled={start} onPress={() => toggleSession(item)}>
       <View style={styles.container}>
         <Icon
           color={selected ? tSelected : tUnselected}
-          bgcolor={StyleGuide.palette.main.primary}
+          bgcolor={StyleGuide.themeA.main}
           fTime={item.focus.min}
           rTime={item.relax.min}
         />

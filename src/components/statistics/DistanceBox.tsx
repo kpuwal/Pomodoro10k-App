@@ -1,15 +1,16 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { FontAwesome5 } from '@expo/vector-icons';
+import { ThemeProps } from "../../config/StyleGuide";
 
 interface DistanceBoxProps {
   total: number,
   timeLeft: number,
   goal: number,
-  color: string,
+  theme: ThemeProps,
 };
 
-const DistanceBox = ({total, timeLeft, goal, color}: DistanceBoxProps) => {
+const DistanceBox = ({total, timeLeft, goal, theme}: DistanceBoxProps) => {
   const newtotal = total * 50000
   const distance = (newtotal * 1.66) / goal;
 
@@ -17,11 +18,11 @@ const DistanceBox = ({total, timeLeft, goal, color}: DistanceBoxProps) => {
     <View style={styles.container}>
       <View style={[styles.indicatorIcon, {paddingLeft: distance - 4}]}>
         <Text style={[styles.txt, {marginBottom: "1%"}]}>{(total / 60).toFixed(2)}h</Text>
-        <FontAwesome5 style={styles.icon} name="map-marker-alt" size={24} color="#F76B6B" />
+        <FontAwesome5 style={styles.icon} name="map-marker-alt" size={24} color={theme.secondary} />
       </View>
       <View style={styles.lines}>
         <View style={[styles.leadline, {backgroundColor: "#fff", width: distance}]} />
-        <View style={[styles.line, {backgroundColor: "#99a2c9"}]} />
+        <View style={[styles.line, {backgroundColor: theme.shadeSecondary}]} />
       </View>
       <View style={styles.labels}>
         <Text style={styles.txt2}>0</Text>

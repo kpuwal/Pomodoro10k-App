@@ -1,18 +1,19 @@
 "use strict";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { StyleGuide, ThemeProps } from "../../config/StyleGuide";
 
-interface ColorProps {
+export interface ColorProps {
   idx: number;
-  color: string;
-  avaliable: boolean;
+  theme: ThemeProps;
+  active: boolean;
 };
 
 export const initialState = {
   colorsList: [
-    { idx: 0, color: "#FE5E33", avaliable: true },
-    { idx: 1, color: "#FFC641", avaliable: true },
-    { idx: 2, color: "#BFEAF5", avaliable: true },
-    { idx: 3, color: "#442CB9", avaliable: true },
+    { idx: 1, theme: StyleGuide.themeB, active: true },
+    { idx: 2, theme: StyleGuide.themeC, active: true },
+    { idx: 3, theme: StyleGuide.themeD, active: true },
+    { idx: 4, theme: StyleGuide.themeE, active: true },
   ] as ColorProps[],
   selected: {} as ColorProps,
 };
@@ -21,15 +22,16 @@ export const colorSlice = createSlice({
   name: "color",
   initialState,
   reducers: {
-    pickColor: (state, action: PayloadAction<ColorProps>) => {
+    pickColor: (state, action: PayloadAction<number>) => {
       state.colorsList.map(item => {
-        item.idx === action.payload.idx 
-          ? item.avaliable = !item.avaliable
-          : item.avaliable
+        item.idx === action.payload
+          ? item.active = !item.active
+          : item.active
       })
     },
+    clearColorsAS: () => initialState
   }
 });
 
-export const { pickColor } = colorSlice.actions;
+export const { pickColor, clearColorsAS } = colorSlice.actions;
 export default colorSlice.reducer;

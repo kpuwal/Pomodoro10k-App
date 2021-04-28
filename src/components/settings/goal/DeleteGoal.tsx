@@ -17,7 +17,7 @@ const DeleteGoal = () => {
 
   const handleDelete =(item: CardProps) => {
     dispatch(deleteCard(item));
-    // dispatch(pickColor(item.color));
+    dispatch(pickColor(item.theme.idx));
   }
 
   return (
@@ -28,7 +28,7 @@ const DeleteGoal = () => {
           <GoalsListItem
             onPress={() => handleDelete(item)}
             textBody={item.goal}
-            color={item.color}
+            color={item.theme.main}
           />
         )}
         keyExtractor={(_, idx) => idx.toString()}

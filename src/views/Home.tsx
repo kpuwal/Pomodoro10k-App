@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import { statsIcon, settingsIcon } from "../config/iconsFile";
-import StyleGuide from "../config/StyleGuide";
+import { StyleGuide } from "../config/StyleGuide";
 
 import Timer from "../components/home/Timer";
 import GoalPicker from "./modal/GoalPicker";
@@ -17,11 +17,11 @@ const Home: React.FC = ({ navigation }) => {
       <Timer />
       <View style={styles.navContainer}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Statistics")}>
-          {statsIcon(StyleGuide.palette.main.tertiary)}
+          {statsIcon(StyleGuide.themeA.tertiary)}
           <Text style={styles.txt}>STATS</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Settings")}>
-          {settingsIcon(StyleGuide.palette.main.tertiary)}
+          {settingsIcon(StyleGuide.themeA.tertiary)}
           <Text style={styles.txt}>SETTINGS</Text>
         </TouchableOpacity>
       </View>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "flex-end",
-    backgroundColor: StyleGuide.palette.main.primary,
+    backgroundColor: StyleGuide.themeA.main,
   },
   navContainer: {
     flex: 1 / 12,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   txt: {
-    color: StyleGuide.palette.main.tertiary,
+    color: StyleGuide.themeA.tertiary,
     fontSize: 10,
     paddingTop: 4,
   },

@@ -1,5 +1,5 @@
 "use strict";
-// import { StyleGuide, ThemeProps } from "../config/StyleGuide";
+import { ThemeProps } from "../config/StyleGuide";
 
 export type DataProps = {
   focus: number,
@@ -25,9 +25,9 @@ export interface CardProps {
   }
   weekdaysTotals: number[];
   goal: string;
-  color: string;
+  // color: string;
   dates: number[];
-  // theme: ThemeProps{},
+  theme: ThemeProps,
 };
 
 export const Timer = (value: DataProps): TimerProps => {
@@ -38,7 +38,7 @@ export const Timer = (value: DataProps): TimerProps => {
   };
 };
 
-export const Card = (color: string, title: string): CardProps => {
+export const Card = (theme: ThemeProps, title: string): CardProps => {
   return {
     idx: Math.random(),
     speed: 0,
@@ -52,8 +52,8 @@ export const Card = (color: string, title: string): CardProps => {
     },
     weekdaysTotals: [0, 0, 0, 0, 0, 0, 0],
     goal: title,
-    color: color,
+    // color: color,
     dates: [],
-    // theme: StyleGuide.color,
+    theme: theme,
   }
 };

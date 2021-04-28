@@ -16,7 +16,7 @@ interface ICardProps extends CardProps {
 const CardSlide = ({
   weekdaysTotals,
   goal,
-  color,
+  theme,
   width,
   height,
   total,
@@ -28,14 +28,14 @@ const CardSlide = ({
 
   return (
     <View style={{ width, height }}>
-      <Text style={[styles.header, { color: color }]}>{newTitle}</Text>
+      <Text style={[styles.header, { color: theme.main }]}>{newTitle}</Text>
       <Text style={styles.title}>Habit Pattern</Text>
-      <WeeklyChart {...{ weekdaysTotals, color }} />
+      <WeeklyChart color={theme.main} {...{ weekdaysTotals }} />
       <Text style={[styles.title, {color: "#EFF0F4"}]}>Distance</Text>
-      <DistanceBox goal={10000} {...{ total, timeLeft, color }} />
+      <DistanceBox goal={10000} {...{ total, timeLeft, theme }} />
       <View style={[styles.speedDateBox, { width }]}>
-        <DateBox {...{ date, color, speed }} />
-        <SpeedBox {...{ speed, color }} />
+        <DateBox {...{ date, theme, speed }} />
+        <SpeedBox {...{ speed, theme }} />
       </View>
     </View>
   );

@@ -38,7 +38,7 @@ const Statistics: React.FC = () => {
               key={idx}
               style={[
                 styles.background,
-                { backgroundColor: item.color, opacity },
+                { backgroundColor: item.theme.main, opacity },
               ]}
             />
           );
@@ -61,7 +61,7 @@ const Statistics: React.FC = () => {
               dates={item.dates}
               weekdaysTotals={item.weekdaysTotals}
               goal={item.goal}
-              color={item.color}
+              theme={item.theme}
               total={item.total}
               speed={item.speed}
               timeLeft={item.timeLeft}
