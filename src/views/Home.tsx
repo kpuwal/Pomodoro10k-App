@@ -1,5 +1,5 @@
 "use strict";
-import React from "react";
+import React, {useEffect} from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
@@ -9,7 +9,19 @@ import { StyleGuide } from "../config/StyleGuide";
 import Timer from "../components/home/Timer";
 import GoalPicker from "./modal/GoalPicker";
 
+// TO REMOVE
+// import { useAppDispatch } from "../reduxToolkit/store";
+// import { clearTimersAS } from "../reduxToolkit/slices/timerSlice";
+// import { clearCardsAS } from "../reduxToolkit/slices/cardSlice";
+// import { clearColorsAS } from "../reduxToolkit/slices/colorSlice";
+
 const Home: React.FC = ({ navigation }) => {
+  // const dispatch = useAppDispatch();
+  // useEffect(() => {
+  //   dispatch(clearTimersAS());
+  //   dispatch(clearCardsAS());
+  //   dispatch(clearColorsAS());
+  // })
   return (
     <View style={styles.container}>
       <StatusBar style="light" />

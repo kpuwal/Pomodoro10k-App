@@ -1,6 +1,6 @@
 "use strict";
 import React, { useState } from "react";
-import { View, TextInput, Text, StyleSheet, Platform, FlatList } from "react-native";
+import { View, TextInput, Text, StyleSheet, FlatList } from "react-native";
 import { useSelector } from "react-redux";
 import { useAppDispatch, RootState } from "../../../reduxToolkit/store";
 
@@ -8,7 +8,7 @@ import { createCard } from "../../../reduxToolkit/slices/cardSlice";
 import { ColorProps, pickColor } from "../../../reduxToolkit/slices/colorSlice";
 
 import SettingsButton from "../Button";
-import ColorBox from "./ColorBox";
+import { ColorMenu } from "./ColorBox";
 import { StyleGuide } from "../../../config/StyleGuide";
 
 const AddGoal = () => {
@@ -42,9 +42,13 @@ const AddGoal = () => {
         <Text>color theme:</Text>
         <FlatList
           showsHorizontalScrollIndicator={false}
-          data={filteredColors}
+          data={colors}
           renderItem={({ item }) => (
-            <ColorBox color={item.theme.main} onPress={() => pickCol(item)} />
+            <ColorMenu
+              selected={theme.idx === item.idx}
+              active={item.active}
+              color={item.theme.main}
+              onPress={() => pickCol(item)} />
           )}
           keyExtractor={(_, index) => index.toString()}
           horizontal

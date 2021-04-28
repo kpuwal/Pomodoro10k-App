@@ -3,12 +3,12 @@ import React from "react";
 import { View, Text, TouchableOpacity, Platform, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import ColorBox from "./ColorBox";
+import { ColorBox } from "./ColorBox";
 
 interface GoalsListItemProps {
   textBody: string;
   color: string;
-  onPress: () => void;
+  onPress?: () => void;
 };
 
 const GoalsListItem = ({ textBody, color, onPress }: GoalsListItemProps) => {

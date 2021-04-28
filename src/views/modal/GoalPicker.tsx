@@ -50,7 +50,7 @@ const GoalPicker: React.FC = () => {
               data={cardsList}
               renderItem={({ item }) => (
                 <TouchableOpacity onPress={() => handleSelect(item)}>
-                  <GoalsListItem textBody={item.goal} color={item.color} />
+                  <GoalsListItem textBody={item.goal} color={item.theme.main} />
                 </TouchableOpacity>
               )}
               keyExtractor={(_, idx) => idx.toString()}
