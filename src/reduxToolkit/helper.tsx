@@ -32,7 +32,7 @@ const updateSpeed = (item: CardProps, day: Date): number => {
 };
 
 const updateTimeLeft = (item: CardProps): number => {
-  return 10000 - (item.total / 60);
+  return item.goalHours - (item.total / 60);
 };
 
 const convertWeekday = (value: Date): string => {

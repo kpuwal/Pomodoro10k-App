@@ -66,6 +66,7 @@ const Statistics: React.FC = () => {
               speed={item.speed}
               timeLeft={item.timeLeft}
               date={item.date}
+              goalHours={item.goalHours}
               width={cardW}
               height={cardH}
             />

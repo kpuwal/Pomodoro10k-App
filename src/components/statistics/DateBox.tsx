@@ -29,9 +29,9 @@ const DateBox = ({ date, theme, speed }: DateBoxProps) => {
         />
         <View style={[styles.txtBox]}>
           <View style={{flexDirection: "row", alignItems: "baseline"}}>
-          <Text style={[styles.txt, styles.title]}>Speed:</Text>
+          <Text style={[styles.txt, {color: theme.shadeSecondary}]}>Speed:</Text>
           <Text style={[styles.txt, styles.speed ]}> {speed.toFixed(2)}</Text>
-          <Text style={[styles.txt, styles.title]}>  h/day</Text>
+          <Text style={[styles.txt, {color: theme.shadeSecondary}]}>  h/day</Text>
           </View>
         </View>
       </View>
@@ -43,7 +43,7 @@ const DateBox = ({ date, theme, speed }: DateBoxProps) => {
         />
         <View style={[styles.txtBox, ]}>
           <View style={{flexDirection: "column"}}>
-            <Text style={[styles.txt, styles.title]}>Due on:
+            <Text style={[styles.txt, {color: theme.shadeSecondary}]}>Due on:
               <Text style={[styles.txt]}>   {date.weekday},</Text>
             </Text>
             <Text style={[styles.txt]}>{date.day} {date.month} {date.year}</Text>

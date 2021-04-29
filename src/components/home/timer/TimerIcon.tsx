@@ -3,7 +3,7 @@ import React from "react";
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 
-import { StyleGuide } from "../../../config/StyleGuide";
+import StyleGuide from "../../../config/StyleGuide";
 import Icon from "../../../svg/Icon";
 import { TimerProps } from "../../../reduxToolkit/models"; 
 import { RootState } from "../../../reduxToolkit/store";

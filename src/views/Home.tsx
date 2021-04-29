@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import { statsIcon, settingsIcon } from "../config/iconsFile";
-import { StyleGuide } from "../config/StyleGuide";
+import StyleGuide from "../config/StyleGuide";
 
 import Timer from "../components/home/Timer";
 import GoalPicker from "./modal/GoalPicker";

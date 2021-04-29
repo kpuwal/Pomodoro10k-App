@@ -2,7 +2,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { StyleGuide } from "../../config/StyleGuide";
+import StyleGuide from "../../config/StyleGuide";
 
 interface ButtonProps {
   onPress: () => void;
@@ -13,7 +13,14 @@ interface ButtonProps {
 const Button = ({ onPress, disabled, title }: ButtonProps) => {
   return (
     <TouchableOpacity {...{ onPress, disabled }}>
-      <View style={styles.container}>
+      <View style={[
+        styles.container,
+        {backgroundColor: 
+          disabled 
+            ? StyleGuide.disabled
+            : StyleGuide.themeA.main
+          }
+      ]}>
         <Text style={styles.txt}>{title}</Text>
       </View>
     </TouchableOpacity>

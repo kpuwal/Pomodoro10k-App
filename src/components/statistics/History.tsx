@@ -12,7 +12,7 @@ const History = ({ cards }: HistoryProps) => {
     return item.dates.map((date) => {
       return {
         date: new Date(date).toLocaleDateString(),
-        color: item.color,
+        color: item.theme.main,
         idx: new Date(date).toLocaleTimeString()
       }
     })

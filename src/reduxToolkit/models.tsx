@@ -28,6 +28,7 @@ export interface CardProps {
   // color: string;
   dates: number[];
   theme: ThemeProps,
+  goalHours: number,
 };
 
 export const Timer = (value: DataProps): TimerProps => {
@@ -38,7 +39,7 @@ export const Timer = (value: DataProps): TimerProps => {
   };
 };
 
-export const Card = (theme: ThemeProps, title: string): CardProps => {
+export const Card = (goal: number, theme: ThemeProps, title: string): CardProps => {
   return {
     idx: Math.random(),
     speed: 0,
@@ -55,5 +56,6 @@ export const Card = (theme: ThemeProps, title: string): CardProps => {
     // color: color,
     dates: [],
     theme: theme,
+    goalHours: goal,
   }
 };

@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Card, CardProps } from "../models";
 import { updateSelectedCard } from "../helper";
-import { StyleGuide } from "../../config/StyleGuide";
+import StyleGuide from "../../config/StyleGuide";
 import { ColorProps } from "../../reduxToolkit/slices/colorSlice";
 
 const DEFAULT_CARD: CardProps = {
@@ -20,6 +20,7 @@ const DEFAULT_CARD: CardProps = {
   goal: "Pomodoro Session",
   theme: StyleGuide.themeA,
   dates: [],
+  goalHours: 10000,
 };
 
 export const initialState = {
@@ -31,8 +32,13 @@ export const cardSlice = createSlice({
   name: "card",
   initialState,
   reducers: {
-    createCard: (state, action: PayloadAction<{theme: ColorProps, title: string}>) => {
-      const card = Card(action.payload.theme.theme, action.payload.title);
+    createCard: (state, action: PayloadAction<{amount: number, theme: ColorProps, title: string}>) => {
+      console.log("theme from redux ", action.payload.theme.theme)
+      const card = Card(
+        action.payload.amount,
+        action.payload.theme.theme,
+        action.payload.title
+      );
       state.cardsList.push(card)
     },
     deleteCard: (state, action: PayloadAction<CardProps>) => {

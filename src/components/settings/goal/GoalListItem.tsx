@@ -6,17 +6,33 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ColorBox } from "./ColorBox";
 
 interface GoalsListItemProps {
+  goalHours: number;
   textBody: string;
   color: string;
   onPress?: () => void;
 };
 
-const GoalsListItem = ({ textBody, color, onPress }: GoalsListItemProps) => {
+interface GoalList {
+  color: string;
+  textBody: string;
+  goalHours: number;
+}
+
+export const ListItem = ({ color, textBody, goalHours }: GoalList) => {
+  return (
+    <View style={styles.listContainer}>
+      <ColorBox {...{ color }} />
+      <Text style={styles.txt}>{textBody}</Text>
+    </View>
+  );
+};
+
+export const GoalsListItem = ({ goalHours, textBody, color, onPress }: GoalsListItemProps) => {
   return (
     <View style={styles.container}>
       <ColorBox {...{ color }} />
       <Text>{textBody}</Text>
-      <Text>10k hours</Text>
+      <Text>{goalHours} hours</Text>
       <TouchableOpacity {...{ onPress }}>
         <MaterialCommunityIcons
           name="delete-forever"
@@ -36,7 +52,7 @@ const styles = StyleSheet.create({
     margin: 4,
     width: "90%",
     height: 70,
-    borderRadius: 20,
+    borderRadius: 10,
     backgroundColor: "#F5F7FA",
     ...Platform.select({
       ios: {
@@ -53,6 +69,14 @@ const styles = StyleSheet.create({
       },
     })
   },
+  listContainer: {
+    flexDirection: "row",
+    padding: "5%",
+  },
+  txt: {
+    paddingLeft: "10%",
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#29304D",
+  }
 });
-
-export default GoalsListItem;

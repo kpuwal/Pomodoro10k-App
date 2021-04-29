@@ -9,31 +9,27 @@ import { ColorProps, pickColor } from "../../../reduxToolkit/slices/colorSlice";
 
 import SettingsButton from "../Button";
 import { ColorMenu } from "./ColorBox";
-import { StyleGuide } from "../../../config/StyleGuide";
+import StyleGuide from "../../../config/StyleGuide";
 
 const AddGoal = () => {
   const colors = useSelector((state: RootState) => state.color.colorsList);
-
-  const filteredColors = colors.filter((item) => {
-    return item.active === true;
-  });
-  console.log("COLORS ", filteredColors)
+  const dummy = { idx: 100, theme: StyleGuide.themeB, active: true };
   const [title, setTitle] = useState<string>("");
-  const [amount, setAmount] = useState<string>("");
-  const [theme, setTheme] = useState<ColorProps>(
-    { idx: 1, theme: StyleGuide.themeB, active: true }
-    );
+  const [amount, setAmount] = useState<number>(0);
+  const [theme, setTheme] = useState<ColorProps>(dummy);
   const dispatch = useAppDispatch();
-
+  console.log("COLORS ", colors)
   const pickCol = (theme: ColorProps) => {
     setTheme(theme);
   };
 
   const handleCreateGoal = () => {
-    dispatch(createCard({theme, title}));
+    console.log("theme from creation ", theme)
+    dispatch(createCard({amount, theme, title}));
     dispatch(pickColor(theme.idx));
     setTitle("");
-    setAmount("");
+    setAmount(0);
+    setTheme(dummy);
   };
 
   return (
@@ -58,8 +54,8 @@ const AddGoal = () => {
           style={styles.input}
           placeholder="Add the goal timeframe"
           textAlign="center"
-          value={amount}
-          onChangeText={(txt) => setAmount(txt)}
+          value={amount.toString()}
+          onChangeText={(txt) => setAmount(parseInt(txt, 10))}
         />
       <TextInput
         style={styles.input}
@@ -71,7 +67,7 @@ const AddGoal = () => {
       <SettingsButton
         title="Create Goal"
         onPress={() => handleCreateGoal()}
-        disabled={false}
+        disabled={title !== "" && amount !== 0 && theme.idx !== 100 ? false : true}
       />
     </View>
   );

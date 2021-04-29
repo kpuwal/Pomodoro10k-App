@@ -1,6 +1,6 @@
 "use strict";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { StyleGuide, ThemeProps } from "../../config/StyleGuide";
+import StyleGuide, { ThemeProps } from "../../config/StyleGuide";
 
 export interface ColorProps {
   idx: number;

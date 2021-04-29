@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
   },
   square: {
     borderRadius: 2,
-    width: 5,
-    height: 5,
+    width: 6,
+    height: 6,
     margin: 1,
   },
 });

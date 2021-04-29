@@ -22,6 +22,7 @@ const CardSlide = ({
   total,
   speed,
   timeLeft,
+  goalHours,
   date
 }: ICardProps) => {
   const newTitle = goal.toUpperCase();
@@ -32,7 +33,7 @@ const CardSlide = ({
       <Text style={styles.title}>Habit Pattern</Text>
       <WeeklyChart color={theme.main} {...{ weekdaysTotals }} />
       <Text style={[styles.title, {color: "#EFF0F4"}]}>Distance</Text>
-      <DistanceBox goal={10000} {...{ total, timeLeft, theme }} />
+      <DistanceBox goal={goalHours} {...{ total, timeLeft, theme }} />
       <View style={[styles.speedDateBox, { width }]}>
         <DateBox {...{ date, theme, speed }} />
         <SpeedBox {...{ speed, theme }} />

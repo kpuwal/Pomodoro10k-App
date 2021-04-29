@@ -14,9 +14,10 @@ export type StyleGuideProps = {
   themeC: ThemeProps,
   themeD: ThemeProps,
   themeE: ThemeProps,
+  disabled: string,
 } ;
 
-export const StyleGuide: StyleGuideProps = {
+const StyleGuide: StyleGuideProps = {
   themeA: {
     idx: 0,
     main: "#29304D",
@@ -29,40 +30,41 @@ export const StyleGuide: StyleGuideProps = {
   themeB: {
     idx: 1,
     main: "#FE5E33",
-    secondary: "#F76B6B",
-    tertiary: "#8D91A1",
-    shadeMain: "#20263d",
-    shadeSecondary: "#99a2c9",
+    secondary: "#c5c963",
+    tertiary: "#33fe5f",
+    shadeMain: "#e5522a",
+    shadeSecondary: "#99e4fd",
   } as ThemeProps,
   
   themeC: {
     idx: 2,
-    main: "#FFC641",
-    secondary: "#F76B6B",
+    main: "#558B2F",
+    secondary: "#4A148C",
     tertiary: "#8D91A1",
-    shadeMain: "#20263d",
-    shadeSecondary: "#99a2c9",
+    shadeMain: "#33691e",
+    shadeSecondary: "#FFECB3",
   } as ThemeProps,
   
   themeD: {
     idx: 3,
-    main: "#BFEAF5",
-    secondary: "#F76B6B",
+    main: "#4c4b7f",
+    secondary: "#8ab6ed",
     tertiary: "#8D91A1",
-    shadeMain: "#20263d",
-    shadeSecondary: "#99a2c9",
+    shadeMain: "#37315A",
+    shadeSecondary: "#d8a772",
   } as ThemeProps,
   
   themeE: {
     idx: 4,
-    main: "#442CB9",
-    secondary: "#F76B6B",
+    main: "#00ACC1",
+    secondary: "#FFC400",
     tertiary: "#8D91A1",
-    shadeMain: "#20263d",
-    shadeSecondary: "#99a2c9",
+    shadeMain: "#0096a7",
+    shadeSecondary: "#fccfc5",
   } as ThemeProps,
+  disabled: "#a9acb7",
 }
 
-// export default StyleGuide;
+export default StyleGuide;
 
 // "#242E58"

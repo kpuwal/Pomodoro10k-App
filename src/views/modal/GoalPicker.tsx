@@ -12,7 +12,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { RootState, useAppDispatch } from "../../reduxToolkit/store";
 
 import { selectCard } from "../../reduxToolkit/slices/cardSlice";
-import GoalsListItem from "../../components/settings/goal/GoalListItem";
+import { ListItem } from "../../components/settings/goal/GoalListItem";
 import { CardProps } from "../../reduxToolkit/models";
 
 const GoalPicker: React.FC = () => {
@@ -43,14 +43,22 @@ const GoalPicker: React.FC = () => {
           />
         </View>
       </TouchableOpacity>
-      <Modal animationType="fade" transparent={true} visible={isVisible}>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={isVisible}
+        >
         <View style={styles.modal}>
           <View style={styles.modalView}>
             <FlatList
               data={cardsList}
               renderItem={({ item }) => (
                 <TouchableOpacity onPress={() => handleSelect(item)}>
-                  <GoalsListItem textBody={item.goal} color={item.theme.main} />
+                  <ListItem
+                    goalHours={item.goalHours}
+                    textBody={item.goal}
+                    color={item.theme.main}
+                  />
                 </TouchableOpacity>
               )}
               keyExtractor={(_, idx) => idx.toString()}
@@ -65,16 +73,21 @@ const GoalPicker: React.FC = () => {
 const styles = StyleSheet.create({
   modal: {
     flex: 1,
-    marginTop: 100,
+    // marginTop: "50%",
+    backgroundColor: "#8D91A1",
+    opacity: 0.95,
   },
   modalView: {
-    paddingTop: 22,
+    marginTop: "40%",
+    padding: "10%",
     width: "90%",
-    margin: 20,
+    margin: "5%",
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
+    // padding: 35,
+    // alignItems: "center",
+    justifyContent: "space-around",
+    opacity: 1,
   },
   goalPicker: {
     justifyContent: "center",

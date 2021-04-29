@@ -8,7 +8,7 @@ import { CardProps } from "../../../reduxToolkit/models";
 import { deleteCard } from "../../../reduxToolkit/slices/cardSlice";
 import { pickColor } from "../../../reduxToolkit/slices/colorSlice";
 
-import GoalsListItem from "./GoalListItem";
+import { GoalsListItem } from "./GoalListItem";
 
 const DeleteGoal = () => {
   const cardsList = useSelector((state: RootState) => state.card.cardsList);
@@ -18,7 +18,7 @@ const DeleteGoal = () => {
   const handleDelete =(item: CardProps) => {
     dispatch(deleteCard(item));
     dispatch(pickColor(item.theme.idx));
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -27,6 +27,7 @@ const DeleteGoal = () => {
         renderItem={({ item }) => (
           <GoalsListItem
             onPress={() => handleDelete(item)}
+            goalHours={item.goalHours}
             textBody={item.goal}
             color={item.theme.main}
           />

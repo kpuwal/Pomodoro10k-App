@@ -12,7 +12,9 @@ interface DistanceBoxProps {
 
 const DistanceBox = ({total, timeLeft, goal, theme}: DistanceBoxProps) => {
   const newtotal = total * 50000
-  const distance = (newtotal * 1.66) / goal;
+  const distance = (total * 1.66) / goal;
+
+  console.log("THEME ", theme)
 
   return (
     <View style={styles.container}>
