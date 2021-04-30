@@ -51,7 +51,7 @@ function SvgComponent({ colorBrain, colorActive }: MeterIconProps) {
        color: colorActive,
        top: "90%",
        bottom: 0, 
-       left: -20,
+       left: -22,
        right: 0
       }}
     >Slow</Text>

@@ -14,17 +14,17 @@ import StyleGuide from "../../../config/StyleGuide";
 const AddGoal = () => {
   const colors = useSelector((state: RootState) => state.color.colorsList);
   const dummy = { idx: 100, theme: StyleGuide.themeB, active: true };
+
   const [title, setTitle] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);
   const [theme, setTheme] = useState<ColorProps>(dummy);
   const dispatch = useAppDispatch();
-  console.log("COLORS ", colors)
+
   const pickCol = (theme: ColorProps) => {
     setTheme(theme);
   };
 
   const handleCreateGoal = () => {
-    console.log("theme from creation ", theme)
     dispatch(createCard({amount, theme, title}));
     dispatch(pickColor(theme.idx));
     setTitle("");
@@ -35,20 +35,21 @@ const AddGoal = () => {
   return (
     <View style={styles.container}>
       <View style={styles.colorPicker}>
-        <Text>color theme:</Text>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          data={colors}
-          renderItem={({ item }) => (
-            <ColorMenu
-              selected={theme.idx === item.idx}
-              active={item.active}
-              color={item.theme.main}
-              onPress={() => pickCol(item)} />
-          )}
-          keyExtractor={(_, index) => index.toString()}
-          horizontal
-        />
+        <View>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            data={colors}
+            renderItem={({ item }) => (
+              <ColorMenu
+                selected={theme.idx === item.idx}
+                active={item.active}
+                color={item.theme.main}
+                onPress={() => pickCol(item)} />
+            )}
+            keyExtractor={(_, index) => index.toString()}
+            horizontal
+          />
+        </View>
       </View>
       <TextInput
           style={styles.input}
@@ -79,28 +80,13 @@ const styles = StyleSheet.create({
     // backgroundColor: "#F5F7FA",
     justifyContent: "space-around",
     paddingBottom: "10%",
-    // ...Platform.select({
-    //   ios: {
-    //     shadowColor: "#000",
-    //     shadowOpacity: 0.2,
-    //     // shadowRadius: 5,
-    //     shadowOffset: {
-    //       width: 2,
-    //       height: 3
-    //     }
-    //   },
-    //   android: {
-    //     elevation: 5
-    //   },
-    // })
   },
   colorPicker: {
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
   },
   input: {
-    height: 50,
+    // height: 50,
   },
 });
 

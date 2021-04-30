@@ -23,7 +23,7 @@ const DistanceBox = ({total, timeLeft, goal, theme}: DistanceBoxProps) => {
         <FontAwesome5 style={styles.icon} name="map-marker-alt" size={24} color={theme.secondary} />
       </View>
       <View style={styles.lines}>
-        <View style={[styles.leadline, {backgroundColor: "#fff", width: distance}]} />
+        <View style={[styles.leadline, {backgroundColor: theme.secondary, width: distance}]} />
         <View style={[styles.line, {backgroundColor: theme.shadeSecondary}]} />
       </View>
       <View style={styles.labels}>

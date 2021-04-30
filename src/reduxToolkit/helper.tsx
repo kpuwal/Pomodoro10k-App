@@ -46,7 +46,7 @@ const convertMonth = (value: Date): string => {
 };
 
 const updateDate = (item: CardProps, day: Date): DateType => {
-  day.setDate(day.getDate() + item.timeLeft);
+  day.setDate(day.getDate() + (item.timeLeft / item.speed));
   return {
     weekday: convertWeekday(day),
     day: day.getDate().toString(),
