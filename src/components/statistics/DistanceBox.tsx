@@ -1,7 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, Dimensions, StyleSheet } from "react-native";
 import { FontAwesome5 } from '@expo/vector-icons';
 import { ThemeProps } from "../../config/StyleGuide";
+
+const { width } = Dimensions.get("window");
 
 interface DistanceBoxProps {
   total: number,
@@ -11,10 +13,7 @@ interface DistanceBoxProps {
 };
 
 const DistanceBox = ({total, timeLeft, goal, theme}: DistanceBoxProps) => {
-  const newtotal = total * 50000
-  const distance = (total * 1.66) / goal;
-
-  console.log("THEME ", theme)
+  const distance = (total / 60) * (1 / goal) * width * 0.79;
 
   return (
     <View style={styles.container}>

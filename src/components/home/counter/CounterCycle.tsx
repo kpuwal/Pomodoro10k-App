@@ -1,5 +1,5 @@
 "use strict";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppDispatch } from "../../../reduxToolkit/store";
 import { Vibration } from "react-native";
 
@@ -12,17 +12,18 @@ import Counter from "./Counter";
 
 interface CounterCycleProps {
   relax: number;
-  min: number;
-  sec: number;
+  focus: number;
   cycle: boolean;
   pause: boolean;
   infoMessage: string;
 }
 
-const  CounterCycle = ({ cycle, pause, min, sec, relax, infoMessage }: CounterCycleProps) => {
+const  CounterCycle = ({ cycle, pause, focus, relax, infoMessage }: CounterCycleProps) => {
+  const [session, setSession] = useState({min: focus, sec: 0})
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    setSession({min: relax, sec: 0})
     dispatch(message(0));
     dispatch(mode(0));
   }, [dispatch]);
@@ -41,7 +42,7 @@ const  CounterCycle = ({ cycle, pause, min, sec, relax, infoMessage }: CounterCy
     dispatch(startCounter());
     dispatch(pauseCounter(false));
     dispatch(mode(0));
-    dispatch(updateCard({min, date: new Date()}));
+    dispatch(updateCard({min: focus, date: new Date()}));
     // Vibration.vibrate();
     // Vibration.vibrate();
   };
@@ -62,7 +63,9 @@ const  CounterCycle = ({ cycle, pause, min, sec, relax, infoMessage }: CounterCy
     return (
       <Counter
         countOver={() => handleCountOver()}
-        {...{ min, sec, pause }}
+        min={session.min}
+        sec={session.sec}
+        {...{ pause }}
       />
     );
   } else {

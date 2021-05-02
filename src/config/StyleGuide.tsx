@@ -43,16 +43,16 @@ const StyleGuide: StyleGuideProps = {
   
   themeC: {
     idx: 2,
-    main: "#51a312",
-    secondary: "#29304D",
-    tertiary: "#8D91A1",
-    shadeMain: "#489210",
-    shadeSecondary: "#F7c56e",
-    // main: "#558B2F",
-    // secondary: "#4A148C",
+    // main: "#51a312",
+    // secondary: "#29304D",
     // tertiary: "#8D91A1",
-    // shadeMain: "#33691e",
-    // shadeSecondary: "#FFECB3",
+    // shadeMain: "#489210",
+    // shadeSecondary: "#F7c56e",
+    main: "#99ba31",
+    secondary: "#247e2c",
+    tertiary: "#8D91A1",
+    shadeMain: "#7a9427",
+    shadeSecondary: "#F7c56e",
   } as ThemeProps,
   
   themeD: {

@@ -21,8 +21,7 @@ const Timer: React.FC = () => {
         ? 
           <CounterCycle
             relax={timers.selected.relax.min}
-            min={timers.selected.focus.min}
-            sec={timers.selected.focus.sec}
+            focus={timers.selected.focus.min}
             cycle={counter.cycle}
             pause={counter.pause}
             infoMessage={info.message}

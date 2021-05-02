@@ -14,7 +14,6 @@ interface WeeklyChartProps {
 
 const WeeklyChart = ({ weekdaysTotals, color }: WeeklyChartProps) => {
   return (
-    <>
     <View style={styles.container}>
       {weekdaysTotals.map((item: number, idx: number) => (
         <ChartBar
@@ -26,7 +25,6 @@ const WeeklyChart = ({ weekdaysTotals, color }: WeeklyChartProps) => {
         />
       ))}
     </View>
-    </>
   );
 };
 

@@ -33,7 +33,6 @@ export const cardSlice = createSlice({
   initialState,
   reducers: {
     createCard: (state, action: PayloadAction<{amount: number, theme: ColorProps, title: string}>) => {
-      console.log("theme from redux ", action.payload.theme.theme)
       const card = Card(
         action.payload.amount,
         action.payload.theme.theme,

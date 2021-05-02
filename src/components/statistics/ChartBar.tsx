@@ -17,7 +17,7 @@ const ChartBar = ({ total, color, width, label }: ChartBarProps) => {
         <View
           style={{
             width: width / 3,
-            height: total * 5,
+            height: total / 2,
             backgroundColor: color,
           }}
         />
