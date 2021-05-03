@@ -73,7 +73,6 @@ const GoalPicker: React.FC = () => {
 const styles = StyleSheet.create({
   modal: {
     flex: 1,
-    // marginTop: "50%",
     backgroundColor: "#8D91A1",
     opacity: 0.95,
   },

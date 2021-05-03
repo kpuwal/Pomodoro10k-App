@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     paddingLeft: "1%",
-    paddingBottom: 5,
+    paddingBottom: 6,
   },
   leadline: {
     ...StyleSheet.absoluteFillObject,

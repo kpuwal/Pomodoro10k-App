@@ -1,7 +1,17 @@
 import * as React from "react"
-import Svg, { Path } from "react-native-svg";
+import Svg, { Path, Line } from "react-native-svg";
 import { View, Text } from "react-native";
-import { color } from "react-native-reanimated";
+
+export const getCoordinates = (speed: number) => {
+  const radians = percentage(speed);
+  const r = 85;
+  const vo = 0;
+  const x = vo + r * Math.cos(2 * Math.PI * radians - Math.PI / 2);
+  const y = vo + r * Math.sin(2 * Math.PI * radians - Math.PI / 2);
+  return [x, y];
+};
+
+const percentage = (time: number) => time * (0.1 / 6);
 
 interface MeterIconProps {
   colorBrain: string,
@@ -33,6 +43,7 @@ function SvgComponent({ colorBrain, colorActive }: MeterIconProps) {
         d="M164.984 237.895c-10.726-18.528-16.863-40.043-16.863-62.989 0-63.078 46.383-115.316 106.902-124.476a125.174 125.174 0 00-17.98-1.426c-69.953-.496-126.813 56.062-126.813 125.902 0 22.946 6.137 44.461 16.864 62.989a57.018 57.018 0 0049.246 28.28h37.89a57.018 57.018 0 01-49.246-28.28zm0 0"
         // fill="#6fb1ff"
       />
+      <Line x1="236" y1="175" x2="85" y2="175" stroke={colorActive} strokeWidth="20" />
       <Path
         d="M246.121 157.203c-9.781-5.644-22.289-2.293-27.934 7.488-5.648 9.782-2.296 22.29 7.485 27.934 9.781 5.648 22.289 2.297 27.937-7.484 5.645-9.782 2.293-22.29-7.488-27.938zm0 0"
         // fill="#ff6b6b"

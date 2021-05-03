@@ -48,7 +48,7 @@ const History = ({ cards }: HistoryProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 60,
+    height: "65%",
     backgroundColor: "#EFF0F4",
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,

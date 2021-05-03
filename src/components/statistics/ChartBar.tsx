@@ -10,6 +10,7 @@ interface ChartBarProps {
 }
 
 const ChartBar = ({ total, color, width, label }: ChartBarProps) => {
+  const barHeight = total !== 0 ? Math.log10(total) : 0;
   return (
     <View style={{ width, alignItems: "center" }}>
       <View style={styles.container}>
@@ -17,7 +18,7 @@ const ChartBar = ({ total, color, width, label }: ChartBarProps) => {
         <View
           style={{
             width: width / 3,
-            height: total / 2,
+            height: barHeight,
             backgroundColor: color,
           }}
         />
