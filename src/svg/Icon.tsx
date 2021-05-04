@@ -20,7 +20,7 @@ interface IconProps {
   rTime: number,
   color: string,
   bgcolor: string,
-};
+}
 
 const Icon = ({ fTime, rTime, color, bgcolor }: IconProps) => {
   const size = Math.floor(width) * iconSize;

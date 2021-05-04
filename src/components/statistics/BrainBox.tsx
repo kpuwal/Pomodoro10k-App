@@ -5,12 +5,12 @@ const { width, height } = Dimensions.get("window");
 
 import MeterIcon from "../../svg/MeterIcon";
 
-interface SpeedBoxProps {
+interface BrainBoxProps {
   theme: ThemeProps,
   speed: number,
 };
 
-const SpeedBox = ({ speed, theme }: SpeedBoxProps) => {
+const BrainBox = ({ speed, theme }: BrainBoxProps) => {
   return (
     <View style={styles.container}>
       <View><MeterIcon colorBrain={theme.main} colorActive={theme.secondary} /></View>
@@ -22,11 +22,12 @@ const SpeedBox = ({ speed, theme }: SpeedBoxProps) => {
 const styles = StyleSheet.create({
   container: {
     height: height * 0.21,
-    width: width * 0.35,
+    // width: width * 0.35,
+    width: 150,
     // padding: 10,
     // backgroundColor: "#EFF0F4",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   txt: {
     bottom: -20,
@@ -35,4 +36,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default SpeedBox;
+export default BrainBox;

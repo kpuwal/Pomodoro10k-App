@@ -1,5 +1,6 @@
 "use strict";
 import React from "react";
+import { Dimensions } from "react-native";
 import {
   FontAwesome5,
   Fontisto,
@@ -7,8 +8,10 @@ import {
   MaterialIcons,
 } from "@expo/vector-icons";
 
-export const playIcon = <FontAwesome5 name="play" size={30} color="#F76B6B" />;
-export const stopIcon = <FontAwesome5 name="stop" size={30} color="#F76B6B" />;
+const { width } = Dimensions.get("window");
+
+export const playIcon = <FontAwesome5 name="play" size={width * 0.08} color="#F76B6B" />;
+export const stopIcon = <FontAwesome5 name="stop" size={width * 0.07} color="#F76B6B" />;
 
 export const pauseIcon = (
   <FontAwesome5 name="pause" size={14} color="#29304D" />

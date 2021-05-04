@@ -10,7 +10,7 @@ export interface TimerProps {
   idx: number,
   focus: { min: number, sec: number },
   relax: { min: number, sec: number },
-};
+}
 
 export interface CardProps {
   idx: number;
@@ -29,7 +29,7 @@ export interface CardProps {
   dates: number[];
   theme: ThemeProps,
   goalHours: number,
-};
+}
 
 export const Timer = (value: DataProps): TimerProps => {
   return {

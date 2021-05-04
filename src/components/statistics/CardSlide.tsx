@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 import WeeklyChart from "./WeeklyChart";
 import DistanceBox from "./DistanceBox";
-import SpeedBox from "./SpeedBox";
+import BrainBox from "./BrainBox";
 import DateBox from "./DateBox";
 import { CardProps } from "../../reduxToolkit/models";
 
@@ -36,7 +36,7 @@ const CardSlide = ({
       <DistanceBox goal={goalHours} {...{ total, timeLeft, theme }} />
       <View style={[styles.speedDateBox, { width }]}>
         <DateBox {...{ date, theme, speed }} />
-        <SpeedBox {...{ speed, theme }} />
+        {/* <BrainBox {...{ speed, theme }} /> */}
       </View>
     </View>
   );

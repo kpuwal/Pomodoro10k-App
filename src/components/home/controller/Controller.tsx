@@ -38,7 +38,7 @@ const Controler = ({ start, pause, card }: ControllerProps) => {
       <RoundButton
         size={width * 0.2}
         type={start ? stopIcon : playIcon}
-        colorStripe={card.color}
+        colorStripe={card.theme.main}
         disabled={false}
         onPress={() => toggleStartStop()}
       />

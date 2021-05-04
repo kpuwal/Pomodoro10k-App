@@ -9,6 +9,7 @@ import CardSlide from "../components/statistics/CardSlide";
 import History from "../components/statistics/History";
 
 import { CardProps } from "../reduxToolkit/models";
+import BrainBox from "../components/statistics/BrainBox";
 
 const { width, height } = Dimensions.get("window");
 const cardW = width * 0.9;
@@ -73,6 +74,7 @@ const Statistics: React.FC = () => {
           </View>
         )}
       />
+      <BrainBox theme={{main: "black"}} />
       <View style={styles.historyBox}>
         <View style={[styles.upperBox]}>
           <Text style={styles.title}>History</Text>
