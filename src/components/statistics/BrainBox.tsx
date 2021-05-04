@@ -13,7 +13,9 @@ interface BrainBoxProps {
 const BrainBox = ({ speed, theme }: BrainBoxProps) => {
   return (
     <View style={styles.container}>
-      <View><MeterIcon colorBrain={theme.main} colorActive={theme.secondary} /></View>
+      <View style={styles.icon}>
+        <MeterIcon colorBrain={theme.main} colorActive={theme.secondary} />
+      </View>
       <Text style={styles.txt}>Progress</Text>
     </View>
   )
@@ -22,12 +24,16 @@ const BrainBox = ({ speed, theme }: BrainBoxProps) => {
 const styles = StyleSheet.create({
   container: {
     height: height * 0.21,
-    // width: width * 0.35,
-    width: 150,
-    // padding: 10,
+    width: width * 0.33,
+    marginBottom: "28%",
     // backgroundColor: "#EFF0F4",
-    justifyContent: "center",
-    alignItems: "center",
+    // justifyContent: "flex-end",
+    // alignItems: "center",
+    // ...StyleSheet.absoluteFillObject,
+    zIndex: 1000,
+  },
+  icon: {
+    width: 120,
   },
   txt: {
     bottom: -20,

@@ -41,11 +41,13 @@ const Statistics: React.FC = () => {
                 styles.background,
                 { backgroundColor: item.theme.main, opacity },
               ]}
-            />
+            >
+              <BrainBox theme={item.theme} speed={item.speed} />
+            </Animated.View>
           );
         })}
       </View>
-      <Animated.FlatList<CardProps>
+      <Animated.FlatList
         data={cards}
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { x: scrollX } } }],
@@ -74,7 +76,6 @@ const Statistics: React.FC = () => {
           </View>
         )}
       />
-      <BrainBox theme={{main: "black"}} />
       <View style={styles.historyBox}>
         <View style={[styles.upperBox]}>
           <Text style={styles.title}>History</Text>
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
     width,
     alignItems: "center",
     // paddingTop: width / 10,
+    zIndex: 10,
   },
   background: {
     flex: 2,
@@ -102,8 +104,21 @@ const styles = StyleSheet.create({
     height,
     marginTop: "43%",
     borderTopLeftRadius: 30,
-    // borderTopRightRadius: 30,
     ...StyleSheet.absoluteFillObject,
+    alignItems: "flex-end",
+    justifyContent: "center",
+    zIndex: 1,
+  },
+  heads: {
+    // ...StyleSheet.absoluteFillObject,
+    position: "absolute",
+    // flex: 2,
+    width,
+    height,
+    zIndex: 1000,
+    
+    marginBottom: "50%",
+    // flexDirection: "row"
   },
   historyBox: {
     flex: 6,
