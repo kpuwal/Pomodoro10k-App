@@ -6,7 +6,7 @@ export interface ThemeProps {
   tertiary: string,
   shadeMain: string,
   shadeSecondary: string,
-};
+}
 
 export type StyleGuideProps = {
   themeA: ThemeProps,
@@ -15,7 +15,7 @@ export type StyleGuideProps = {
   themeD: ThemeProps,
   themeE: ThemeProps,
   disabled: string,
-} ;
+} 
 
 const StyleGuide: StyleGuideProps = {
   themeA: {

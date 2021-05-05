@@ -1,11 +1,11 @@
-type NonEmptyArray<T> = [T, ...T[]];
+type NonEmptyArray = string[];
 
-export const MODE: NonEmptyArray<string> = ["FOCUS", "RELAX", " "];
-export const MESSAGE: NonEmptyArray<string> = ["End of Focus Session", "End of Cycle"];
+export const MODE: NonEmptyArray = ["FOCUS", "RELAX", " "];
+export const MESSAGE: NonEmptyArray = ["End of Focus Session", "End of Cycle"];
 
-export const DAYS: NonEmptyArray<string> = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+export const DAYS: NonEmptyArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-export const WEEKDAYS2: NonEmptyArray<string> = [
+export const WEEKDAYS2: NonEmptyArray = [
   "Sun",
   "Mon",
   "Tue",
@@ -15,7 +15,7 @@ export const WEEKDAYS2: NonEmptyArray<string> = [
   "Sat",
 ];
 
-export const WEEKDAYS: NonEmptyArray<string> = [
+export const WEEKDAYS: NonEmptyArray = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -25,7 +25,7 @@ export const WEEKDAYS: NonEmptyArray<string> = [
   "Saturday",
 ];
 
-export const MONTHS2: NonEmptyArray<string> = [
+export const MONTHS2: NonEmptyArray = [
   "January",
   "February",
   "March",
@@ -40,7 +40,7 @@ export const MONTHS2: NonEmptyArray<string> = [
   "December",
 ];
 
-export const MONTHS: NonEmptyArray<string> = [
+export const MONTHS: NonEmptyArray = [
   "Jan",
   "Feb",
   "Mar",

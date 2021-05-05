@@ -16,7 +16,7 @@ interface DateBoxProps {
   },
   theme: ThemeProps,
   speed: number,
-};
+}
 
 const DateBox = ({ date, theme, speed }: DateBoxProps) => {
   return (

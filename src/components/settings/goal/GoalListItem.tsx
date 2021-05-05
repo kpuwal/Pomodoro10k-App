@@ -10,15 +10,14 @@ interface GoalsListItemProps {
   textBody: string;
   color: string;
   onPress?: () => void;
-};
+}
 
 interface GoalList {
   color: string;
   textBody: string;
-  goalHours: number;
 }
 
-export const ListItem = ({ color, textBody, goalHours }: GoalList) => {
+export const ListItem = ({ color, textBody }: GoalList) => {
   return (
     <View style={styles.listContainer}>
       <ColorBox {...{ color }} />

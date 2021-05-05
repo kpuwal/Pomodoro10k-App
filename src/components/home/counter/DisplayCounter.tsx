@@ -5,16 +5,14 @@ import { Text, StyleSheet } from "react-native";
 interface CounterProp {
   min: number;
   sec: number;
-};
+}
 
 const DisplayCounter = ({ sec, min }: CounterProp) => {
   return (
-    <>
-      <Text style={styles.txt}>
-        {min.toString().padStart(2, "0")}:
-        {sec.toString().padStart(2, "0")}
-      </Text>
-    </>
+    <Text style={styles.txt}>
+      {min.toString().padStart(2, "0")}:
+      {sec.toString().padStart(2, "0")}
+    </Text>
   );
 };
 

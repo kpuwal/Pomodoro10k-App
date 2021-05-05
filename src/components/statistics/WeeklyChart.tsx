@@ -10,7 +10,7 @@ const { width } = Dimensions.get("window");
 interface WeeklyChartProps {
   color: string;
   weekdaysTotals: number[];
-};
+}
 
 const WeeklyChart = ({ weekdaysTotals, color }: WeeklyChartProps) => {
   return (

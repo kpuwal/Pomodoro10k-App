@@ -8,16 +8,12 @@ import { messageDuration } from "../../../config/settings";
 interface MessageProps {
   messageOver: () => void;
   message: string;
-};
+}
 
 const Message = ({ messageOver, message }: MessageProps) => {
   useInterval(() => messageOver(), messageDuration);
 
-  return (
-    <>
-      <Text style={styles.txt}>{message}</Text>
-    </>
-  );
+  return <Text style={styles.txt}>{message}</Text>
 };
 
 const styles = StyleSheet.create({

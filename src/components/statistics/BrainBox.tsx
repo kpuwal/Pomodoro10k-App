@@ -14,7 +14,11 @@ const BrainBox = ({ speed, theme }: BrainBoxProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.icon}>
-        <MeterIcon colorBrain={theme.main} colorActive={theme.secondary} />
+        <MeterIcon
+          colorBrain={theme.main}
+          colorActive={theme.secondary}
+          {...{speed}}
+        />
       </View>
       <Text style={styles.txt}>Progress</Text>
     </View>

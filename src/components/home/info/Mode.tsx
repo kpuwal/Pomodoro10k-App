@@ -5,7 +5,7 @@ import { View, Text, StyleSheet } from "react-native";
 interface ModeProps {
   start: boolean;
   infoMode: string;
-};
+}
 
 const Mode = ({ start, infoMode }: ModeProps) => {
   return (

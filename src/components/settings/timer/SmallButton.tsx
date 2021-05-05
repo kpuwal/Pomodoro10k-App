@@ -4,9 +4,9 @@ import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
 interface SmallButtonProps {
   title: string;
-  onPress: () => void;
   disabled: boolean;
-};
+  onPress: () => void;
+}
 
 const SmallButton = ({ title, onPress, disabled }: SmallButtonProps) => {
   return (

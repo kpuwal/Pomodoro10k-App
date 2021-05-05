@@ -3,7 +3,6 @@ import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../../reduxToolkit/store";
-import { TimerProps } from "../../../reduxToolkit/models";
 
 import { deleteTimer } from "../../../reduxToolkit/slices/timerSlice";
 import ListItem from "./ListItem";
@@ -15,7 +14,7 @@ const DeleteTimer = () => {
 
   return (
     <View style={styles.container}>
-      <FlatList<TimerProps>
+      <FlatList
         data={displayList}
         renderItem={({ item }) => (
           <ListItem

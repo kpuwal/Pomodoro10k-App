@@ -11,7 +11,7 @@ interface ColorMenuProps {
   selected: boolean;
   color: string;
   onPress?: () => void;
-};
+}
 
 export const ColorMenu = ({ selected, color, active, onPress }: ColorMenuProps) => {
  return (

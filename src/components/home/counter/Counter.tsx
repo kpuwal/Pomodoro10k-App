@@ -9,12 +9,12 @@ interface CounterProps {
   pause: boolean;
   min: number;
   sec: number;
-};
+}
 
 type TimerProps = {
   min: number,
   sec: number,
-};
+}
 
 const Counter = ({ countOver, pause, min, sec }: CounterProps) => {
   const [timer, setTimer] = useState<TimerProps>({min, sec});

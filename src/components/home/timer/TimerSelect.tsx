@@ -11,8 +11,8 @@ interface TimerSelectProp {
   timers: {
     timersList: TimerProps[],
     selected: TimerProps,
-  };
-};
+  }
+}
 
 const TimerSelect = ({ timers }: TimerSelectProp) => {
   const dispatch = useAppDispatch();

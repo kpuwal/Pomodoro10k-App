@@ -10,7 +10,7 @@ interface DistanceBoxProps {
   timeLeft: number,
   goal: number,
   theme: ThemeProps,
-};
+}
 
 const DistanceBox = ({total, timeLeft, goal, theme}: DistanceBoxProps) => {
   const distance = (total / 60) * (1 / goal) * width * 0.79;

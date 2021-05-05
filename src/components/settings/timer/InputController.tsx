@@ -7,7 +7,7 @@ import SmallButton from "./SmallButton";
 interface InputControllerProps {
   type: number;
   dispatchType: (num: number) => void;
-};
+}
 
 const InputController = ({ type, dispatchType }: InputControllerProps) => {
   const handleCount = (num1: number, num2: number) => {

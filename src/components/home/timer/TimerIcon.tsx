@@ -12,7 +12,7 @@ interface TimerIconProps {
   item: TimerProps;
   selected: boolean;
   toggleSession: (item: TimerProps) => void;
-};
+}
 
 const TimerIcon = ({ item, selected, toggleSession }: TimerIconProps) => {
   const start = useSelector((state: RootState) => state.counter.start);

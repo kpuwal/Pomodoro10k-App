@@ -1,6 +1,6 @@
 "use strict";
 import React, { useState } from "react";
-import { View, TextInput, Text, StyleSheet, FlatList } from "react-native";
+import { View, TextInput, StyleSheet, FlatList } from "react-native";
 import { useSelector } from "react-redux";
 import { useAppDispatch, RootState } from "../../../reduxToolkit/store";
 
@@ -16,7 +16,7 @@ const AddGoal = () => {
   const dummy = { idx: 100, theme: StyleGuide.themeB, active: true };
 
   const [title, setTitle] = useState<string>("");
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, onChangeNumber] = useState<number>(null);
   const [theme, setTheme] = useState<ColorProps>(dummy);
   const dispatch = useAppDispatch();
 
@@ -28,7 +28,7 @@ const AddGoal = () => {
     dispatch(createCard({amount, theme, title}));
     dispatch(pickColor(theme.idx));
     setTitle("");
-    setAmount(0);
+    onChangeNumber(0);
     setTheme(dummy);
   };
 
@@ -53,17 +53,21 @@ const AddGoal = () => {
       </View>
       <TextInput
           style={styles.input}
-          placeholder="Add the goal timeframe"
+          numeric
+          placeholder="add goal timeframe"
           textAlign="center"
-          value={amount.toString()}
-          onChangeText={(txt) => setAmount(parseInt(txt, 10))}
+          keyboardType={"numeric"}
+          onChangeText={num => onChangeNumber(num)}
+          value={amount}
+          underlineColorAndroid="transparent"
         />
       <TextInput
         style={styles.input}
-        placeholder="add a new goal"
+        placeholder="add new goal"
         textAlign="center"
         value={title}
         onChangeText={(txt) => setTitle(txt)}
+        underlineColorAndroid="transparent"
       />
       <SettingsButton
         title="Create Goal"

@@ -26,7 +26,7 @@ const  CounterCycle = ({ cycle, pause, focus, relax, infoMessage }: CounterCycle
     setSession({min: relax, sec: 0})
     dispatch(message(0));
     dispatch(mode(0));
-  }, [dispatch]);
+  }, [dispatch, relax]);
 
   const completeFirstCycle = () => {
     dispatch(cycleCounter(true));

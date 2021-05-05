@@ -11,7 +11,7 @@ import { CardProps } from "../../reduxToolkit/models";
 interface ICardProps extends CardProps {
   width: number;
   height: number;
-};
+}
 
 const CardSlide = ({
   weekdaysTotals,

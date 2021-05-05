@@ -11,18 +11,19 @@ import Animated, {
 } from 'react-native-reanimated';
 
 interface MeterIconProps {
-  colorBrain: string,
-  colorActive: string,
+  colorBrain: string;
+  colorActive: string;
+  speed: number;
 }
 
-function SvgComponent({ colorBrain, colorActive }: MeterIconProps) {
+function SvgComponent({ speed, colorBrain, colorActive }: MeterIconProps) {
   const config = withSequence(
-    withTiming(.5, {
-      duration: 3000,
+    withTiming(0, {
+      duration: 2000,
       easing: Easing.inOut(Easing.ease),
     }),
     withTiming(1, {
-      duration: 3000,
+      duration: 2000,
       easing: Easing.inOut(Easing.ease),
     }),
     )

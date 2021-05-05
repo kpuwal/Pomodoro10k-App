@@ -10,7 +10,7 @@ interface ListItemProps {
   focus: number;
   relax: number;
   onPress: () => void;
-};
+}
 
 const ListItem = ({ focus, relax, onPress }: ListItemProps) => {
   return (

@@ -4,7 +4,7 @@ import { CardProps } from "./models";
 
 type DateType = {
   weekday: string, day: string, month: string, year: string
-};
+}
 
 const updateTotal = (amount: number, item: number): number => {
   return item + amount;
