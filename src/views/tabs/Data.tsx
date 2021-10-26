@@ -8,7 +8,6 @@ import { clearTimersAS } from "../../reduxToolkit/slices/timerSlice";
 import { clearCardsAS } from "../../reduxToolkit/slices/cardSlice";
 import { clearColorsAS } from "../../reduxToolkit/slices/colorSlice";
 
-
 const DataManager: React.FC = () => {
   const dispatch = useAppDispatch();
   const handleErase = () => {

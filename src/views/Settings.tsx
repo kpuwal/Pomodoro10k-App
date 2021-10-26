@@ -13,7 +13,7 @@ const Tab = createMaterialTopTabNavigator();
 const Settings: React.FC = () => {
   return (
     <View style={styles.container}>
-      <StatusBar style="dark" />
+      <StatusBar style={"dark"} />
       <Tab.Navigator
         tabBarOptions={{
           activeTintColor: "#29304D",

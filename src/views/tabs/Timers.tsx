@@ -1,23 +1,27 @@
 "use strict";
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
 
 import AddTimer from "../../components/settings/timer/AddTimer";
 import DeleteTimer from "../../components/settings/timer/DeleteTimer";
 
-const Timers: React.FC = ({ navigation }) => {
+
+const Timers: React.FC = () => {
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "height" : "height"}
+      style={styles.container}
+      keyboardVerticalOffset={60}
+    >
       <DeleteTimer />
       <AddTimer />
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "yellow",
   },
 });
 

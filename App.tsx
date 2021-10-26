@@ -3,7 +3,7 @@ import AppLoading from "expo-app-loading";
 import { useFonts } from "@expo-google-fonts/inter";
 
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator, StackNavigationProp } from "@react-navigation/stack";
 
 import Root from "./src/Root";
 import Home from "./src/views/Home";
@@ -11,8 +11,9 @@ import Settings from "./src/views/Settings";
 import Statistics from "./src/views/Statistics";
 import GoBackIcon from "./src/views/tabs/GoBackIcon";
 import { settingsHeader, statisticsHeader } from "./src/views/tabs/Headers";
+import { RootStackProps } from "./src/views/ViewsStackProps";
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackProps>();
 
 const NavigationWrapper: React.FC = () => {
   const [fontsLoaded] = useFonts({

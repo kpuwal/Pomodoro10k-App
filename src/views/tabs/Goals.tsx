@@ -5,7 +5,7 @@ import { StyleSheet, KeyboardAvoidingView, Platform } from "react-native";
 import AddGoal from "../../components/settings/goal/AddGoal";
 import DeleteGoal from "../../components/settings/goal/DeleteGoal";
 
-const GoalsManager = () => {
+const Goals = () => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "height" : "height"}
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GoalsManager;
+export default Goals;

@@ -11,6 +11,7 @@ interface BrainBoxProps {
 };
 
 const BrainBox = ({ speed, theme }: BrainBoxProps) => {
+  console.log("speed  ", speed)
   return (
     <View style={styles.container}>
       <View style={styles.icon}>

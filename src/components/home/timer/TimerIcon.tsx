@@ -17,7 +17,7 @@ interface TimerIconProps {
 const TimerIcon = ({ item, selected, toggleSession }: TimerIconProps) => {
   const start = useSelector((state: RootState) => state.counter.start);
   const tSelected = StyleGuide.themeA.secondary;
-  const tUnselected = StyleGuide.themeA.tertiary;
+  const tUnselected = StyleGuide.unselected;
 
   return (
     <TouchableOpacity disabled={start} onPress={() => toggleSession(item)}>

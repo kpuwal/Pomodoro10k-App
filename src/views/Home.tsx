@@ -1,7 +1,10 @@
 "use strict";
-import React, {useEffect} from "react";
+import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackProps } from "./ViewsStackProps";
 
 import { statsIcon, settingsIcon } from "../config/iconsFile";
 import StyleGuide from "../config/StyleGuide";
@@ -9,31 +12,29 @@ import StyleGuide from "../config/StyleGuide";
 import Timer from "../components/home/Timer";
 import GoalPicker from "./modal/GoalPicker";
 
-// TO REMOVE
-// import { useAppDispatch } from "../reduxToolkit/store";
-// import { clearTimersAS } from "../reduxToolkit/slices/timerSlice";
-// import { clearCardsAS } from "../reduxToolkit/slices/cardSlice";
-// import { clearColorsAS } from "../reduxToolkit/slices/colorSlice";
+type HomeProp = StackNavigationProp<RootStackProps, "Home">
 
-const Home: React.FC = ({ navigation }) => {
-  // const dispatch = useAppDispatch();
-  // useEffect(() => {
-  //   dispatch(clearTimersAS());
-  //   dispatch(clearCardsAS());
-  //   dispatch(clearColorsAS());
-  // })
+const Home: React.FC = () => {
+  const navigation = useNavigation<HomeProp>();
+
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
       <GoalPicker />
       <Timer />
       <View style={styles.navContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Statistics")}>
-          {statsIcon(StyleGuide.themeA.tertiary)}
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Statistics")}
+        >
+          {statsIcon(StyleGuide.unselected)}
           <Text style={styles.txt}>STATS</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Settings")}>
-          {settingsIcon(StyleGuide.themeA.tertiary)}
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Settings")}
+        >
+          {settingsIcon(StyleGuide.unselected)}
           <Text style={styles.txt}>SETTINGS</Text>
         </TouchableOpacity>
       </View>
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   txt: {
-    color: StyleGuide.themeA.tertiary,
+    color: StyleGuide.unselected,
     fontSize: 10,
     paddingTop: 4,
   },

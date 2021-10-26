@@ -21,7 +21,7 @@ const Statistics: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="dark" />
+      <StatusBar style={"dark"} />
       <View>
         {cards.map((item: CardProps, idx: number) => {
           const inputRange = [
@@ -77,9 +77,7 @@ const Statistics: React.FC = () => {
         )}
       />
       <View style={styles.historyBox}>
-        <View style={[styles.upperBox]}>
-          <Text style={styles.title}>History</Text>
-        </View>
+        <Text style={styles.title}>History</Text>
         <History {...{ cards }} />
       </View>
     </View>
@@ -122,13 +120,7 @@ const styles = StyleSheet.create({
   },
   historyBox: {
     flex: 6,
-    // borderTopLeftRadius: 15,
-    // backgroundColor: "#EFF0F4",
-    // marginLeft: "1%",
-    // alignItems: "flex-end",
     flexDirection: "column",
-  },
-  upperBox: {
     height: 20,
     borderBottomRightRadius: 25,
   },

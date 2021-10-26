@@ -1,6 +1,6 @@
 "use strict";
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet, FlatList } from "react-native";
+import { View, SafeAreaView, TextInput, StyleSheet, FlatList } from "react-native";
 import { useSelector } from "react-redux";
 import { useAppDispatch, RootState } from "../../../reduxToolkit/store";
 
@@ -16,7 +16,7 @@ const AddGoal = () => {
   const dummy = { idx: 100, theme: StyleGuide.themeB, active: true };
 
   const [title, setTitle] = useState<string>("");
-  const [amount, onChangeNumber] = useState<number>(null);
+  const [amount, setAmount] = useState<string>("");
   const [theme, setTheme] = useState<ColorProps>(dummy);
   const dispatch = useAppDispatch();
 
@@ -25,15 +25,16 @@ const AddGoal = () => {
   };
 
   const handleCreateGoal = () => {
-    dispatch(createCard({amount, theme, title}));
+    const strToNum = parseInt(amount, 10)
+    dispatch(createCard({amount: strToNum, theme, title}));
     dispatch(pickColor(theme.idx));
     setTitle("");
-    onChangeNumber(0);
+    setAmount("");
     setTheme(dummy);
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.colorPicker}>
         <View>
           <FlatList
@@ -52,29 +53,28 @@ const AddGoal = () => {
         </View>
       </View>
       <TextInput
-          style={styles.input}
-          numeric
-          placeholder="add goal timeframe"
-          textAlign="center"
-          keyboardType={"numeric"}
-          onChangeText={num => onChangeNumber(num)}
-          value={amount}
-          underlineColorAndroid="transparent"
-        />
+        style={styles.input}
+        placeholder="add goal timeframe"
+        textAlign="center"
+        keyboardType={"numeric"}
+        onChangeText={num => setAmount(num)}
+        value={amount}
+        underlineColorAndroid={"transparent"}
+      />
       <TextInput
         style={styles.input}
         placeholder="add new goal"
         textAlign="center"
         value={title}
         onChangeText={(txt) => setTitle(txt)}
-        underlineColorAndroid="transparent"
+        underlineColorAndroid={"transparent"}
       />
       <SettingsButton
         title="Create Goal"
         onPress={() => handleCreateGoal()}
-        disabled={title !== "" && amount !== 0 && theme.idx !== 100 ? false : true}
+        disabled={title !== "" && amount !== "" && theme.idx !== 100 ? false : true}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

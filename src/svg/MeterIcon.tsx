@@ -1,6 +1,6 @@
 import * as React from "react"
 import Svg, { Path } from "react-native-svg";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -17,13 +17,19 @@ interface MeterIconProps {
 }
 
 function SvgComponent({ speed, colorBrain, colorActive }: MeterIconProps) {
+  const pulse = speed * 100000;
+  const active = {
+    fontSize: 13,
+    fontWeight: "bold",
+    color: colorActive,
+  }
   const config = withSequence(
     withTiming(0, {
-      duration: 2000,
+      duration: pulse,
       easing: Easing.inOut(Easing.ease),
     }),
     withTiming(1, {
-      duration: 2000,
+      duration: pulse,
       easing: Easing.inOut(Easing.ease),
     }),
     )
