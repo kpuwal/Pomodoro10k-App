@@ -1,10 +1,29 @@
 # Pomodoro10k
 
-[Description](#description) | [Run Locally](#runlocally) | [Tech Stack](#techstack) | [Licence](#licence)
+<img alt="screenshot" src="assets/Pomodoro10k.png">
+
+[Description](#description) | [Motivation](#motivation) | [Run Locally](#runlocally) | [Tech Stack](#techstack) | [Licence](#licence)
 
 ## <a name="runlocally">**Description**</a>
 
-Here's a quick description of the app.
+Pomodoro10k is a mobile app that combines two theories:
+
+### **Pomodoro Technique**
+is a time management method developed by Francesco Cirillo in the late 1980s. It uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks.
+
+The original technique has six steps:
+
+1. Decide on the task to be done.
+2. Set the pomodoro timer (typically for 25 minutes).
+3. Work on the task.
+4. End work when the timer rings and take a short break (typically 5–10 minutes).
+
+A goal of the technique is to reduce the effect of internal and external interruptions on focus and flow.
+
+### **10,000 Hours Rule**
+is the theory that it takes 10 000 hours of practice to become an expert in something.
+
+## 
 
 ## <a name="runlocally">**Run Locally**</a>
 
