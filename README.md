@@ -1,6 +1,6 @@
 # Pomodoro10k
 
-<img alt="screenshot" src="assets/Pomodoro10k.png">
+<img alt="screenshot" src="./assets/Pomodoro10k.png">
 
 [Description](#description) | [Motivation](#motivation) | [Run Locally](#runlocally) | [Tech Stack](#techstack) | [Licence](#licence)
 
