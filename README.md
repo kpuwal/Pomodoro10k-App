@@ -87,6 +87,6 @@ Start the app
 - **Typescript**
 - **Redux**
 
-## <a name="licence">**License**</a>
+<!-- ## <a name="licence">**License**</a>
 
-[MIT](LICENSE)
+[MIT](LICENSE) -->
