@@ -1,8 +1,18 @@
 # Pomodoro10k
 
-<img alt="screenshot" src="./assets/Pomodoro10k.png">
+<img alt="screenshot" src="assets/Pomodoro10k.png">
 
-[Description](#description) | [Motivation](#motivation) | [Run Locally](#runlocally) | [Tech Stack](#techstack) | [Licence](#licence)
+[Description](#howto) | [Description](#description) | [Motivation](#motivation) | [Run Locally](#runlocally) | [Tech Stack](#techstack)
+
+## <a name="howto">**QR code for the Expo Go app**</a>
+<img alt="qr" src="assets/qr.png">
+
+
+## <a name="howto">**How to Use**</a>
+1. create customised timers
+2. create goals
+3. view analytics
+4. have fun
 
 ## <a name="runlocally">**Description**</a>
 
@@ -75,7 +85,8 @@ Start the app
 - **React-Native**
 
 - **Typescript**
+- **Redux**
 
-## <a name="licence">**License**</a>
+<!-- ## <a name="licence">**License**</a>
 
-[MIT](LICENSE)
+[MIT](LICENSE) -->
