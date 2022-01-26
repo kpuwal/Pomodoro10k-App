@@ -12,7 +12,6 @@
 1. create customised timers
 2. create goals
 3. view analytics
-4. have fun
 
 ## <a name="runlocally">**Description**</a>
 
